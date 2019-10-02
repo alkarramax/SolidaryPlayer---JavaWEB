@@ -13,6 +13,15 @@
         <link rel="stylesheet" href="./style.css">
         
         <title>Admin</title>
+        <style>
+            #botaoCadastrar {
+                margin-left: 865px;
+            }
+            
+            h3 {
+                align-items: center;
+            }
+        </style>
     </head>
     <body>
         <div id="container">
@@ -50,6 +59,51 @@
                         <div class="title">
                             Entidades
                         </div>
+                        <div class="row">
+                            <div id="botaoCadastrar" class="col-md-6">
+                                <a href="./Funcoes/addEntidades.jsp" class="btn btn-primary">Adicionar Entidade</a>
+                            </div>
+                        </div>
+                            
+                        <table class="table table-bordered table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nome</th>
+                                    <th>Causa</th>
+                                    <th>Endereço</th>
+                                    <th>Email</th>
+                                    <th>Telefone</th>
+                                    <th>Funções</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <%
+                                    Connection connEntidade = DBConnection.getConnection();
+                                    Statement statEntidade = connEntidade.createStatement();
+
+                                    String dataEntidade = "select * from Entidade";
+                                    ResultSet rsEntin = statEntidade.executeQuery(dataEntidade);
+
+                                    while(rsEntin.next()) {
+                                %>  
+                                <tr>
+                                    <td><%=rsEntin.getString("id")%></td>
+                                    <td><%=rsEntin.getString("Nome")%></td>
+                                    <td><%=rsEntin.getString("Causa")%></td>
+                                    <td><%=rsEntin.getString("Endereco")%></td>
+                                    <td><%=rsEntin.getString("Email")%></td>
+                                    <td><%=rsEntin.getString("Telefone")%></td>
+                                    <td>
+                                    <a href='../deleteEntidade?d=<%=rsEntin.getString("id")%>' class="btn btn-danger">Delete</a>
+                                    </td>
+                                </tr>
+                                <%
+                                }
+                                %>
+                            </tbody>
+                        </table>
+                        
                     </div>
                     <div id="campanhas-actions">
                         <div class="title">

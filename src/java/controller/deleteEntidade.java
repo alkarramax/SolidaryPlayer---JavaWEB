@@ -5,19 +5,20 @@
  */
 package controller;
 
-import DAO.SoftplayerDAO;
+import DAO.EntidadeDAO;
 import DB.DAOFactory;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-public class deletePlayers extends HttpServlet {
+
+public class deleteEntidade extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException, ClassNotFoundException {
@@ -27,50 +28,42 @@ public class deletePlayers extends HttpServlet {
             String id = request.getParameter("d");
             int no = Integer.parseInt(id);
             
-            SoftplayerDAO st = DAOFactory.createSoftplayerDAO();
+            EntidadeDAO st = DAOFactory.createEntidadeDAO();
             st.remover(no);
             
             out.println("<script type=\"text/javascript\">");
-            out.println("alert('User deletado!!');");
+            out.println("alert('Entidade deletada!!');");
             out.println("location='/SA-JSP/Adm/administrador.jsp';");
             out.println("</script>");
         }
     }
 
-   
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try (PrintWriter out = response.getWriter()) {
+        try {
             processRequest(request, response);
-            
-            
         } catch (SQLException ex) {
-            Logger.getLogger(deletePlayers.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(deleteEntidade.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(deletePlayers.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(deleteEntidade.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-   
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try (PrintWriter out = response.getWriter()) {
+        try {
             processRequest(request, response);
-            
-        }catch (SQLException ex) {
-            Logger.getLogger(deletePlayers.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(deleteEntidade.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(deletePlayers.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(deleteEntidade.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
     @Override
     public String getServletInfo() {
         return "Short description";
