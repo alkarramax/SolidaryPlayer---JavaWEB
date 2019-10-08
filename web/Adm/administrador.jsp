@@ -95,6 +95,7 @@
                                     <td><%=rsEntin.getString("Email")%></td>
                                     <td><%=rsEntin.getString("Telefone")%></td>
                                     <td>
+                                        <a href="./Funcoes/editarEntidade.jsp?u=<%=rsEntin.getString("id")%>" class="btn btn-warning">Editar</a>
                                     <a href='../deleteEntidade?d=<%=rsEntin.getString("id")%>' class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>

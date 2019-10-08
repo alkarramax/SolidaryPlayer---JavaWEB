@@ -160,7 +160,7 @@ nav.navFixed .logo img{
     cursor: pointer;
 }
 
-@media (max-width:830px) {
+@media screen and (min-width: 0px) and (max-width: 816px) {
 
     .responsive-bar{
         display: flex;
@@ -221,9 +221,25 @@ nav.navFixed .logo img{
         background-image: url("imagens/Design\ sem\ nome\ \(13\).png");
         background-size: 500px 300px;
         background-position: right 100px;
+    }   
+    .container{
+        padding-top: 1400px;
+    }
+    .sobre{
+        padding-top: 1400px;
     }
 }
 
+@media screen and (min-width: 816px) and (max-width: 1200px){
+
+    .container{
+        padding-top: 700px
+    }
+
+    .sobre{
+        padding-top: 700px;
+    }
+}
 
 .leftside {
     padding: 140px 0 0 60px;
@@ -253,14 +269,17 @@ nav.navFixed .logo img{
     border-right: 0.2rem solid;
     color: #0dae7a;
   }
+  
+.causa h2 {
+    
+}
 
-.container h2{
+.teste h2 {
     font-size: 2.7rem;
     text-align: center;
     color: #333;
     position: relative;
 }
-
 .tab-wrapper ul {
     list-style: none;
     display: flex;
@@ -630,5 +649,3 @@ button.ghost {
 .modal-close {
 	cursor: pointer;
 }
-
-

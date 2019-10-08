@@ -1,0 +1,162 @@
+@font-face{
+    font-family: WorkSans;
+    src: url('fontes/WorkSans-Regular.ttf');
+}
+@font-face{
+    font-family: WorkSansLight;
+    src: url('fontes/WorkSans-ExtraLight.ttf');
+}
+
+*{
+    -webkit-box-sizing: border-box;  /* Interpretação de navegadores*/
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'WorkSans', sans-serif;
+}
+
+nav{
+    padding: 5% 0 0 10%;
+}
+
+nav svg{
+    cursor: pointer;
+    color: #cfd8dc;
+}
+
+nav svg:hover{
+   color:  #01bcd5;
+}
+
+nav img{
+    width: 50px;
+    padding-left: 10px;
+    padding-bottom: 20px;
+}
+
+nav .btn{
+    width: 25%;
+    height: 58px;
+    margin-left: 53%;
+    color: #01bcd5;
+    background-color: #fff;
+    border-radius: 5px;
+    border:1px solid #cfd8dc;
+    font-size: 0.9rem;
+}
+
+nav .btn:hover{
+    background-color: #8d8d8d;
+    border: #8d8d8d;
+}
+
+ input{
+    width: 30px;
+    border: none;
+    outline: 0;
+}
+
+.text-sobre{
+    width: 89%;
+    padding: 1% 0 0 10%;
+    color: #78909c;
+    line-height:20px;
+    font-size: 1rem;
+
+}
+
+.text-sobre h2{
+    color: #01bcd5;
+    font-family: WorkSansLight;
+}
+
+form{
+    padding-left: 10%;
+}
+
+.form-separator{
+    width: 100%;
+    display: flex;
+    padding-top: 30px;
+}
+
+.input{
+    padding-left: 2%;
+    width: 43%;
+}
+
+.caixa-input{
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+    border:1px solid #cfd8dc;
+    display: flex;
+}
+
+.input:first-child{
+    padding-left: 0;
+}
+
+.form-separator .caixa-input input{
+    width: 100%;
+    border: none;
+    padding-left: 10px;
+    outline: 0;
+}
+
+.caixa-input img{
+    width: 35px;
+    height: 35px;
+    padding: 10px 0 0 10px;
+}
+
+    
+.caixa-input2{
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+    border:1px solid #cfd8dc;
+    display: flex;
+}
+
+.form-separator .caixa-input2 input{
+    width: 100%;
+    border: none;
+    padding-left: 10px;
+    outline: 0;
+}
+
+.caixa-input2 img{
+    width: 35px;
+    height: 35px;
+    padding: 10px 0 0 10px;
+}
+
+.input2{
+    padding-left: 20px;
+    width: 29%;
+}
+
+.input2:first-child{
+    padding-left: 0;
+}
+
+.button-doar{
+    padding: 2% 0 0 38%;
+}
+
+.button-doar button{
+    background-color: #01bcd5;
+    border: #01bcd5;
+    height: 50px;;
+    width: 300px;
+    font-weight: bold;
+}
+
+
+
+

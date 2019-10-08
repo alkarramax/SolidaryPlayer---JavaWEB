@@ -1,15 +1,56 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-   <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Home</title>
-        <link rel="stylesheet" type="text/css" href="home.css">
-        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-    </head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+    <link rel="shortcut icon" type="image/x-icon" href="imagens/7618Logo.ico">
+    <link rel="stylesheet" href="imagens/Logo.png" type="img">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script type="text/javascript">
+        $(window).on("scroll", function(){
+            if($(window).scrollTop()){
+                $("nav").addClass("navFixed");
+            }else{
+                $("nav").removeClass("navFixed");
+            }
+        });
+
+        $(document).ready(function(){
+            $("#bar").click(function(){
+                $(".navbar").toggleClass("active");
+            });
+        });
+        $(function() {
+            $( "[data-product-info-link]" ).click(function(e) {
+                e.preventDefault();
+                var theLink = $(this);
+                var tabNum = $(this).data('product-info-link');
+                var tabItem = '[data-product-info-tab="' + tabNum +'"]';
+                var check = $(tabItem).is(':visible');
+
+                if ( !check ) {
+                    var other = $('[data-product-info-link]').not(this).removeClass('active');
+                    var fadeOutDone = $('[data-product-info-tab]').css('display','none');
+
+                    $(tabItem).css('display','block');
+                    $(theLink).addClass('active');
+                }
+            });
+        });
+
+        jQuery(document).ready(function($){
+            $(".ancora-scroll").click(function(event){
+                event.preventDefault();
+                $("html,body").animate({scrollTop:$(this.hash).offset().top},800);
+            });
+        });
+    </script>
+</head>
 <body>
     <header class="header">
         <nav class="navbar-one">
@@ -27,10 +68,10 @@
                 </div>
                 <div class="menu">
                     <ul>
-                        <li><a href="">Home</a></li>
-                        <li><a href="/Sobre/sobre.html">Sobre</a></li>
+                        <li><a class="ancora-scroll" href="#causas">Causas</a></li>
+                        <li><a class="ancora-scroll" href="#sobre">Sobre</a></li>
+                        <li><a class="ancora-scroll" href="#como-funciona">Como funciona?</a></li>
                         <li><a class="nav-link" href="#" id="popUpAparecer">Login</a></li>
-                        <li><a href="">Impacto</a></li>
                     </ul>
                 </div>
             </div>
@@ -45,7 +86,7 @@
           </div>
     </header>
     <section>
-        <div class="container">
+        <div id="causas" class="causa1">
             <h2>Apoio para pacientes com câncer</h2>
             <div class="tab-wrapper">
                 <ul>
@@ -58,29 +99,29 @@
                         <div class="card">
                             <img src="imagens/back.jpg" alt="card background" class="card-img">
                             <img src="imagens/logo-branco-300x287.png" alt="profile image" class="profile-img">
-                            <h1>Doacao Player</h1>
+                            <h1>Solidarity Player</h1>
                             <p>A ABRALE – Associação Brasileira de Linfoma e Leucemia é uma das mais conceituadas e importantes associações 
                                 que trabalha em todo o país para democratizar o tratamento e qualidade de vida de pessoas com doenças hematológicas.
                             </p>
-                            <a href="#" class="btn-doar">Contribua agora</a>
+                            <a href="../SobreDoacao/sobreDoacao.jsp" class="btn-doar">Contribua agora</a>
                         </div>
                         <div class="card">
                             <img src="imagens/back.jpg" alt="card background" class="card-img">
                             <img src="imagens/logo-branco-300x287.png" alt="profile image" class="profile-img">
-                            <h1>Doacao Player</h1>
+                            <h1>Solidarity Player</h1>
                             <p>A ABRALE – Associação Brasileira de Linfoma e Leucemia é uma das mais conceituadas e importantes associações 
                                 que trabalha em todo o país para democratizar o tratamento e qualidade de vida de pessoas com doenças hematológicas.
                             </p>
-                            <a href="#" class="btn-doar">Contribua agora</a>
+                            <a href="../SobreDoacao/sobreDoacao.jsp" class="btn-doar">Contribua agora</a>
                         </div>
                         <div class="card">
                             <img src="imagens/back.jpg" alt="card background" class="card-img">
                             <img src="imagens/logo-branco-300x287.png" alt="profile image" class="profile-img">
-                            <h1>Doacao Player</h1>
+                            <h1>Solidarity Player</h1>
                             <p>A ABRALE – Associação Brasileira de Linfoma e Leucemia é uma das mais conceituadas e importantes associações 
                                 que trabalha em todo o país para democratizar o tratamento e qualidade de vida de pessoas com doenças hematológicas.
                             </p>
-                            <a href="#" class="btn-doar">Contribua agora</a>
+                            <a href="../SobreDoacao/sobreDoacao.jsp" class="btn-doar">Contribua agora</a>
                         </div>
                     </div>
                 </div>
@@ -89,7 +130,7 @@
                         <div class="card">
                             <img src="imagens/back.jpg" alt="card background" class="card-img">
                             <img src="imagens/logo-branco-300x287.png" alt="profile image" class="profile-img">
-                            <h1>Campanhas</h1>
+                            <h1>Solidarity</h1>
                             <p>A ABRALE – Associação Brasileira de Linfoma e Leucemia é uma das mais conceituadas e importantes associações 
                                 que trabalha em todo o país para democratizar o tratamento e qualidade de vida de pessoas com doenças hematológicas.
                             </p>
@@ -98,7 +139,7 @@
                         <div class="card">
                             <img src="imagens/back.jpg" alt="card background" class="card-img">
                             <img src="imagens/logo-branco-300x287.png" alt="profile image" class="profile-img">
-                            <h1>Campanhas</h1>
+                            <h1>Solidarity</h1>
                             <p>A ABRALE – Associação Brasileira de Linfoma e Leucemia é uma das mais conceituadas e importantes associações 
                                 que trabalha em todo o país para democratizar o tratamento e qualidade de vida de pessoas com doenças hematológicas.
                             </p>
@@ -107,7 +148,7 @@
                         <div class="card">
                             <img src="imagens/back.jpg" alt="card background" class="card-img">
                             <img src="imagens/logo-branco-300x287.png" alt="profile image" class="profile-img">
-                            <h1>Campanhas</h1>
+                            <h1>Solidarity</h1>
                             <p>A ABRALE – Associação Brasileira de Linfoma e Leucemia é uma das mais conceituadas e importantes associações 
                                 que trabalha em todo o país para democratizar o tratamento e qualidade de vida de pessoas com doenças hematológicas.
                             </p>
@@ -120,7 +161,7 @@
                         <div class="card">
                             <img src="imagens/back.jpg" alt="card background" class="card-img">
                             <img src="imagens/logo-branco-300x287.png" alt="profile image" class="profile-img">
-                            <h1>Voluntario Player</h1>
+                            <h1>Solidarity Player</h1>
                             <p>A ABRALE – Associação Brasileira de Linfoma e Leucemia é uma das mais conceituadas e importantes associações 
                                 que trabalha em todo o país para democratizar o tratamento e qualidade de vida de pessoas com doenças hematológicas.
                             </p>
@@ -129,7 +170,7 @@
                         <div class="card">
                             <img src="imagens/back.jpg" alt="card background" class="card-img">
                             <img src="imagens/logo-branco-300x287.png" alt="profile image" class="profile-img">
-                            <h1>Voluntario Player</h1>
+                            <h1>Solidarity Player</h1>
                             <p>A ABRALE – Associação Brasileira de Linfoma e Leucemia é uma das mais conceituadas e importantes associações 
                                 que trabalha em todo o país para democratizar o tratamento e qualidade de vida de pessoas com doenças hematológicas.
                             </p>
@@ -138,7 +179,7 @@
                         <div class="card">
                             <img src="imagens/back.jpg" alt="card background" class="card-img">
                             <img src="imagens/logo-branco-300x287.png" alt="profile image" class="profile-img">
-                            <h1>Voluntario Player</h1>
+                            <h1>Solidarity Player</h1>
                             <p>A ABRALE – Associação Brasileira de Linfoma e Leucemia é uma das mais conceituadas e importantes associações 
                                 que trabalha em todo o país para democratizar o tratamento e qualidade de vida de pessoas com doenças hematológicas.
                             </p>
@@ -150,7 +191,7 @@
         </div>
     </section>
     <section>
-        <div class="container">
+        <div class="causa">
             <h2 class="h2card">Apoio para pacientes com câncer</h2>
             <div class="tab-wrapper">
                 <ul>
@@ -255,7 +296,7 @@
         </div>
     </section>
     <section>
-        <div class="container">
+        <div class="causa">
         <h2 class="h2card">Apoio para pacientes com câncer</h2>
             <div class="tab-wrapper">
                 <ul>
@@ -359,30 +400,96 @@
             </div>
         </div> 
     </section>
+    <section>
+        <section id="sobre">
+            <div class="img-impacto">
+                <h1>Como você quer o mundo?</h1>
+                <h2>A mudança começa a partir de você!</h2>
+            </div>
+        </section>
+    </section>
+    <section  class="sobre">
+        <h1> Como o grupo Solidario ajudou </br> milhares de pessoas?</h1>
+        <div class="container-sobre">
+            <div class="container-sobre-img">
+                <img src="imagens/campanha_do-_agasalho_03-768x768.jpg" alt="">
+                <h4>Grupo Solidario</h4>
+                <p>O Grupo Solidário nasceu por iniciativa de colaboradores voluntários da Softplan, 
+                    que se unem para promover ações de assistência social, organizando campanhas beneficentes. 
+                    A Softplan é uma das parceiras, e apoia financeiramente as campanhas, enquanto os colaboradores
+                     voluntários se reúnem e doam um pouco do seu tempo livre. </p>
+            </div>
+            <div class="container-sobre-info">
+                <h2>Campanha do agasalho </br> solidário</h2>
+                <div class="sobre-info">
+                    <div class="info">
+                        <h4>Comunidade Frei Damião</h4>
+                    </div>
+                </div>
+                <div class="sobre-info">
+                        <div class="info">
+                            <h4>Comunidade Brejarú</h4>
+                        </div>
+                    </div>
+                <div class="sobre-info">
+                    <div class="info">
+                        <h4>152 kits de higiene pessoal</h4>
+                    </div>
+                </div>
+                <div class="sobre-info">
+                    <div class="info">
+                        <h4>1223 peças</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="como-funciona" class="como-funciona">
+        <h1>Como funciona?</h1>
+        <div class="container">
+            <div class="container-sobre">
+                <img src="imagens/Design sem nome (6).png" alt="">
+                <p>Dapibus nam elit condimentum sollicitudin inceptos accumsan odio in mattis elit, 
+                    venenatis litora pulvinar sed sit fusce elit sagittis vestibulum.</p>
+            </div>
+            <div class="container-sobre">
+                    <img src="imagens/Design sem nome (7).png" alt="">
+                    <p>Dapibus nam elit condimentum sollicitudin inceptos accumsan odio in mattis elit, 
+                        venenatis litora pulvinar sed sit fusce elit sagittis vestibulum.</p>
+            </div>
+        </div>
+        <div class="container-function2">
+            <div class="container-sobre2">
+                <img src="imagens/Design sem nome (8).png" alt="">
+                <p>Dapibus nam elit condimentum sollicitudin </br> inceptos accumsan odio in mattis elit,
+                    venenatis </br> litora pulvinar sed sit fusce elit sagittis vestibulum.</p>
+            </div>
+        </div>
+    </section>
     
     <div class="popup">
         <div class="popup-content">
             <div class="container" id="container">
                 <div class="form-container sign-up-container">
                     <img src="imagens/./baseline_clear_black_18dp.png" alt="Close" class="close2">
-                    <form action="../cadastro" method="post">
+                    <form action="#">
                         <h1>Crie Sua Conta</h1>
-                        <input type="text" name="nome" placeholder="Nome">
-                        <input type="text" name="sobrenome" placeholder="Sobrenome">
-                        <input type="password" name="senha" placeholder="Senha">
-                        <input type="email" name="email" placeholder="Email">
-                        <input type="text"  name="cargo" placeholder="Cargo">
-                        <input type="text" name="unidade" placeholder="Unidade">
+                        <input type="text" placeholder="Nome">
+                        <input type="text" placeholder="Sobrenome">
+                        <input type="password" placeholder="Senha">
+                        <input type="email" placeholder="Email">
+                        <input type="text" placeholder="Cargo">
+                        <input type="text" placeholder="Unidade">
                         <button>Cadastrar</button>
                     </form>
                 </div>
                 <div class="form-container sign-in-container">
-                    <form action="../login" method="post">
+                    <form action="#">
                         <h1>Entrar</h1>
-                        <input type="email" name="emailLogar" id="email" placeholder="Email">
-                        <input type="password" name="senhaLogar" id="senha" placeholder="Senha">
+                        <input type="email" id="email" placeholder="Email">
+                        <input type="password" id="senha" placeholder="Senha">
                         <a href="#">Esqueceu sua senha?</a>
-                        <button>Entrar</button>
+                        <button onclick="autorizacao()">Entrar</button>
                     </form>
                 </div>
                 <div class="overlay-container">
@@ -403,6 +510,9 @@
             </div>
         </div>
     </div>
+    <footer>
+        
+    </footer>
     <script src="home.js"></script>
 </body>
 </html>

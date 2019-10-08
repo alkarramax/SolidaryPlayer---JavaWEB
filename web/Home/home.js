@@ -1,30 +1,3 @@
- $(window).on("scroll", function(){
-            if($(window).scrollTop()){
-                $("nav").addClass("navFixed");
-            }else{
-                $("nav").removeClass("navFixed");
-            }
-        })
-        $(document).ready(function(){
-            $("#bar").click(function(){
-                $(".navbar").toggleClass("active");
-            })
-        })
-        $(function() {
-            $( "[data-product-info-link]" ).click(function(e) {
-                e.preventDefault();
-                var theLink = $(this);
-                var tabNum = $(this).data('product-info-link');
-                var tabItem = '[data-product-info-tab="' + tabNum +'"]';
-                var check = $(tabItem).is(':visible');
-                if ( !check ) {
-                    var other = $('[data-product-info-link]').not(this).removeClass('active');
-                    var fadeOutDone = $('[data-product-info-tab]').css('display','none');
-                    $(tabItem).css('display','block');
-                    $(theLink).addClass('active');
-                }
-            });
-        });
 class TypeWriter {
     constructor(txtElement, words, wait = 3000) {
       this.txtElement = txtElement;
@@ -112,5 +85,3 @@ function autorizacao() {
 function autorizado() {
     location.assign("../Adm/administrador.html");
 }
-
-
