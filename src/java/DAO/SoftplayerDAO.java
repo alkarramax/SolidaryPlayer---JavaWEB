@@ -12,7 +12,7 @@ public interface SoftplayerDAO {
     public void inserir(Softplayer softplayer);
     public void remover(int id);
     public List<Softplayer> listar();
-    public Softplayer buscar(int id);
+    public Softplayer buscar(String email);
     public void editar(Softplayer softplayer);
     
 }

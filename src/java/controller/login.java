@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
 public class login extends HttpServlet {
@@ -19,6 +20,8 @@ public class login extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            
+           HttpSession session = request.getSession();
            
            String email = request.getParameter("emailLogar");        
            String senha = request.getParameter("senhaLogar");
@@ -32,10 +35,8 @@ public class login extends HttpServlet {
                 Statement stmt = connection.createStatement();
                 ResultSet rs = stmt.executeQuery("select * from softplayer where email='"+email+"' and senha='"+senha+"'");
                 if(rs.next()) {
-                    out.println("<script type=\"text/javascript\">");
-                    out.println("alert('Login realizado com sucesso!!');");
-                    out.println("location='/SA-JSP/Home/home.jsp';");
-                    out.println("</script>");
+                    session.setAttribute("nome", rs.getString("nome"));
+                    response.sendRedirect("/SA-JSP/Home/home.jsp");
                 } else {
                     out.println("<script type=\"text/javascript\">");
                     out.println("alert('Email ou senha incorreto!!');");

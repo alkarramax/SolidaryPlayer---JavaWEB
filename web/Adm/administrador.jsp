@@ -1,5 +1,3 @@
-
-
 <%@page import="DB.DBConnection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.sql.*"%>
@@ -95,7 +93,7 @@
                                     <td><%=rsEntin.getString("Email")%></td>
                                     <td><%=rsEntin.getString("Telefone")%></td>
                                     <td>
-                                        <a href="./Funcoes/editarEntidade.jsp?u=<%=rsEntin.getString("id")%>" class="btn btn-warning">Editar</a>
+                                    <a href="./Funcoes/editarEntidade.jsp?u=<%=rsEntin.getString("id")%>" class="btn btn-warning">Editar</a>
                                     <a href='../deleteEntidade?d=<%=rsEntin.getString("id")%>' class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>
@@ -132,7 +130,7 @@
                                     <th>Funções</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            
                             <%
                                Connection conn = DBConnection.getConnection();
                                Statement stat = conn.createStatement();
@@ -157,7 +155,7 @@
                             <%
                              }
                             %>
-                            </tbody>
+                            
                         </table>
                     </div>
                 </div>

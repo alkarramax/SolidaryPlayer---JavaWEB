@@ -37,6 +37,8 @@ public class JDBCSoftplayerDAO implements SoftplayerDAO {
             
             ps.executeUpdate();
             
+            ps.close();
+            
             
         } catch (SQLException ex) {
             Logger.getLogger(JDBCSoftplayerDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -86,8 +88,28 @@ public class JDBCSoftplayerDAO implements SoftplayerDAO {
     }
 
     @Override
-    public Softplayer buscar(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Softplayer buscar(String email) { 
+        try {
+            Softplayer softplayer = new Softplayer();
+            
+            String sql = "Select * from softplayer where email = ?";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            
+            ResultSet rs = ps.executeQuery();
+            
+            rs.next();
+            softplayer.setNome(rs.getString("nome"));
+            
+            ps.close();
+            rs.close();
+            
+            return softplayer;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(JDBCSoftplayerDAO.class.getName()).log(Level.SEVERE, null, ex);
+            throw new RuntimeException("Erro ao buscar Registro", ex);
+        }
+        
     }
 
     @Override

@@ -1,4 +1,6 @@
+<%@page import="DB.DBConnection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.sql.*"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +10,7 @@
     <title>Home</title>
     <link rel="shortcut icon" type="image/x-icon" href="imagens/7618Logo.ico">
     <link rel="stylesheet" href="imagens/Logo.png" type="img">
-    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="stylesheet" type="text/css" href="./style1.css">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script type="text/javascript">
@@ -19,7 +21,6 @@
                 $("nav").removeClass("navFixed");
             }
         });
-
         $(document).ready(function(){
             $("#bar").click(function(){
                 $(".navbar").toggleClass("active");
@@ -32,17 +33,14 @@
                 var tabNum = $(this).data('product-info-link');
                 var tabItem = '[data-product-info-tab="' + tabNum +'"]';
                 var check = $(tabItem).is(':visible');
-
                 if ( !check ) {
                     var other = $('[data-product-info-link]').not(this).removeClass('active');
                     var fadeOutDone = $('[data-product-info-tab]').css('display','none');
-
                     $(tabItem).css('display','block');
                     $(theLink).addClass('active');
                 }
             });
         });
-
         jQuery(document).ready(function($){
             $(".ancora-scroll").click(function(event){
                 event.preventDefault();
@@ -52,6 +50,57 @@
     </script>
 </head>
 <body>
+    <div class="popup">
+        <div class="popup-content">
+            <div class="container" id="container">
+                <div class="form-container sign-up-container">
+                    <img src="imagens/./baseline_clear_black_18dp.png" alt="Close" class="close2">
+                    <form action="../cadastro">
+                        <h1>Crie Sua Conta</h1>
+                        <input type="text" name="nome" placeholder="Nome">
+                        <input type="text" name="sobrenome" placeholder="Sobrenome">
+                        <input type="password" name="senha" placeholder="Senha">
+                        <input type="email" name="email" placeholder="Email">
+                        <input type="text" name="cargo" placeholder="Cargo">
+                        <input type="text" name="unidade" placeholder="Unidade">
+                        <button>Cadastrar</button>
+                    </form>
+                </div>
+                <div class="form-container sign-in-container">
+                    <form action="../login">
+                        <h1>Entrar</h1>
+                        <input type="email" id="email" name="emailLogar" placeholder="Email">
+                        <input type="password" id="senha" name="senhaLogar" placeholder="Senha">
+                        <a href="#">Esqueceu sua senha?</a>
+                        <button>Entrar</button>
+                    </form>
+                </div>
+                <div class="overlay-container">
+                    <div class="overlay">
+                        <div class="overlay-panel overlay-left">
+                            <h1>Welcome Back!</h1>
+                            <p>To keep connected with us please login with your personal info</p>
+                            <button class="ghost" id="signIn">Entrar</button>
+                        </div>
+                        <div class="overlay-panel overlay-right">
+                            <img src="imagens/./baseline_clear_black_18dp.png" alt="Close" class="close">
+                            <h1>Olá, Softplayer!</h1>
+                            <p>Ainda não tem cadastro? Cadastre-se para se tornar um Solidarity Player</p>
+                            <button class="ghost" id="signUp">Cadastrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="singOut">
+        <span class="ion-checkmark-round"></span>
+        <a></a>
+        
+        <a class="closeSignOut">Fechar</a>
+    </div>
+    
     <header class="header">
         <nav class="navbar-one">
             <div class="responsive-bar">
@@ -67,12 +116,24 @@
                     <h1>Solidarity Player</h1>
                 </div>
                 <div class="menu">
+                    <%
+                        String nomeUsuario = (String) session.getAttribute("nome");
+                        
+                    %>
+                    
                     <ul>
                         <li><a class="ancora-scroll" href="#causas">Causas</a></li>
                         <li><a class="ancora-scroll" href="#sobre">Sobre</a></li>
                         <li><a class="ancora-scroll" href="#como-funciona">Como funciona?</a></li>
-                        <li><a class="nav-link" href="#" id="popUpAparecer">Login</a></li>
+                        
+                        <% if(nomeUsuario == null) { %>
+                        <li><a class="nav-link" href="#" id="popUpAparecer" value="">Login</a></li>
+                        <%} else {%>
+                        <li><a class="nav-link" href="#" id="signOut" value=""><%=nomeUsuario%></a></li>
+                        <%}%>
+                        
                     </ul>
+                   
                 </div>
             </div>
         </nav>
@@ -466,50 +527,6 @@
             </div>
         </div>
     </section>
-    
-    <div class="popup">
-        <div class="popup-content">
-            <div class="container" id="container">
-                <div class="form-container sign-up-container">
-                    <img src="imagens/./baseline_clear_black_18dp.png" alt="Close" class="close2">
-                    <form action="#">
-                        <h1>Crie Sua Conta</h1>
-                        <input type="text" placeholder="Nome">
-                        <input type="text" placeholder="Sobrenome">
-                        <input type="password" placeholder="Senha">
-                        <input type="email" placeholder="Email">
-                        <input type="text" placeholder="Cargo">
-                        <input type="text" placeholder="Unidade">
-                        <button>Cadastrar</button>
-                    </form>
-                </div>
-                <div class="form-container sign-in-container">
-                    <form action="#">
-                        <h1>Entrar</h1>
-                        <input type="email" id="email" placeholder="Email">
-                        <input type="password" id="senha" placeholder="Senha">
-                        <a href="#">Esqueceu sua senha?</a>
-                        <button onclick="autorizacao()">Entrar</button>
-                    </form>
-                </div>
-                <div class="overlay-container">
-                    <div class="overlay">
-                        <div class="overlay-panel overlay-left">
-                            <h1>Welcome Back!</h1>
-                            <p>To keep connected with us please login with your personal info</p>
-                            <button class="ghost" id="signIn">Entrar</button>
-                        </div>
-                        <div class="overlay-panel overlay-right">
-                            <img src="imagens/./baseline_clear_black_18dp.png" alt="Close" class="close">
-                            <h1>Olá, Softplayer!</h1>
-                            <p>Ainda não tem cadastro? Cadastre-se para se tornar um Solidarity Player</p>
-                            <button class="ghost" id="signUp">Cadastrar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <footer>
         
     </footer>

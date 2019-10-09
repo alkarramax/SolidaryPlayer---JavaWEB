@@ -231,7 +231,7 @@ nav.navFixed .logo img{
 
 @media screen and (min-width: 816px) and (max-width: 1200px){
 
-    .container{
+    .causa{
         padding-top: 700px
     }
 
@@ -777,4 +777,19 @@ button.ghost {
 
 .img-impacto h2{
     font-size: 3rem;
+}
+
+#signOut {
+    width: 500px;
+    overflow: hidden;
+    background: #f1f1f1;
+    box-shadow: 0 0 20px black;
+    border-radius: 8px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    padding: 10px;
+    text-align: center;
 }
