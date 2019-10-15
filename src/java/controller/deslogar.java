@@ -1,52 +1,37 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package controller;
 
-import DB.DBConnection;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ *
+ * @author alkar
+ */
+public class deslogar extends HttpServlet {
 
-public class login extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
-           HttpSession session = request.getSession();
-           
-           String email = request.getParameter("emailLogar");        
-           String senha = request.getParameter("senhaLogar");
-            
-            if("admin@admin".equals(email) && "admin".equals(senha)) {
-                response.sendRedirect("/SA-JSP/Adm/administrador.jsp");
-            }
+          
+            HttpSession session = request.getSession();
 
-            try {
-                Connection connection = DBConnection.getConnection();
-                Statement stmt = connection.createStatement();
-                ResultSet rs = stmt.executeQuery("select * from softplayers where email='"+email+"' and senha='"+senha+"'");
-                if(rs.next()) {
-                    session.setAttribute("nome", rs.getString("nome"));
+            if (session.getAttribute("nome") != null) {  
+                    session.invalidate();
                     response.sendRedirect("/SA-JSP/Home/home.jsp");
-                } else {
-                    out.println("<script type=\"text/javascript\">");
-                    out.println("alert('Email ou senha incorreto!!');");
-                    out.println("location='/SA-JSP/Home/home.jsp';");
-                    out.println("</script>");
-                }
-
-            } catch (ClassNotFoundException | SQLException e) {
-                out.println("Error " + e);
+                    return; 
             }
+            
         }
     }
 

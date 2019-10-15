@@ -94,13 +94,13 @@
         </div>
     </div>
     
-    <div id="singOut">
-        <span class="ion-checkmark-round"></span>
-        <a></a>
-        
-        <a class="closeSignOut">Fechar</a>
+    <div class="deslogar-modal">
+	<div class="deslogar-contents">
+		<div class="sair">+</div>
+                <a href="../deslogar" class="deslogarHref">Deslogar</a>
+        </div>
     </div>
-    
+
     <header class="header">
         <nav class="navbar-one">
             <div class="responsive-bar">
@@ -116,11 +116,7 @@
                     <h1>Solidarity Player</h1>
                 </div>
                 <div class="menu">
-                    <%
-                        String nomeUsuario = (String) session.getAttribute("nome");
-                        
-                    %>
-                    
+                    <%String nomeUsuario = (String) session.getAttribute("nome"); %>
                     <ul>
                         <li><a class="ancora-scroll" href="#causas">Causas</a></li>
                         <li><a class="ancora-scroll" href="#sobre">Sobre</a></li>
@@ -129,9 +125,8 @@
                         <% if(nomeUsuario == null) { %>
                         <li><a class="nav-link" href="#" id="popUpAparecer" value="">Login</a></li>
                         <%} else {%>
-                        <li><a class="nav-link" href="#" id="signOut" value=""><%=nomeUsuario%></a></li>
+                        <li><a class="nav-link" href="#" id="deslogar"><%=nomeUsuario%></a></li>
                         <%}%>
-                        
                     </ul>
                    
                 </div>
@@ -155,6 +150,7 @@
                   <li><a href="#" data-product-info-link="2">Campanhas</a></li>
                   <li><a href="#" data-product-info-link="3">Voluntariado</a></li>
                 </ul>
+                
                 <div class="product-info-tab" data-product-info-tab="1" style="display: block;">
                     <div class="card-wrapper">
                         <div class="card">
@@ -530,6 +526,7 @@
     <footer>
         
     </footer>
-    <script src="home.js"></script>
+    <script src="./javascript/home.js"></script>
+    <script src="./javascript/deslogar.js"></script>
 </body>
 </html>

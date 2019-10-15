@@ -5,6 +5,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="../admin.css"/>
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
         <title>Cadastrar Entidade</title>
         
@@ -21,7 +22,7 @@
                 <h3>Cadastrar Entidade</h3>
             </div>
         </div>
-        <form action="../../cadastrarEntidade" method="post">
+        <form action="../../cadastrarEntidade" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label>Nome: </label>
                 <input type="text" class="form-control" name="nome" >
@@ -47,8 +48,14 @@
                 <textarea class="form-control" name="descricao" ></textarea>
             </div>
             
+            <div>
+                <input type="file" name="photo" size="50"/>
+            </div>
+            
+            </br>
             <button type="submit" class="btn btn-primary">Cadastrar</button>
             <a href="../administrador.jsp" class="btn btn-default">Voltar</a>
         </form>
+
     </body>
 </html>

@@ -4,16 +4,20 @@ package controller;
 import DAO.EntidadeDAO;
 import DB.DAOFactory;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 import model.Entidade;
 
+@MultipartConfig(maxFileSize = 169999999)
 public class cadastrarEntidade extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException, ClassNotFoundException {
@@ -27,6 +31,15 @@ public class cadastrarEntidade extends HttpServlet {
             String telefone = request.getParameter("telefone");
             String descricao = request.getParameter("descricao");
             
+            Part filePart = request.getPart("photo");
+            InputStream inputStream = null;
+            
+            if(filePart != null) {
+                long fileSize = filePart.getSize();
+                String fileContent = filePart.getContentType();
+                inputStream = filePart.getInputStream();
+            }
+            
             Entidade entidade = new Entidade();
             
             entidade.setNome(nome);
@@ -35,6 +48,7 @@ public class cadastrarEntidade extends HttpServlet {
             entidade.setEndereco(endereco);
             entidade.setTelefone(telefone);
             entidade.setDescricao(descricao);
+            entidade.setPhoto(inputStream);
             
             EntidadeDAO et = DAOFactory.createEntidadeDAO();
             et.inserir(entidade);

@@ -25,7 +25,7 @@ public class JDBCSoftplayerDAO implements SoftplayerDAO {
     @Override
     public void inserir(Softplayer softplayer) {
         try {
-            String SQL = "insert into softplayer(nome, sobrenome, senha, email, cargo, unidade) "
+            String SQL = "insert into softplayers(nome, sobrenome, senha, email, cargo, unidade) "
                     + "values (?,?,?,?,?,?)";
             PreparedStatement ps = connection.prepareStatement(SQL);
             ps.setString(1, softplayer.getNome());

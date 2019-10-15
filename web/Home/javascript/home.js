@@ -71,17 +71,3 @@ const container = document.getElementById('container');
 
 signUpButton.addEventListener("click", () => container.classList.add('right-panel-active'));
 signInButton.addEventListener("click", () => container.classList.remove('right-panel-active'));
-
-
-
-function autorizacao() {
-    var user = document.getElementById("email").value;
-    var senha = document.getElementById("senha").value;
-
-    if(user == "admin" && senha == "admin") {
-        return autorizado();
-    } 
-}
-function autorizado() {
-    location.assign("../Adm/administrador.html");
-}

@@ -1,10 +1,21 @@
 
 package model;
 
+import java.io.InputStream;
+
 public class Entidade {
     
     private long id;
     private String nome, causa, descricao, endereco, email, telefone;
+    private InputStream photo;
+
+    public InputStream getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(InputStream photo) {
+        this.photo = photo;
+    }
 
     public long getId() {
         return id;

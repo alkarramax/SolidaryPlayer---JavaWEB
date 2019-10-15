@@ -39,11 +39,12 @@ public class cadastro extends HttpServlet {
             
             SoftplayerDAO st = DAOFactory.createSoftplayerDAO();
             st.inserir(softplayer);
-            
+
             out.println("<script type=\"text/javascript\">");
             out.println("alert('Cadastro realizado com sucesso!!');");
             out.println("location='/SA-JSP/Home/home.jsp';");
             out.println("</script>");
+            
         }
     }
 
