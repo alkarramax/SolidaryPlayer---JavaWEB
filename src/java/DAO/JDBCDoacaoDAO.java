@@ -31,10 +31,10 @@ public class JDBCDoacaoDAO implements DoacaoDAO{
             PreparedStatement ps = connection.prepareStatement(SQL);
             ps.setString(1, doacao.getNome());
             ps.setString(2, doacao.getDescricao());
-            ps.setString(3, doacao.getJustificativa());
+            //ps.setString(3, doacao.getJustificativa());
             ps.setString(4, doacao.getLocal());
-            ps.setString(5, doacao.getPublicoAlvo());
-            ps.setDate(6, (Date) doacao.getDataInicio());
+            //ps.setString(5, doacao.getPublicoAlvo());
+            //ps.setDate(6, (Date) doacao.getDataInicio());
             
             ps.executeUpdate();
             

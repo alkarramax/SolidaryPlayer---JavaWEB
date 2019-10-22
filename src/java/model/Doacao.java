@@ -5,23 +5,87 @@ import java.util.Date;
 
 public class Doacao {
     
-    private long id;
-    private String nome, descricao, justificativa, local, publicoAlvo;
+    private int id_doacao;
+    private String imagem;
+    private int entidade_doacao_fk, softplayer_doacao_fk, necessidade_doacao_1_fk,
+            necessidade_doacao_2_fk, necessidade_doacao_3_fk, necessidade_doacao_4_fk;
     
-    private Date dataInicio, dataTermino;
+    private String nome, descricao, local;
+    private Date data;
     
-    private String item;
-    private boolean aberta; 
+    private int quantidade_doacao;
+    private boolean aberta;
     
-    private Entidade entidade;
-    private Softplayer softplayer;
-
-    public long getId() {
-        return id;
+    
+    
+    
+    
+    
+    
+    
+    //MÉTODOS ESPECIAIS
+    public int getId_doacao() {
+        return id_doacao;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setId_doacao(int id_doacao) {
+        this.id_doacao = id_doacao;
+    }
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
+    }
+
+    public int getEntidade_doacao_fk() {
+        return entidade_doacao_fk;
+    }
+
+    public void setEntidade_doacao_fk(int entidade_doacao_fk) {
+        this.entidade_doacao_fk = entidade_doacao_fk;
+    }
+
+    public int getSoftplayer_doacao_fk() {
+        return softplayer_doacao_fk;
+    }
+
+    public void setSoftplayer_doacao_fk(int softplayer_doacao_fk) {
+        this.softplayer_doacao_fk = softplayer_doacao_fk;
+    }
+
+    public int getNecessidade_doacao_1_fk() {
+        return necessidade_doacao_1_fk;
+    }
+
+    public void setNecessidade_doacao_1_fk(int necessidade_doacao_1_fk) {
+        this.necessidade_doacao_1_fk = necessidade_doacao_1_fk;
+    }
+
+    public int getNecessidade_doacao_2_fk() {
+        return necessidade_doacao_2_fk;
+    }
+
+    public void setNecessidade_doacao_2_fk(int necessidade_doacao_2_fk) {
+        this.necessidade_doacao_2_fk = necessidade_doacao_2_fk;
+    }
+
+    public int getNecessidade_doacao_3_fk() {
+        return necessidade_doacao_3_fk;
+    }
+
+    public void setNecessidade_doacao_3_fk(int necessidade_doacao_3_fk) {
+        this.necessidade_doacao_3_fk = necessidade_doacao_3_fk;
+    }
+
+    public int getNecessidade_doacao_4_fk() {
+        return necessidade_doacao_4_fk;
+    }
+
+    public void setNecessidade_doacao_4_fk(int necessidade_doacao_4_fk) {
+        this.necessidade_doacao_4_fk = necessidade_doacao_4_fk;
     }
 
     public String getNome() {
@@ -40,14 +104,6 @@ public class Doacao {
         this.descricao = descricao;
     }
 
-    public String getJustificativa() {
-        return justificativa;
-    }
-
-    public void setJustificativa(String justificativa) {
-        this.justificativa = justificativa;
-    }
-
     public String getLocal() {
         return local;
     }
@@ -56,36 +112,20 @@ public class Doacao {
         this.local = local;
     }
 
-    public String getPublicoAlvo() {
-        return publicoAlvo;
+    public Date getData() {
+        return data;
     }
 
-    public void setPublicoAlvo(String publicoAlvo) {
-        this.publicoAlvo = publicoAlvo;
+    public void setData(Date data) {
+        this.data = data;
     }
 
-    public Date getDataInicio() {
-        return dataInicio;
+    public int getQuantidade_doacao() {
+        return quantidade_doacao;
     }
 
-    public void setDataInicio(Date dataInicio) {
-        this.dataInicio = dataInicio;
-    }
-
-    public Date getDataTermino() {
-        return dataTermino;
-    }
-
-    public void setDataTermino(Date dataTermino) {
-        this.dataTermino = dataTermino;
-    }
-
-    public String getItem() {
-        return item;
-    }
-
-    public void setItem(String item) {
-        this.item = item;
+    public void setQuantidade_doacao(int quantidade_doacao) {
+        this.quantidade_doacao = quantidade_doacao;
     }
 
     public boolean isAberta() {
@@ -95,20 +135,6 @@ public class Doacao {
     public void setAberta(boolean aberta) {
         this.aberta = aberta;
     }
-
-    public Entidade getEntidade() {
-        return entidade;
-    }
-
-    public void setEntidade(Entidade entidade) {
-        this.entidade = entidade;
-    }
-
-    public Softplayer getSoftplayer() {
-        return softplayer;
-    }
-
-    public void setSoftplayer(Softplayer softplayer) {
-        this.softplayer = softplayer;
-    }
+    
+    
 }

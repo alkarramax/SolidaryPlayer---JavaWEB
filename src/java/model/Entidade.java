@@ -1,28 +1,34 @@
 
 package model;
 
-import java.io.InputStream;
 
 public class Entidade {
     
-    private long id;
-    private String nome, causa, descricao, endereco, email, telefone;
-    private InputStream photo;
+    private int id_entidade;
+    private String imagem;
+    private String nome, descricao, endereco, causa, email, telefone;
 
-    public InputStream getPhoto() {
-        return photo;
+    
+    
+    
+    
+    
+    
+    //MÉTODOS ESPECIAIS
+    public int getId_entidade() {
+        return id_entidade;
     }
 
-    public void setPhoto(InputStream photo) {
-        this.photo = photo;
+    public void setId_entidade(int id_entidade) {
+        this.id_entidade = id_entidade;
     }
 
-    public long getId() {
-        return id;
+    public String getImagem() {
+        return imagem;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
     }
 
     public String getNome() {
@@ -31,14 +37,6 @@ public class Entidade {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getCausa() {
-        return causa;
-    }
-
-    public void setCausa(String causa) {
-        this.causa = causa;
     }
 
     public String getDescricao() {
@@ -55,6 +53,14 @@ public class Entidade {
 
     public void setEndereco(String endereco) {
         this.endereco = endereco;
+    }
+
+    public String getCausa() {
+        return causa;
+    }
+
+    public void setCausa(String causa) {
+        this.causa = causa;
     }
 
     public String getEmail() {

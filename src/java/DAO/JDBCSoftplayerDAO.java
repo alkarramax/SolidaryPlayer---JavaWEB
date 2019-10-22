@@ -72,7 +72,7 @@ public class JDBCSoftplayerDAO implements SoftplayerDAO {
             while(rs.next()) {
                 Softplayer softplayer = new Softplayer();
                 
-                softplayer.setUuid(rs.getInt("id"));
+                //softplayer.setUuid(rs.getInt("id"));
                 softplayer.setNome(rs.getString("nome"));
                 softplayer.setSobrenome(rs.getString("sobrenome"));
                 softplayer.setEmail(rs.getString("email"));

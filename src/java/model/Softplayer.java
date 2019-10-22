@@ -2,54 +2,21 @@
 package model;
 public class Softplayer {
     
-    private int uuid;
-    private String nome;
-    private String sobrenome;
-    private String email;
-    private String senha;
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-    private String cargo;
-    private String unidade;
-    private int contador;
-
-    public Softplayer(String nome, String sobrenome, String email, String cargo, String unidade) {
-        this.nome = nome;
-        this.sobrenome = sobrenome;
-        this.email = email;
-        this.cargo = cargo;
-        this.unidade = unidade;
-    }
+    
+    private int id_softplayer;
+    private String nome, sobrenome, email, cargo, unidade, senha;   
     
     
-
-    public Softplayer(int uuid, String nome, String sobrenome, String email, String cargo, String unidade) {
-        this.uuid = uuid;
-        this.nome = nome;
-        this.sobrenome = sobrenome;
-        this.email = email;
-        this.cargo = cargo;
-        this.unidade = unidade;
-    }
-
-    public Softplayer() {
-        
-    }
     
     
-
-    public int getUuid() {
-        return uuid;
+    
+    //MÉTODOS ESPECIAIS
+    public int getId_softplayer() {
+        return id_softplayer;
     }
 
-    public void setUuid(int uuid) {
-        this.uuid = uuid;
+    public void setId_softplayer(int id_softplayer) {
+        this.id_softplayer = id_softplayer;
     }
 
     public String getNome() {
@@ -92,13 +59,14 @@ public class Softplayer {
         this.unidade = unidade;
     }
 
-    public int getContador() {
-        return contador;
+    public String getSenha() {
+        return senha;
     }
 
-    public void setContador(int contador) {
-        this.contador = contador;
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
+    
     
     
     
