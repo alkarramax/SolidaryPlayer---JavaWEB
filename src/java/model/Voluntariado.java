@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Date;
+
 public class Voluntariado {
     
     
@@ -10,6 +12,7 @@ public class Voluntariado {
             necessidade_voluntariado_2_fk, necessidade_voluntariado_3_fk, necessidade_voluntariado_4_fk;
     
     private String nome, descricao, local;
+    private Date data;
     private boolean presenca, aberta;
 
     
@@ -100,6 +103,14 @@ public class Voluntariado {
 
     public String getLocal() {
         return local;
+    }
+
+    public Date getData() {
+        return data;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
     }
 
     public void setLocal(String local) {

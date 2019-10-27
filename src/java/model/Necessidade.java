@@ -5,10 +5,6 @@ public class Necessidade {
     
     private int id_necessidade;
     private String necessidade;
-
-    
-    
-    
     
     //MÉTODOS ESPECIAIS
     public int getId_necessidade() {

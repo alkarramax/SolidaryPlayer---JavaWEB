@@ -10,12 +10,8 @@ public class Campanha {
             necessidade_campanha_2_fk, necessidade_campanha_3_fk, necessidade_campanha_4_fk;
     
     private String nome, descricao, local;
-    private Date data_inicio, data_termino;
+    private Date data;
     private boolean presenca, aberta;
-
-    
-    
-    
     
     //MÉTODOS ESPECIAIS
     public int getId_campanha() {
@@ -106,21 +102,15 @@ public class Campanha {
         this.local = local;
     }
 
-    public Date getData_inicio() {
-        return data_inicio;
+    public Date getData() {
+        return data;
     }
 
-    public void setData_inicio(Date data_inicio) {
-        this.data_inicio = data_inicio;
+    public void setData(Date data) {
+        this.data = data;
     }
 
-    public Date getData_termino() {
-        return data_termino;
-    }
-
-    public void setData_termino(Date data_termino) {
-        this.data_termino = data_termino;
-    }
+    
 
     public boolean isPresenca() {
         return presenca;

@@ -31,8 +31,7 @@ public class CampanhaTest {
         c.setNome("Filosofia");
         c.setDescricao("Trata-se de beneficios beneficos");
         c.setLocal("SENAI");
-        c.setData_inicio(dI);
-        c.setData_termino(dT);
+        c.setData(dI);
         c.setPresenca(true);
         c.setAberta(true);
     }
@@ -50,8 +49,7 @@ public class CampanhaTest {
         c.getNome();
         c.getDescricao();
         c.getLocal();
-        c.getData_inicio();
-        c.getData_termino();
+        c.getData();
         c.isPresenca();
         c.isAberta();
     }
