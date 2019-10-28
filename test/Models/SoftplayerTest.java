@@ -10,8 +10,13 @@ import static org.junit.Assert.*;
 
 public class SoftplayerTest {
 
-    Softplayer s = new Softplayer();
+    private Softplayer s;
     
+    
+    @Before
+    public void setUp(){
+        s = new Softplayer();
+    }
     
     @Test
     public void set(){

@@ -11,8 +11,13 @@ import static org.junit.Assert.*;
 public class EntidadeTest {
     
     
-    Entidade e = new Entidade();
+    private Entidade e;
     
+    
+    @Before
+    public void setUp(){
+        e = new Entidade();
+    }
     
     @Test
     public void set(){

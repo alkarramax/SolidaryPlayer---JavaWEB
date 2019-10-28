@@ -11,11 +11,18 @@ import static org.junit.Assert.*;
 
 public class CampanhaTest {
     
-    Campanha c = new Campanha();
-    Date dI = new Date();
-    Date dT = new Date();
+    private Campanha c; 
+    private Date dI;
+    private Date dT; 
     
     public CampanhaTest() {
+    }
+    
+    @Before
+    public void setUp(){
+        c = new Campanha();
+        dT = new Date();
+        dT = new Date();
     }
     
     @Test

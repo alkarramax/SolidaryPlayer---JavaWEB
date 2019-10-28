@@ -10,7 +10,13 @@ import static org.junit.Assert.*;
 
 public class VoluntariadoTest {
     
-    Voluntariado v = new Voluntariado();
+    private Voluntariado v; 
+    
+    
+    @Before
+    public void setUp(){
+        v = new Voluntariado();
+    }
     
     
     @Test

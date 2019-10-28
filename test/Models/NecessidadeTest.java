@@ -10,8 +10,13 @@ import static org.junit.Assert.*;
 
 public class NecessidadeTest {
     
-    Necessidade n = new Necessidade();
+    private Necessidade n;
     
+    
+    @Before
+    public void setUp(){
+        n = new Necessidade();
+    }
     
     @Test
     public void set(){

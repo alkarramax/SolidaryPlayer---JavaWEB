@@ -11,8 +11,14 @@ import static org.junit.Assert.*;
 
 public class DoacaoTest {
     
-    Doacao d = new Doacao();
-    Date data = new Date();
+    private Doacao d;
+    private Date data;
+    
+    @Before
+    public void setUp(){
+        d = new Doacao();
+        data = new Date();
+    }
     
     @Test
     public void set(){

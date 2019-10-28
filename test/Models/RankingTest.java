@@ -10,7 +10,13 @@ import static org.junit.Assert.*;
 
 public class RankingTest {
     
-    Ranking r = new Ranking();
+    private Ranking r; 
+    
+    
+    @Before
+    public void setUp(){
+        r = new Ranking();
+    }
     
     @Test
     public void set(){
