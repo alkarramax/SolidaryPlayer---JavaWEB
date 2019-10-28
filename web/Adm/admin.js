@@ -35,10 +35,11 @@ window.onload = function () {
     var home_act = document.getElementById('home-actions'),
         entidade_act = document.getElementById('entidades-actions'),
         campanhas_act = document.getElementById('campanhas-actions'),
+        voluntariado_act = document.getElementById('voluntariado-actions'),
         doacoes_act = document.getElementById('doacoes-actions'),
         players_act = document.getElementById('players-actions');
 
-    var actions = [home_act, entidade_act, campanhas_act, doacoes_act, players_act];
+    var actions = [home_act, entidade_act, campanhas_act, voluntariado_act, doacoes_act, players_act];
 
     function show(index) {
         for(var i = 0; i < actions.length; i++) {
@@ -56,10 +57,11 @@ window.onload = function () {
     var home = document.getElementById('home'),
         entidade = document.getElementById('entidade'),
         campanhas = document.getElementById('campanha'),
+        voluntariado = document.getElementById('voluntariado'),
         doacoes  = document.getElementById('doacoes'),
         players  = document.getElementById('player');
     
-    var buttons = [home, entidade, campanhas, doacoes, players];
+    var buttons = [home, entidade, campanhas, voluntariado, doacoes, players];
 
     buttons[0].addEventListener('click', function() {
         show(0);
@@ -75,6 +77,9 @@ window.onload = function () {
     }, false);
     buttons[4].addEventListener('click', function() {
         show(4);
+    }, false);
+    buttons[5].addEventListener('click', function() {
+        show(5);
     }, false);
 
     var exit = document.getElementById("exit");

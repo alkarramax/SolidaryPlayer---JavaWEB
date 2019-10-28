@@ -31,6 +31,7 @@
                     <li><a id="home">Home</a></li>
                     <li><a id="entidade">Entidades</a></li>
                     <li><a id="campanha">Campanhas</a></li>
+                    <li><a id="voluntariado">Voluntariado</a></li>
                     <li><a id="doacoes">Doações</a></li>
                     <li><a id="player">Players</a></li>
                 </ul>
@@ -109,10 +110,52 @@
                             Campanhas
                         </div>
                     </div>
+                    <div id="voluntariado-actions">
+                        <div class="title">
+                            Voluntariado
+                        </div>
+                    </div>        
                     <div id="doacoes-actions">
                         <div class="title">
                             Doações
                         </div>
+                        
+                        <table class="table table-bordered table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nome</th>
+                                    <th>Endereço</th>
+                                    <th>Email</th>
+                                    <th>Funções</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% 
+                                    Connection connDoacao = DBConnection.getConnection();
+                                    Statement statDoacao = connDoacao.createStatement();
+                                    String dataDoacao = "select * from Entidade";
+                                    ResultSet rsDoacao = statDoacao.executeQuery(dataDoacao);
+
+                                    while(rsDoacao.next()) {
+                                %>  
+                                <tr>
+                                    <td><%=rsDoacao.getString("id")%></td>
+                                    <td><%=rsDoacao.getString("Nome")%></td>
+                                    <td><%=rsDoacao.getString("Endereco")%></td>
+                                    <td><%=rsDoacao.getString("Email")%></td>
+                                    <td>
+                                    <a href="./Funcoes/criarDoacao.jsp?u=<%=rsDoacao.getString("id")%>" class="btn btn-success">Criar Doação</a>
+                                    </td>
+                                </tr>
+                                <%
+                                }
+                                %>
+                            </tbody>
+                        </table>
+                        
+                        
+                        
                     </div>
                     <div id="players-actions">
                         <div class="title">

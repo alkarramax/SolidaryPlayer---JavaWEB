@@ -26,18 +26,15 @@ public class JDBCDoacaoDAO implements DoacaoDAO{
     @Override
     public void inserir(Doacao doacao) {
         try {
-            String SQL = "insert into Entidade(Nome, Email, Causa, Telefone, Descricao, Endereco) "
-                    + "values (?,?,?,?,?,?)";
+            String SQL = "insert into doacao(nome, descricao, local, data) "
+                    + "values (?,?,?,?)";
             PreparedStatement ps = connection.prepareStatement(SQL);
             ps.setString(1, doacao.getNome());
             ps.setString(2, doacao.getDescricao());
-            //ps.setString(3, doacao.getJustificativa());
-            ps.setString(4, doacao.getLocal());
-            //ps.setString(5, doacao.getPublicoAlvo());
-            //ps.setDate(6, (Date) doacao.getDataInicio());
-            
+            ps.setString(3, doacao.getLocal());  
+            ps.setString(4, String.valueOf(doacao.getData()));
             ps.executeUpdate();
-            
+            ps.close();
             
         } catch (SQLException ex) {
             Logger.getLogger(JDBCSoftplayerDAO.class.getName()).log(Level.SEVERE, null, ex);

@@ -135,6 +135,10 @@ public class Doacao {
     public void setAberta(boolean aberta) {
         this.aberta = aberta;
     }
+
+    public void setData(String data) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
 }
