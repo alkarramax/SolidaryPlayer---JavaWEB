@@ -5,7 +5,9 @@
  */
 package DB;
 
+import DAO.CampanhaDAO;
 import DAO.EntidadeDAO;
+import DAO.JDBCCampanhaDAO;
 import DAO.JDBCEntidadeDAO;
 import DAO.JDBCSoftplayerDAO;
 import DAO.SoftplayerDAO;
@@ -22,5 +24,9 @@ public class DAOFactory {
         return new JDBCEntidadeDAO();
     }
     
+    public static CampanhaDAO createCampanhaDAO() throws SQLException, ClassNotFoundException {
+        
+        return new JDBCCampanhaDAO();
+    }
     
 }

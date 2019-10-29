@@ -25,7 +25,7 @@ public class JDBCEntidadeDAO implements EntidadeDAO {
     @Override
     public void inserir(Entidade entidade) {
         try {
-            String SQL = "insert into Entidade(Nome, Email, Causa, Telefone, Descricao, Endereco, imagem) "
+            String SQL = "insert into Entidade(Nome, Email, Causa, Telefone, Descricao, Endereco, path) "
                     + "values (?,?,?,?,?,?,?)";
             try (PreparedStatement ps = connection.prepareStatement(SQL)) {
                 ps.setString(1, entidade.getNome());
@@ -34,7 +34,7 @@ public class JDBCEntidadeDAO implements EntidadeDAO {
                 ps.setString(4, entidade.getTelefone());
                 ps.setString(5, entidade.getDescricao());
                 ps.setString(6, entidade.getEndereco());
-                //ps.setBlob(7, entidade.getPhoto());
+                ps.setString(7, entidade.getPath());
                 
                 ps.executeUpdate();
                 ps.close();

@@ -3,6 +3,7 @@ package controller;
 
 import DAO.EntidadeDAO;
 import DB.DAOFactory;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
@@ -31,14 +32,11 @@ public class cadastrarEntidade extends HttpServlet {
             String telefone = request.getParameter("telefone");
             String descricao = request.getParameter("descricao");
             
-            Part filePart = request.getPart("photo");
-            InputStream inputStream = null;
-            
-            if(filePart != null) {
-                long fileSize = filePart.getSize();
-                String fileContent = filePart.getContentType();
-                inputStream = filePart.getInputStream();
-            }
+            Part part = request.getPart("file");
+            String fileName = extractFileName(part);
+            String savePath = "C:\\Users\\Aluno\\Documents\\NetBeansProjects\\BackEndSolidaryPlayerAaa\\web\\Home\\imageEntidade"+ File.separator + fileName;
+            File fileSaveDir = new File(savePath);
+            part.write(savePath + File.separator);
             
             Entidade entidade = new Entidade();
             
@@ -48,7 +46,7 @@ public class cadastrarEntidade extends HttpServlet {
             entidade.setEndereco(endereco);
             entidade.setTelefone(telefone);
             entidade.setDescricao(descricao);
-            //entidade.setImagem(inputStream);
+            entidade.setPath(fileName);
             
             EntidadeDAO et = DAOFactory.createEntidadeDAO();
             et.inserir(entidade);
@@ -57,11 +55,21 @@ public class cadastrarEntidade extends HttpServlet {
             out.println("alert('Entidade Cadastrada!!');");
             out.println("location='/SA-JSP/Adm/Funcoes/addEntidades.jsp';");
             out.println("</script>");
-        
         }
+    
+       
     }
 
-    
+     private String extractFileName(Part part) {
+         String contentDisp = part.getHeader("content-disposition");
+         String[] items = contentDisp.split(";");
+         for(String s : items ) {
+             if(s.trim().startsWith("filename")) {
+                 return s.substring(s.indexOf("=") + 2, s.length() - 1);
+             }
+         }
+         return "";
+     }
     
     
     
@@ -82,5 +90,6 @@ public class cadastrarEntidade extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
 
 }

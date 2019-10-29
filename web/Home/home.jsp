@@ -2,7 +2,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.sql.*"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -142,6 +142,7 @@
           </div>
     </header>
     <section>
+        
         <div id="causas" class="causa1">
             <h2>Apoio para pacientes com câncer</h2>
             <div class="tab-wrapper">
@@ -150,16 +151,24 @@
                   <li><a href="#" data-product-info-link="2">Campanhas</a></li>
                   <li><a href="#" data-product-info-link="3">Voluntariado</a></li>
                 </ul>
-                
+                <%
+                    Connection conn = DBConnection.getConnection();
+                    Statement st = conn.createStatement();
+                    String sql = "select * from entidade";
+                    ResultSet rs = st.executeQuery(sql);
+
+                    while(rs.next()) {
+                        String filename = rs.getString("path");
+                        String nome = rs.getString("nome");
+                        String descricao = rs.getString("descricao");
+                %>
                 <div class="product-info-tab" data-product-info-tab="1" style="display: block;">
                     <div class="card-wrapper">
                         <div class="card">
-                            <img src="imagens/back.jpg" alt="card background" class="card-img">
+                            <img src="imageEntidade/<%=filename%>" alt="card background" class="card-img">
                             <img src="imagens/logo-branco-300x287.png" alt="profile image" class="profile-img">
-                            <h1>Solidarity Player</h1>
-                            <p>A ABRALE – Associação Brasileira de Linfoma e Leucemia é uma das mais conceituadas e importantes associações 
-                                que trabalha em todo o país para democratizar o tratamento e qualidade de vida de pessoas com doenças hematológicas.
-                            </p>
+                            <h1><%=nome%></h1>
+                            <p><%=descricao%></p>
                             <a href="../SobreDoacao/sobreDoacao.jsp" class="btn-doar">Contribua agora</a>
                         </div>
                         <div class="card">
@@ -182,10 +191,13 @@
                         </div>
                     </div>
                 </div>
+                 <%
+                    }
+                 %>            
                 <div class="product-info-tab" data-product-info-tab="2">
                     <div class="card-wrapper">
                         <div class="card">
-                            <img src="imagens/back.jpg" alt="card background" class="card-img">
+                            <img src="" alt="card background" class="card-img">
                             <img src="imagens/logo-branco-300x287.png" alt="profile image" class="profile-img">
                             <h1>Solidarity</h1>
                             <p>A ABRALE – Associação Brasileira de Linfoma e Leucemia é uma das mais conceituadas e importantes associações 
@@ -246,7 +258,9 @@
                 </div>
             </div>
         </div>
+       
     </section>
+   
     <section>
         <div class="causa">
             <h2 class="h2card">Apoio para pacientes com câncer</h2>

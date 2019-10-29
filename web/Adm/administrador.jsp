@@ -109,6 +109,11 @@
                         <div class="title">
                             Campanhas
                         </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a href="./Funcoes/addCampanha.jsp" class="btn btn-primary">Adicionar Campanha</a>
+                            </div>
+                        </div>
                     </div>
                     <div id="voluntariado-actions">
                         <div class="title">

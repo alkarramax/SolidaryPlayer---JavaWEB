@@ -347,6 +347,7 @@ nav.navFixed .logo img{
 
 .card{
     width: 21rem;
+    height: 650px;
     background-color: #ebeef8;
     display: flex;
     flex-direction: column;
@@ -354,6 +355,10 @@ nav.navFixed .logo img{
     justify-content: center;
     margin: 2rem 0;
     box-shadow: .5rem .5rem 3rem rgba(0,0,0,0.2);
+}
+
+.card p {
+    height: 250px;
 }
 
 .card .card-img{

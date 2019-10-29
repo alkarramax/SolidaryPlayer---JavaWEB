@@ -6,14 +6,8 @@ public class Entidade {
     
     private int id_entidade;
     private String imagem;
-    private String nome, descricao, endereco, causa, email, telefone;
+    private String nome, descricao, endereco, causa, email, telefone, path;
 
-    
-    
-    
-    
-    
-    
     //MÉTODOS ESPECIAIS
     public int getId_entidade() {
         return id_entidade;
@@ -79,5 +73,12 @@ public class Entidade {
         this.telefone = telefone;
     }
     
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
     
 }

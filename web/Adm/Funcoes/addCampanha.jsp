@@ -18,37 +18,21 @@
     <body>
         <div class="row">
             <div class="col-md-6">
-                <h3>Cadastrar Entidade</h3>
+                <h3>Cadastrar Campanha</h3>
             </div>
         </div>
-        <form action="../../cadastrarEntidade" method="post" enctype="multipart/form-data">
+        <form action="../../cadastrarCampanha" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label>Nome: </label>
-                <input type="text" class="form-control" name="nome" >
-            </div>
-            <div class="form-group">
-                <label>Email: </label>
-                <input type="text" class="form-control" name="email" >
-            </div>
-            <div class="form-group">
-                <label>Causa: </label>
-                <input type="text" class="form-control" name="causa" >
-            </div>
-            <div class="form-group">
-                <label>Endereço: </label>
-                <input type="text" class="form-control" name="endereco" >
-            </div>
-            <div class="form-group">
-                <label>Telefone: </label>
-                <input type="text" class="form-control" name="telefone" placeholder="(xx)9xxxx-xxxx" >
+                <input type="text" class="form-control" name="nomeCampanha" >
             </div>
             <div class="form-group">
                 <label>Descrição: </label>
-                <textarea class="form-control" name="descricao" ></textarea>
+                <textarea class="form-control" name="descricaoCampanha" ></textarea>
             </div>
             
             <div>
-                <input type="file" name="file" size="50"/>
+                <input type="file" name="fileCampanha" size="50"/>
             </div>
             
             </br>
