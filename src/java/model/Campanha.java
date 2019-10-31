@@ -1,18 +1,15 @@
 package model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Campanha {
     
     private int id_campanha;
-    private String imagem;
-    private String nome, descricao, local;
-    private Date dataInicio, dataTermino;
+    private String nome, descricao, local, imagem;
+    private LocalDate dataInicio, dataTermino;
+    private Softplayer id_softplayer;
+    private Necessidade id_necessidade;
 
-   
-    private boolean presenca, aberta;
-    
-    //MÉTODOS ESPECIAIS
     public int getId_campanha() {
         return id_campanha;
     }
@@ -21,15 +18,6 @@ public class Campanha {
         this.id_campanha = id_campanha;
     }
 
-    public String getImagem() {
-        return imagem;
-    }
-
-    public void setImagem(String imagem) {
-        this.imagem = imagem;
-    }
-
-   
     public String getNome() {
         return nome;
     }
@@ -54,40 +42,49 @@ public class Campanha {
         this.local = local;
     }
 
-    
-     public Date getDataInicio() {
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
+    }
+
+    public LocalDate getDataInicio() {
         return dataInicio;
     }
 
-    public void setDataInicio(Date dataInicio) {
+    public void setDataInicio(LocalDate dataInicio) {
         this.dataInicio = dataInicio;
     }
 
-    public Date getDataTermino() {
+    public LocalDate getDataTermino() {
         return dataTermino;
     }
 
-    public void setDataTermino(Date dataTermino) {
+    public void setDataTermino(LocalDate dataTermino) {
         this.dataTermino = dataTermino;
     }
-    
 
-    public boolean isPresenca() {
-        return presenca;
+
+    public Softplayer getId_softplayer() {
+        return id_softplayer;
     }
 
-    public void setPresenca(boolean presenca) {
-        this.presenca = presenca;
+    public void setId_softplayer(Softplayer id_softplayer) {
+        this.id_softplayer = id_softplayer;
     }
 
-    public boolean isAberta() {
-        return aberta;
+    public Necessidade getId_necessidade() {
+        return id_necessidade;
     }
 
-    public void setAberta(boolean aberta) {
-        this.aberta = aberta;
+    public void setId_necessidade(Necessidade id_necessidade) {
+        this.id_necessidade = id_necessidade;
     }
     
     
     
+    
+   
 }

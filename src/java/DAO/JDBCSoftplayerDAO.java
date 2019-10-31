@@ -25,15 +25,14 @@ public class JDBCSoftplayerDAO implements SoftplayerDAO {
     @Override
     public void inserir(Softplayer softplayer) {
         try {
-            String SQL = "insert into softplayers(nome, sobrenome, senha, email, cargo, unidade) "
-                    + "values (?,?,?,?,?,?)";
+            String SQL = "insert into softplayers(nome, senha, email, cargo, unidade) "
+                    + "values (?,?,?,?,?)";
             PreparedStatement ps = connection.prepareStatement(SQL);
             ps.setString(1, softplayer.getNome());
-            ps.setString(2, softplayer.getSobrenome());
-            ps.setString(3, softplayer.getSenha());
-            ps.setString(4, softplayer.getEmail());
-            ps.setString(5, softplayer.getCargo());
-            ps.setString(6, softplayer.getUnidade());
+            ps.setString(2, softplayer.getSenha());
+            ps.setString(3, softplayer.getEmail());
+            ps.setString(4, softplayer.getCargo());
+            ps.setString(5, softplayer.getUnidade());
             
             ps.executeUpdate();
             
@@ -74,7 +73,6 @@ public class JDBCSoftplayerDAO implements SoftplayerDAO {
                 
                 //softplayer.setUuid(rs.getInt("id"));
                 softplayer.setNome(rs.getString("nome"));
-                softplayer.setSobrenome(rs.getString("sobrenome"));
                 softplayer.setEmail(rs.getString("email"));
                 softplayer.setCargo(rs.getString("cargo"));
                 softplayer.setUnidade(rs.getString("unidade"));

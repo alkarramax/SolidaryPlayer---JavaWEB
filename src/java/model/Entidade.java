@@ -5,8 +5,7 @@ package model;
 public class Entidade {
     
     private int id_entidade;
-    private String imagem;
-    private String nome, descricao, endereco, causa, email, telefone, path;
+    private String nome, descricao, endereco, causa, email, telefone, imagem;
 
     //MÉTODOS ESPECIAIS
     public int getId_entidade() {
@@ -72,13 +71,4 @@ public class Entidade {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
-    
-    public String getPath() {
-        return path;
-    }
-
-    public void setPath(String path) {
-        this.path = path;
-    }
-    
 }

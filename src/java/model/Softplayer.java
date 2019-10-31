@@ -4,7 +4,7 @@ public class Softplayer {
     
     
     private int id_softplayer;
-    private String nome, sobrenome, email, cargo, unidade, senha;   
+    private String nome, email, cargo, unidade, senha;   
     
     
     //MÉTODOS ESPECIAIS
@@ -22,14 +22,6 @@ public class Softplayer {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getSobrenome() {
-        return sobrenome;
-    }
-
-    public void setSobrenome(String sobrenome) {
-        this.sobrenome = sobrenome;
     }
 
     public String getEmail() {

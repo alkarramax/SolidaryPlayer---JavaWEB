@@ -32,7 +32,7 @@ public class cadastrarDoacao extends HttpServlet {
             doacao.setNome(nome);
             doacao.setDescricao(descricao);
             doacao.setLocal(local);
-            doacao.setData(data);
+            
             
             
         }

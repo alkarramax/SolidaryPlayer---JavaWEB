@@ -34,7 +34,7 @@ public class JDBCEntidadeDAO implements EntidadeDAO {
                 ps.setString(4, entidade.getTelefone());
                 ps.setString(5, entidade.getDescricao());
                 ps.setString(6, entidade.getEndereco());
-                ps.setString(7, entidade.getPath());
+                ps.setString(7, entidade.getImagem());
                 
                 ps.executeUpdate();
                 ps.close();

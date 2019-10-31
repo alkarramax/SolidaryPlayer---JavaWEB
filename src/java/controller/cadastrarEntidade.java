@@ -46,7 +46,7 @@ public class cadastrarEntidade extends HttpServlet {
             entidade.setEndereco(endereco);
             entidade.setTelefone(telefone);
             entidade.setDescricao(descricao);
-            entidade.setPath(fileName);
+            entidade.setImagem(fileName);
             
             EntidadeDAO et = DAOFactory.createEntidadeDAO();
             et.inserir(entidade);

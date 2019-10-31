@@ -22,7 +22,6 @@ public class cadastro extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             
             String nome = request.getParameter("nome");
-            String sobrenome = request.getParameter("sobrenome");
             String senha = request.getParameter("senha");
             String email = request.getParameter("email");
             String cargo = request.getParameter("cargo");
@@ -31,7 +30,6 @@ public class cadastro extends HttpServlet {
             Softplayer softplayer = new Softplayer();
             
             softplayer.setNome(nome);
-            softplayer.setSobrenome(sobrenome);
             softplayer.setSenha(senha);
             softplayer.setEmail(email);
             softplayer.setCargo(cargo);

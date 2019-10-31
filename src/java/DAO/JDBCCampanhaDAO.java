@@ -67,7 +67,6 @@ public class JDBCCampanhaDAO implements CampanhaDAO{
                 campanha.setNome(rs.getString("nome"));
                 campanha.setDescricao(rs.getString("descricao"));
                 campanha.setLocal(rs.getString("local"));
-                campanha.setData(rs.getDate("data"));
                 campanhas.add(campanha);
             }
             

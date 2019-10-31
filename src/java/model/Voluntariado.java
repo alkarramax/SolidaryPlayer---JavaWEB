@@ -4,11 +4,13 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class Voluntariado {
+    
     private int id_voluntariado;
     private String nome, descricao, local, imagem;
     private LocalDate data;
     private LocalTime hora;
-    private boolean presenca, aberta;
+    
+    private Softplayer id_softplayer;
 
     //MÉTODOS ESPECIAIS
     public int getId_voluntariado() {
@@ -47,22 +49,31 @@ public class Voluntariado {
         return local;
     }
 
-
-    public boolean isPresenca() {
-        return presenca;
+    public LocalDate getData() {
+        return data;
     }
 
-    public void setPresenca(boolean presenca) {
-        this.presenca = presenca;
+    public void setData(LocalDate data) {
+        this.data = data;
     }
 
-    public boolean isAberta() {
-        return aberta;
+    public LocalTime getHora() {
+        return hora;
     }
 
-    public void setAberta(boolean aberta) {
-        this.aberta = aberta;
+    public void setHora(LocalTime hora) {
+        this.hora = hora;
     }
+
+    public Softplayer getId_softplayer() {
+        return id_softplayer;
+    }
+
+    public void setId_softplayer(Softplayer id_softplayer) {
+        this.id_softplayer = id_softplayer;
+    }
+
+    
     
     
     

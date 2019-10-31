@@ -22,13 +22,15 @@ public class JDBCVoluntariadoDAO implements VoluntariadoDAO{
     @Override
     public void inserir(Voluntariado voluntariado) {
        try {
-            String SQL = "insert into Voluntario(nome, descricao, local, data)"
-                    + "values (?,?,?,?)";
+            String SQL = "insert into voluntariado(nome, local, data, hora, descricao, imagem)"
+                    + "values (?,?,?,?,?,?)";
             try (PreparedStatement ps = connection.prepareStatement(SQL)) {
                 ps.setString(1, voluntariado.getNome());
-                ps.setString(2, voluntariado.getDescricao());
-                ps.setString(3, voluntariado.getLocal());
-                ps.setString(4, String.valueOf(voluntariado.getData()));
+                ps.setString(2, voluntariado.getLocal());
+                ps.setString(3, String.valueOf(voluntariado.getData()));
+                ps.setString(4, String.valueOf(voluntariado.getHora()));
+                ps.setString(5, voluntariado.getDescricao());
+                ps.setString(6, voluntariado.getImagem());
                 
                 
                 ps.executeUpdate();
@@ -66,8 +68,6 @@ public class JDBCVoluntariadoDAO implements VoluntariadoDAO{
 
                 voluntariado.setNome(rs.getString("nome"));
                 voluntariado.setDescricao(rs.getString("descricao"));
-                voluntariado.setLocal(rs.getString("local"));
-                voluntariado.setData(rs.getDate("data"));
                 voluntariados.add(voluntariado);
             }
             
