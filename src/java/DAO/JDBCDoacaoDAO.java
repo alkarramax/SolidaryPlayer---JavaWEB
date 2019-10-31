@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DAO;
 
 import DB.DBConnection;
@@ -26,13 +21,16 @@ public class JDBCDoacaoDAO implements DoacaoDAO{
     @Override
     public void inserir(Doacao doacao) {
         try {
-            String SQL = "insert into doacao(nome, descricao, local, data) "
-                    + "values (?,?,?,?)";
+            String SQL = "insert into doacao(nome, descricao, local, necessidade, data, quantidadeDeItens, aberta) "
+                    + "values (?,?,?,?,?,?,?)";
             PreparedStatement ps = connection.prepareStatement(SQL);
             ps.setString(1, doacao.getNome());
             ps.setString(2, doacao.getDescricao());
             ps.setString(3, doacao.getLocal());  
-            ps.setString(4, String.valueOf(doacao.getData()));
+            ps.setString(4, doacao.getNecessidade());
+            ps.setString(5, String.valueOf(doacao.getData()));
+            ps.setInt(6, doacao.getQuantidadeDeItens());
+            ps.setBoolean(7, doacao.isAberta());
             ps.executeUpdate();
             ps.close();
             

@@ -9,6 +9,7 @@ import DB.DBConnection;
 import java.util.List;
 import model.Campanha;
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,13 +25,16 @@ public class JDBCCampanhaDAO implements CampanhaDAO{
     @Override
     public void inserir(Campanha campanha) {
         try {
-            String SQL = "insert into campanha(nome, descricao, path) "
-                    + "values (?,?,?)";
+            String SQL = "insert into campanha(nome, local,  dataInicio, dataTermino, descricao, imagem) "
+                    + "values (?,?,?,?,?,?)";
             try (PreparedStatement ps = connection.prepareStatement(SQL)) {
                 ps.setString(1, campanha.getNome());
-                ps.setString(2, campanha.getDescricao());
+                ps.setString(2, campanha.getLocal());
+                ps.setString(3, String.valueOf(campanha.getDataInicio()));
+                ps.setString(3, String.valueOf(campanha.getDataTermino()));
+                ps.setString(3, campanha.getDescricao());
                 ps.setString(3, campanha.getImagem());
-
+                
                 ps.executeUpdate();
                 ps.close();
             }
@@ -65,8 +69,20 @@ public class JDBCCampanhaDAO implements CampanhaDAO{
                 Campanha campanha = new Campanha();
 
                 campanha.setNome(rs.getString("nome"));
-                campanha.setDescricao(rs.getString("descricao"));
                 campanha.setLocal(rs.getString("local"));
+                
+                String dataInicio = rs.getDate("dataInicio").toString();
+                LocalDate dtInicio = LocalDate.parse(dataInicio);
+                campanha.setDataInicio(dtInicio);
+                
+                String dataTermino = rs.getDate("dataTermino").toString();
+                LocalDate dtTermino = LocalDate.parse(dataTermino);
+                campanha.setDataTermino(dtTermino);
+                
+                campanha.setDescricao(rs.getString("descricao"));
+                campanha.setImagem(rs.getString("imagem"));
+
+
                 campanhas.add(campanha);
             }
             

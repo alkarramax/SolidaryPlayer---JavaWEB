@@ -5,6 +5,9 @@ import DB.DBConnection;
 import java.util.List;
 import model.Voluntariado;
 import java.sql.*;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -67,7 +70,16 @@ public class JDBCVoluntariadoDAO implements VoluntariadoDAO{
                 Voluntariado voluntariado = new Voluntariado();
 
                 voluntariado.setNome(rs.getString("nome"));
-                voluntariado.setDescricao(rs.getString("descricao"));
+                voluntariado.setLocal(rs.getString("local"));
+                
+                String data = rs.getDate("data").toString();
+                LocalDate dt = LocalDate.parse(data);
+                voluntariado.setData(dt);
+                
+                String hora = rs.getTime("hora").toString();
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+                //voluntariado.setHora();
+                
                 voluntariados.add(voluntariado);
             }
             

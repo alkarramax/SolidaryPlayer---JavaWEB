@@ -7,6 +7,7 @@ public class Voluntariado {
     
     private int id_voluntariado;
     private String nome, descricao, local, imagem;
+
     private LocalDate data;
     private LocalTime hora;
     
@@ -47,6 +48,10 @@ public class Voluntariado {
 
     public String getLocal() {
         return local;
+    }
+    
+    public void setLocal(String local) {
+        this.local = local;
     }
 
     public LocalDate getData() {
