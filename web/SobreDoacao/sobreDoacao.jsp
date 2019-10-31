@@ -5,26 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="sobreDoacao.css">
+    <link rel="stylesheet" type="text/css" href="styleDoacao.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <title>Document</title>
+    <title>Doação</title>
     <link rel="shortcut icon" type="image/x-icon" href="imagens/7618Logo.ico">
     
     <script>
-    function Nova(){
-        location.href="../Home/home.jsp";
+    function Nova() {
+        location.href="../Home/home.html"
     }
-</script>
+    </script>
 </head>
-
 <body>
     <nav>
         <svg  onclick="Nova()" id="i-chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
             <path d="M20 30 L8 16 20 2" />
         </svg>
-        <img src="imagens/Logo.png" alt="">
-        <button type="button" class="btn btn-primary">Venha fazer parte dessa comunidade.</button>
+        <img src="../imagensSobre/Logo.png" alt="">
     </nav>
     <div class="text-sobre">
         <h2>Lorem ipsum</h2>
@@ -36,18 +34,32 @@
             placerat in nisi blandit. libero praesent curae sed at orci elementum, ut gravida maecenas justo quisque faucibus 
             ac, dapibus ultricies ipsum volutpat aliquam. </p>
     </div>
+    <div class="text-sobre-info"> 
+        <div class="text-sobre-info-detalhe">
+            <p>Local:</p>
+            <p>Softplan</p>
+        </div>
+        <div class="text-sobre-info-detalhe">
+            <p>Necessidade:</p>
+            <p>Roupas</p>
+        </div>
+        <div class="text-sobre-info-detalhe">
+            <p>Data término:</p>
+            <p>12/12/2019</p>
+        </div>
+    </div>
     <div id="contact" class="contact">
             <form>
                 <div class="form-separator">
                     <div class="input">
                         <div class="caixa-input">
-                            <img src="imagens/avatar.png" alt=""/>
-                            <input src id="name" type="text" placeholder="Nome"/> <!--placeholder="" dica do input-->
+                            <img src="../imagensSobre/avatar.png" alt=""/>
+                            <input id="name" type="text" placeholder="Nome"/> <!--placeholder="" dica do input-->
                         </div>
                     </div>
                     <div class="input">
                         <div class="caixa-input">
-                            <img src="imagens/mail (3).png" alt=""/>
+                            <img src="../imagensSobre/mail (3).png" alt=""/>
                             <input id="email" type="text" placeholder="E-mail"/> 
                         </div>
                     </div>
@@ -55,19 +67,19 @@
                 <div class="form-separator">
                     <div class="input2">
                         <div class="caixa-input2">
-                            <img src="imagens/wallet (1).png" alt=""/>
+                            <img src="../imagensSobre/wallet (1).png" alt=""/>
                             <input id="cpf" type="text" placeholder="CPF"/> 
                         </div>
                     </div>
                     <div class="input2">
                         <div class="caixa-input2">
-                            <img src="imagens/suitcase.png" alt=""/>
+                            <img src="../imagensSobre/suitcase.png" alt=""/>
                             <input id="cargo" type="text" placeholder="Cargo"/> 
                         </div>
                     </div>
                     <div class="input2">
                         <div class="caixa-input2">
-                            <img src="imagens/office-block.png" alt=""/>
+                            <img src="../imagensSobre/office-block.png" alt=""/>
                             <input id="unidade" type="text" placeholder="Unidade"/> 
                         </div>
                     </div>
@@ -75,13 +87,13 @@
                 <div class="form-separator">
                     <div class="input">
                         <div class="caixa-input">
-                            <img src="imagens/plank.png" alt=""/>
-                            <input src id="quantidade" type="text" placeholder="Quantidade"/> 
+                            <img src="../imagensSobre/plank.png" alt=""/>
+                            <input id="quantidade" type="text" placeholder="Quantidade"/> 
                         </div>
                     </div>
                     <div class="input">
                         <div class="caixa-input">
-                            <img src="imagens/type.png" alt=""/>
+                            <img src="../imagensSobre/type.png" alt=""/>
                             <input id="tipo" type="text" placeholder="Tipo"/> 
                         </div>
                     </div>

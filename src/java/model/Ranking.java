@@ -5,13 +5,6 @@ public class Ranking {
     private int id_ranking;
     private int pontuacao;
     private String unidade;
-    private int softplayer_ranking_fk;
-    
-
-    
-    
-    
-    
     
     //MÉTODOS ESPECIAIS
     public int getId_ranking() {
@@ -38,12 +31,6 @@ public class Ranking {
         this.unidade = unidade;
     }
 
-    public int getSoftplayer_ranking_fk() {
-        return softplayer_ranking_fk;
-    }
-
-    public void setSoftplayer_ranking_fk(int softplayer_ranking_fk) {
-        this.softplayer_ranking_fk = softplayer_ranking_fk;
-    }
+  
     
 }

@@ -34,7 +34,7 @@ public class cadastrarEntidade extends HttpServlet {
             
             Part part = request.getPart("file");
             String fileName = extractFileName(part);
-            String savePath = "C:\\Users\\Aluno\\Documents\\NetBeansProjects\\BackEndSolidaryPlayerAaa\\web\\Home\\imageEntidade"+ File.separator + fileName;
+            String savePath = "C:\\Users\\Aluno\\Documents\\NetBeansProjects\\BackEndSolidaryPlayer\\web\\Home\\imageEntidade"+ File.separator + fileName;
             File fileSaveDir = new File(savePath);
             part.write(savePath + File.separator);
             

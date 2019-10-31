@@ -1,25 +1,15 @@
 package model;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class Voluntariado {
-    
-    
     private int id_voluntariado;
-    private String imagem;
-    
-    private int entidade_voluntariado_fk, softplayer_voluntariado_fk, necessidade_voluntariado_1_fk,
-            necessidade_voluntariado_2_fk, necessidade_voluntariado_3_fk, necessidade_voluntariado_4_fk;
-    
-    private String nome, descricao, local;
-    private Date data;
+    private String nome, descricao, local, imagem;
+    private LocalDate data;
+    private LocalTime hora;
     private boolean presenca, aberta;
 
-    
-    
-    
-    
-    
     //MÉTODOS ESPECIAIS
     public int getId_voluntariado() {
         return id_voluntariado;
@@ -35,54 +25,6 @@ public class Voluntariado {
 
     public void setImagem(String imagem) {
         this.imagem = imagem;
-    }
-
-    public int getEntidade_voluntariado_fk() {
-        return entidade_voluntariado_fk;
-    }
-
-    public void setEntidade_voluntariado_fk(int entidade_voluntariado_fk) {
-        this.entidade_voluntariado_fk = entidade_voluntariado_fk;
-    }
-
-    public int getSoftplayer_voluntariado_fk() {
-        return softplayer_voluntariado_fk;
-    }
-
-    public void setSoftplayer_voluntariado_fk(int softplayer_voluntariado_fk) {
-        this.softplayer_voluntariado_fk = softplayer_voluntariado_fk;
-    }
-
-    public int getNecessidade_voluntariado_1_fk() {
-        return necessidade_voluntariado_1_fk;
-    }
-
-    public void setNecessidade_voluntariado_1_fk(int necessidade_voluntariado_1_fk) {
-        this.necessidade_voluntariado_1_fk = necessidade_voluntariado_1_fk;
-    }
-
-    public int getNecessidade_voluntariado_2_fk() {
-        return necessidade_voluntariado_2_fk;
-    }
-
-    public void setNecessidade_voluntariado_2_fk(int necessidade_voluntariado_2_fk) {
-        this.necessidade_voluntariado_2_fk = necessidade_voluntariado_2_fk;
-    }
-
-    public int getNecessidade_voluntariado_3_fk() {
-        return necessidade_voluntariado_3_fk;
-    }
-
-    public void setNecessidade_voluntariado_3_fk(int necessidade_voluntariado_3_fk) {
-        this.necessidade_voluntariado_3_fk = necessidade_voluntariado_3_fk;
-    }
-
-    public int getNecessidade_voluntariado_4_fk() {
-        return necessidade_voluntariado_4_fk;
-    }
-
-    public void setNecessidade_voluntariado_4_fk(int necessidade_voluntariado_4_fk) {
-        this.necessidade_voluntariado_4_fk = necessidade_voluntariado_4_fk;
     }
 
     public String getNome() {
@@ -105,17 +47,6 @@ public class Voluntariado {
         return local;
     }
 
-    public Date getData() {
-        return data;
-    }
-
-    public void setData(Date data) {
-        this.data = data;
-    }
-
-    public void setLocal(String local) {
-        this.local = local;
-    }
 
     public boolean isPresenca() {
         return presenca;

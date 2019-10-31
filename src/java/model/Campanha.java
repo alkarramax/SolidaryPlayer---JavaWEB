@@ -6,11 +6,10 @@ public class Campanha {
     
     private int id_campanha;
     private String imagem;
-    private int entidade_campanha_fk, softplayer_campanha_fk, necessidade_campanha_1_fk,
-            necessidade_campanha_2_fk, necessidade_campanha_3_fk, necessidade_campanha_4_fk;
-    
     private String nome, descricao, local;
-    private Date data;
+    private Date dataInicio, dataTermino;
+
+   
     private boolean presenca, aberta;
     
     //MÉTODOS ESPECIAIS
@@ -30,54 +29,7 @@ public class Campanha {
         this.imagem = imagem;
     }
 
-    public int getEntidade_campanha_fk() {
-        return entidade_campanha_fk;
-    }
-
-    public void setEntidade_campanha_fk(int entidade_campanha_fk) {
-        this.entidade_campanha_fk = entidade_campanha_fk;
-    }
-
-    public int getSoftplayer_campanha_fk() {
-        return softplayer_campanha_fk;
-    }
-
-    public void setSoftplayer_campanha_fk(int softplayer_campanha_fk) {
-        this.softplayer_campanha_fk = softplayer_campanha_fk;
-    }
-
-    public int getNecessidade_campanha_1_fk() {
-        return necessidade_campanha_1_fk;
-    }
-
-    public void setNecessidade_campanha_1_fk(int necessidade_campanha_1_fk) {
-        this.necessidade_campanha_1_fk = necessidade_campanha_1_fk;
-    }
-
-    public int getNecessidade_campanha_2_fk() {
-        return necessidade_campanha_2_fk;
-    }
-
-    public void setNecessidade_campanha_2_fk(int necessidade_campanha_2_fk) {
-        this.necessidade_campanha_2_fk = necessidade_campanha_2_fk;
-    }
-
-    public int getNecessidade_campanha_3_fk() {
-        return necessidade_campanha_3_fk;
-    }
-
-    public void setNecessidade_campanha_3_fk(int necessidade_campanha_3_fk) {
-        this.necessidade_campanha_3_fk = necessidade_campanha_3_fk;
-    }
-
-    public int getNecessidade_campanha_4_fk() {
-        return necessidade_campanha_4_fk;
-    }
-
-    public void setNecessidade_campanha_4_fk(int necessidade_campanha_4_fk) {
-        this.necessidade_campanha_4_fk = necessidade_campanha_4_fk;
-    }
-
+   
     public String getNome() {
         return nome;
     }
@@ -102,14 +54,22 @@ public class Campanha {
         this.local = local;
     }
 
-    public Date getData() {
-        return data;
+    
+     public Date getDataInicio() {
+        return dataInicio;
     }
 
-    public void setData(Date data) {
-        this.data = data;
+    public void setDataInicio(Date dataInicio) {
+        this.dataInicio = dataInicio;
     }
 
+    public Date getDataTermino() {
+        return dataTermino;
+    }
+
+    public void setDataTermino(Date dataTermino) {
+        this.dataTermino = dataTermino;
+    }
     
 
     public boolean isPresenca() {

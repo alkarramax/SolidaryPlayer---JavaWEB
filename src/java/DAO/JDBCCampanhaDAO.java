@@ -24,11 +24,12 @@ public class JDBCCampanhaDAO implements CampanhaDAO{
     @Override
     public void inserir(Campanha campanha) {
         try {
-            String SQL = "insert into Campanha(Nome, Email, Causa, Telefone, Descricao, Endereco, path) "
-                    + "values (?,?,?,?,?,?,?)";
+            String SQL = "insert into campanha(nome, descricao, path) "
+                    + "values (?,?,?)";
             try (PreparedStatement ps = connection.prepareStatement(SQL)) {
                 ps.setString(1, campanha.getNome());
-                ps.setString(3, campanha.getDescricao());
+                ps.setString(2, campanha.getDescricao());
+                ps.setString(3, campanha.getImagem());
 
                 ps.executeUpdate();
                 ps.close();

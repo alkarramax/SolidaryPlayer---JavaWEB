@@ -123,7 +123,7 @@
                         <li><a class="ancora-scroll" href="#como-funciona">Como funciona?</a></li>
                         
                         <% if(nomeUsuario == null) { %>
-                        <li><a class="nav-link" href="#" id="popUpAparecer" value="">Login</a></li>
+                        <li><a class="nav-link" href="#" id="popUpAparecer">Login</a></li>
                         <%} else {%>
                         <li><a class="nav-link" href="#" id="deslogar"><%=nomeUsuario%></a></li>
                         <%}%>
@@ -142,7 +142,6 @@
           </div>
     </header>
     <section>
-        
         <div id="causas" class="causa1">
             <h2>Apoio para pacientes com câncer</h2>
             <div class="tab-wrapper">
@@ -193,13 +192,24 @@
                 </div>
                  <%
                     }
-                 %>            
+                 %>  
+                 
+                 <%
+                     Connection connCp = DBConnection.getConnection();
+                     Statement stCp = connCp.createStatement();
+                     String SQLCP = "select * from campanha";
+                     ResultSet rsCp = stCp.executeQuery(SQLCP);
+                     
+                     while(rsCp.next()) {
+                         String filenameCp = rsCp.getString("path");
+                         String nomeCp = rsCp.getString("nome");
+                 %>
                 <div class="product-info-tab" data-product-info-tab="2">
                     <div class="card-wrapper">
                         <div class="card">
-                            <img src="" alt="card background" class="card-img">
+                            <img src="imageCampanha/<%=filenameCp%>" alt="card background" class="card-img">
                             <img src="imagens/logo-branco-300x287.png" alt="profile image" class="profile-img">
-                            <h1>Solidarity</h1>
+                            <h1><%=nomeCp%></h1>
                             <p>A ABRALE – Associação Brasileira de Linfoma e Leucemia é uma das mais conceituadas e importantes associações 
                                 que trabalha em todo o país para democratizar o tratamento e qualidade de vida de pessoas com doenças hematológicas.
                             </p>
@@ -225,6 +235,9 @@
                         </div>
                     </div>
                 </div>
+                <%
+                }
+                %>
                 <div class="product-info-tab" data-product-info-tab="3">
                     <div class="card-wrapper">
                         <div class="card">

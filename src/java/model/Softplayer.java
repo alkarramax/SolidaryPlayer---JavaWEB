@@ -7,9 +7,6 @@ public class Softplayer {
     private String nome, sobrenome, email, cargo, unidade, senha;   
     
     
-    
-    
-    
     //MÉTODOS ESPECIAIS
     public int getId_softplayer() {
         return id_softplayer;
