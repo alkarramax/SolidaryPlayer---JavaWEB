@@ -25,15 +25,15 @@ public class JDBCCampanhaDAO implements CampanhaDAO{
     @Override
     public void inserir(Campanha campanha) {
         try {
-            String SQL = "insert into campanha(nome, local,  dataInicio, dataTermino, descricao, imagem) "
+            String SQL = "INSERT INTO campanha(nome, local, dataInicio, dataTermino, descricao, imagem)"
                     + "values (?,?,?,?,?,?)";
             try (PreparedStatement ps = connection.prepareStatement(SQL)) {
                 ps.setString(1, campanha.getNome());
                 ps.setString(2, campanha.getLocal());
                 ps.setString(3, String.valueOf(campanha.getDataInicio()));
-                ps.setString(3, String.valueOf(campanha.getDataTermino()));
-                ps.setString(3, campanha.getDescricao());
-                ps.setString(3, campanha.getImagem());
+                ps.setString(4, String.valueOf(campanha.getDataTermino()));
+                ps.setString(5, campanha.getDescricao());
+                ps.setString(6, campanha.getImagem());
                 
                 ps.executeUpdate();
                 ps.close();

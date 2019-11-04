@@ -81,21 +81,21 @@
                                     Connection connEntidade = DBConnection.getConnection();
                                     Statement statEntidade = connEntidade.createStatement();
 
-                                    String dataEntidade = "select * from Entidade";
+                                    String dataEntidade = "select * from entidade";
                                     ResultSet rsEntin = statEntidade.executeQuery(dataEntidade);
 
                                     while(rsEntin.next()) {
                                 %>  
                                 <tr>
-                                    <td><%=rsEntin.getString("id")%></td>
-                                    <td><%=rsEntin.getString("Nome")%></td>
-                                    <td><%=rsEntin.getString("Causa")%></td>
-                                    <td><%=rsEntin.getString("Endereco")%></td>
-                                    <td><%=rsEntin.getString("Email")%></td>
-                                    <td><%=rsEntin.getString("Telefone")%></td>
+                                    <td><%=rsEntin.getString("id_entidade")%></td>
+                                    <td><%=rsEntin.getString("nome")%></td>
+                                    <td><%=rsEntin.getString("causa")%></td>
+                                    <td><%=rsEntin.getString("endereco")%></td>
+                                    <td><%=rsEntin.getString("email")%></td>
+                                    <td><%=rsEntin.getString("telefone")%></td>
                                     <td>
-                                    <a href="./Funcoes/editarEntidade.jsp?u=<%=rsEntin.getString("id")%>" class="btn btn-warning">Editar</a>
-                                    <a href='../deleteEntidade?d=<%=rsEntin.getString("id")%>' class="btn btn-danger">Delete</a>
+                                    <a href="./Funcoes/editarEntidade.jsp?u=<%=rsEntin.getString("id_entidade")%>" class="btn btn-warning">Editar</a>
+                                    <a href='../deleteEntidade?d=<%=rsEntin.getString("id_entidade")%>' class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>
                                 <%
@@ -130,8 +130,8 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Nome</th>
-                                    <th>Endereço</th>
-                                    <th>Email</th>
+                                    <th>Local</th>
+                                    <th>Aberta</th>
                                     <th>Funções</th>
                                 </tr>
                             </thead>
@@ -139,18 +139,18 @@
                                 <% 
                                     Connection connDoacao = DBConnection.getConnection();
                                     Statement statDoacao = connDoacao.createStatement();
-                                    String dataDoacao = "select * from Entidade";
+                                    String dataDoacao = "select * from doacao";
                                     ResultSet rsDoacao = statDoacao.executeQuery(dataDoacao);
 
                                     while(rsDoacao.next()) {
                                 %>  
                                 <tr>
-                                    <td><%=rsDoacao.getString("id")%></td>
-                                    <td><%=rsDoacao.getString("Nome")%></td>
-                                    <td><%=rsDoacao.getString("Endereco")%></td>
-                                    <td><%=rsDoacao.getString("Email")%></td>
+                                    <td><%=rsDoacao.getString("id_doacao")%></td>
+                                    <td><%=rsDoacao.getString("nome")%></td>
+                                    <td><%=rsDoacao.getString("local")%></td>
+                                    <td><%=rsDoacao.getString("aberta")%></td>
                                     <td>
-                                    <a href="./Funcoes/criarDoacao.jsp?u=<%=rsDoacao.getString("id")%>" class="btn btn-success">Criar Doação</a>
+                                    <a href="./Funcoes/criarDoacao.jsp?u=<%=rsDoacao.getString("id_doacao")%>" class="btn btn-success">Criar Doação</a>
                                     </td>
                                 </tr>
                                 <%
@@ -171,7 +171,6 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Nome</th>
-                                    <th>Sobrenome</th>
                                     <th>Email</th>
                                     <th>Cargo</th>
                                     <th>Unidade</th>
@@ -189,14 +188,13 @@
                                while(rs.next()) {
                             %>
                              <tr>
-                                <td><%=rs.getString("id")%></td>
+                                <td><%=rs.getString("id_softplayer")%></td>
                                 <td><%=rs.getString("nome")%></td>
-                                <td><%=rs.getString("sobrenome")%></td>
                                 <td><%=rs.getString("email")%></td>
                                 <td><%=rs.getString("cargo")%></td>
                                 <td><%=rs.getString("unidade")%></td>
                                 <td>
-                                    <a href='../deletePlayers?d=<%=rs.getString("id")%>' class="btn btn-danger">Delete</a>
+                                    <a href='../deletePlayers?d=<%=rs.getString("id_softplayer")%>' class="btn btn-danger">Delete</a>
                                 </td>
 
                              </tr>

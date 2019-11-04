@@ -7,7 +7,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="../admin.css"/>
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-        <title>Cadastrar Entidade</title>
+        <title>Cadastrar Campanha</title>
         
         <style>
             body {
@@ -27,20 +27,15 @@
                 <input type="text" class="form-control" name="nome" >
             </div>
             <div class="form-group">
-                <label>Email: </label>
-                <input type="text" class="form-control" name="email" >
+                <label>Local: </label>
+                <input type="text" class="form-control" name="local" >
             </div>
             <div class="form-group">
-                <label>Causa: </label>
-                <input type="text" class="form-control" name="causa" >
-            </div>
-            <div class="form-group">
-                <label>Endereço: </label>
-                <input type="text" class="form-control" name="endereco" >
-            </div>
-            <div class="form-group">
-                <label>Telefone: </label>
-                <input type="text" class="form-control" name="telefone" placeholder="(xx)9xxxx-xxxx" >
+                <label>Data inicio: </label>
+                <input type="date" class="form-control" name="dataInicio" >
+            
+                <label>Data termino: </label>
+                <input type="date" class="form-control" name="dataTermino" >
             </div>
             <div class="form-group">
                 <label>Descrição: </label>

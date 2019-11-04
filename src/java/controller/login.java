@@ -33,7 +33,7 @@ public class login extends HttpServlet {
             try {
                 Connection connection = DBConnection.getConnection();
                 Statement stmt = connection.createStatement();
-                ResultSet rs = stmt.executeQuery("select * from softplayers where email='"+email+"' and senha='"+senha+"'");
+                ResultSet rs = stmt.executeQuery("select * from softplayer where email='"+email+"' and senha='"+senha+"'");
                 if(rs.next()) {
                     session.setAttribute("nome", rs.getString("nome"));
                     response.sendRedirect("/SA-JSP/Home/home.jsp");

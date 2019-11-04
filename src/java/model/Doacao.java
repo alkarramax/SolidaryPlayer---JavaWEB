@@ -13,7 +13,7 @@ public class Doacao {
     
     private Softplayer id_softplayer;
     private Necessidade id_necessidade;
-    private Entidade id_entidade;
+    private int id_entidade;
 
     public int getId_doacao() {
         return id_doacao;
@@ -96,11 +96,11 @@ public class Doacao {
         this.id_necessidade = id_necessidade;
     }
 
-    public Entidade getId_entidade() {
+    public int getId_entidade() {
         return id_entidade;
     }
 
-    public void setId_entidade(Entidade id_entidade) {
+    public void setId_entidade(int id_entidade) {
         this.id_entidade = id_entidade;
     }
     

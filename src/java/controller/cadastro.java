@@ -22,27 +22,27 @@ public class cadastro extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             
             String nome = request.getParameter("nome");
-            String senha = request.getParameter("senha");
             String email = request.getParameter("email");
             String cargo = request.getParameter("cargo");
             String unidade = request.getParameter("unidade");
-
+            String senha = request.getParameter("senha");
+               
             Softplayer softplayer = new Softplayer();
             
             softplayer.setNome(nome);
-            softplayer.setSenha(senha);
             softplayer.setEmail(email);
             softplayer.setCargo(cargo);
             softplayer.setUnidade(unidade);
+            softplayer.setSenha(senha);
             
-            SoftplayerDAO st = DAOFactory.createSoftplayerDAO();
-            st.inserir(softplayer);
-
+            SoftplayerDAO soft = DAOFactory.createSoftplayerDAO();
+            soft.inserir(softplayer);
+            
             out.println("<script type=\"text/javascript\">");
             out.println("alert('Cadastro realizado com sucesso!!');");
             out.println("location='/SA-JSP/Home/home.jsp';");
             out.println("</script>");
-            
+           
         }
     }
 

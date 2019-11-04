@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -29,10 +30,9 @@ public class criarCampanha extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             
             String nome = request.getParameter("nome");
-            String email = request.getParameter("email");
-            String causa = request.getParameter("causa");
-            String endereco = request.getParameter("endereco");
-            String telefone = request.getParameter("telefone");
+            String local = request.getParameter("local");
+            String dataInicio = request.getParameter("dataInicio");
+            String dataTermino = request.getParameter("dataTermino");
             String descricao = request.getParameter("descricao");
             
             
@@ -42,9 +42,15 @@ public class criarCampanha extends HttpServlet {
             File fileSaveDir = new File(savePath);
             part.write(savePath + File.separator);
             
+            LocalDate dtInicio = LocalDate.parse(dataInicio);
+            LocalDate dtTermino = LocalDate.parse(dataTermino);
+            
             Campanha campanha = new Campanha();
             
             campanha.setNome(nome);
+            campanha.setLocal(local);
+            campanha.setDataInicio(dtInicio);
+            campanha.setDataTermino(dtTermino);
             campanha.setDescricao(descricao);
             campanha.setImagem(fileName);
             

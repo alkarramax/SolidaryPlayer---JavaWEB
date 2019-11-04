@@ -33,7 +33,7 @@
 
                     while(rs.next()) {
                         %>
-                        <option name="entidadeSelecionada" value="<%=rs.getString("id")%>"><%=rs.getString("nome")%></option>
+                        <option name="entidade" value="<%=rs.getString("id_entidade")%>"><%=rs.getString("nome")%></option>
                         <%
                     }
                 %>
@@ -53,6 +53,10 @@
             <div class="form-group">
                 <label>Data: </label>
                 <input type="date" class="form-control" name="data" >
+            </div>
+            <div class="form-group">
+                <label>Necessidade: </label>
+                <input type="text" class="form-control" name="necessidade" >
             </div>
             <div>
                 <input type="file" name="photo" size="50"/>
