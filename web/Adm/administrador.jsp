@@ -139,18 +139,18 @@
                                 <% 
                                     Connection connDoacao = DBConnection.getConnection();
                                     Statement statDoacao = connDoacao.createStatement();
-                                    String dataDoacao = "select * from doacao";
+                                    String dataDoacao = "select * from entidade";
                                     ResultSet rsDoacao = statDoacao.executeQuery(dataDoacao);
 
                                     while(rsDoacao.next()) {
                                 %>  
                                 <tr>
-                                    <td><%=rsDoacao.getString("id_doacao")%></td>
+                                    <td><%=rsDoacao.getString("id_entidade")%></td>
                                     <td><%=rsDoacao.getString("nome")%></td>
-                                    <td><%=rsDoacao.getString("local")%></td>
-                                    <td><%=rsDoacao.getString("aberta")%></td>
+                                    <td><%=rsDoacao.getString("endereco")%></td>
+                                    <td><%=rsDoacao.getString("causa")%></td>
                                     <td>
-                                    <a href="./Funcoes/criarDoacao.jsp?u=<%=rsDoacao.getString("id_doacao")%>" class="btn btn-success">Criar Doação</a>
+                                    <a href="./Funcoes/criarDoacao.jsp?u=<%=rsDoacao.getInt("id_entidade")%>" class="btn btn-success">Criar Doação</a>
                                     </td>
                                 </tr>
                                 <%

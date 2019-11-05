@@ -5,8 +5,7 @@
  */
 package controller;
 
-import DAO.SoftplayerDAO;
-import DB.DAOFactory;
+import DAO.JDBCSoftplayerDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -27,8 +26,9 @@ public class deletePlayers extends HttpServlet {
             String id = request.getParameter("d");
             int no = Integer.parseInt(id);
             
-            SoftplayerDAO st = DAOFactory.createSoftplayerDAO();
-            st.remover(no);
+            JDBCSoftplayerDAO deleteDAO = new JDBCSoftplayerDAO();
+            deleteDAO.remover(no);
+            
             
             out.println("<script type=\"text/javascript\">");
             out.println("alert('User deletado!!');");

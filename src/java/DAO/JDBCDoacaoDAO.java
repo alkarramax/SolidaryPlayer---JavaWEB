@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 import model.Doacao;
 import java.sql.*;
 
-public class JDBCDoacaoDAO implements DoacaoDAO{
+public class JDBCDoacaoDAO{
 
     Connection connection;
 
@@ -18,7 +18,6 @@ public class JDBCDoacaoDAO implements DoacaoDAO{
     }
     
     
-    @Override
     public void inserir(Doacao doacao) {
         try {
             String SQL = "insert into doacao(nome, descricao, local, necessidade, data, quantidadeDeItens, aberta) "
@@ -39,22 +38,18 @@ public class JDBCDoacaoDAO implements DoacaoDAO{
         }
     }
 
-    @Override
     public void remover(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     public List<Doacao> listar() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     public Doacao buscar(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     public void editar(Doacao doacao) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

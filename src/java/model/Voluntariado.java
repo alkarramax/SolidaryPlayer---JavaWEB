@@ -11,7 +11,7 @@ public class Voluntariado {
     private LocalDate data;
     private LocalTime hora;
     
-    private Softplayer id_softplayer;
+    private int id_softplayer;
 
     //MÉTODOS ESPECIAIS
     public int getId_voluntariado() {
@@ -70,11 +70,11 @@ public class Voluntariado {
         this.hora = hora;
     }
 
-    public Softplayer getId_softplayer() {
+    public int getId_softplayer() {
         return id_softplayer;
     }
 
-    public void setId_softplayer(Softplayer id_softplayer) {
+    public void setId_softplayer(int id_softplayer) {
         this.id_softplayer = id_softplayer;
     }
 

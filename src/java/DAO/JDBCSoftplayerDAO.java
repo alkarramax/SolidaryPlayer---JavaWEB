@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class JDBCSoftplayerDAO implements SoftplayerDAO {
+public class JDBCSoftplayerDAO {
 
     Connection connection;
     public JDBCSoftplayerDAO() throws SQLException, ClassNotFoundException {
@@ -22,7 +22,6 @@ public class JDBCSoftplayerDAO implements SoftplayerDAO {
 
     
     
-    @Override
     public void inserir(Softplayer softplayer) {
         try {
             String SQL = "INSERT INTO softplayer(nome, email, cargo, unidade, senha)"
@@ -45,7 +44,6 @@ public class JDBCSoftplayerDAO implements SoftplayerDAO {
                
     }
 
-    @Override
     public void remover(int id) {
         try {
             String SQL = "Delete from softplayer where id= ?";
@@ -58,7 +56,6 @@ public class JDBCSoftplayerDAO implements SoftplayerDAO {
         }
     }
 
-    @Override
     public List<Softplayer> listar() {
         List<Softplayer> softplayers = new ArrayList<>();
         
@@ -83,7 +80,6 @@ public class JDBCSoftplayerDAO implements SoftplayerDAO {
         return softplayers;
     }
 
-    @Override
     public Softplayer buscar(String email) { 
         try {
             Softplayer softplayer = new Softplayer();
@@ -108,7 +104,6 @@ public class JDBCSoftplayerDAO implements SoftplayerDAO {
         
     }
 
-    @Override
     public void editar(Softplayer softplayer) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

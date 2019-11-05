@@ -7,8 +7,8 @@ public class Campanha {
     private int id_campanha;
     private String nome, descricao, local, imagem;
     private LocalDate dataInicio, dataTermino;
-    private Softplayer id_softplayer;
-    private Necessidade id_necessidade;
+    private int id_softplayer;
+    private int id_necessidade;
 
     public int getId_campanha() {
         return id_campanha;
@@ -67,19 +67,19 @@ public class Campanha {
     }
 
 
-    public Softplayer getId_softplayer() {
+    public int getId_softplayer() {
         return id_softplayer;
     }
 
-    public void setId_softplayer(Softplayer id_softplayer) {
+    public void setId_softplayer(int id_softplayer) {
         this.id_softplayer = id_softplayer;
     }
 
-    public Necessidade getId_necessidade() {
+    public int getId_necessidade() {
         return id_necessidade;
     }
 
-    public void setId_necessidade(Necessidade id_necessidade) {
+    public void setId_necessidade(int id_necessidade) {
         this.id_necessidade = id_necessidade;
     }
     

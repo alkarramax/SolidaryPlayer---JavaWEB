@@ -1,8 +1,7 @@
 
 package controller;
 
-import DAO.SoftplayerDAO;
-import DB.DAOFactory;
+import DAO.JDBCSoftplayerDAO;
 import DB.DBConnection;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -35,8 +34,9 @@ public class cadastro extends HttpServlet {
             softplayer.setUnidade(unidade);
             softplayer.setSenha(senha);
             
-            SoftplayerDAO soft = DAOFactory.createSoftplayerDAO();
-            soft.inserir(softplayer);
+            JDBCSoftplayerDAO inserirDAO = new JDBCSoftplayerDAO();
+            inserirDAO.inserir(softplayer);
+            
             
             out.println("<script type=\"text/javascript\">");
             out.println("alert('Cadastro realizado com sucesso!!');");

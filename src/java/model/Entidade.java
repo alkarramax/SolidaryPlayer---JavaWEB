@@ -6,6 +6,7 @@ public class Entidade {
     
     private int id_entidade;
     private String nome, descricao, endereco, causa, email, telefone, imagem;
+    
 
     //MÉTODOS ESPECIAIS
     public int getId_entidade() {

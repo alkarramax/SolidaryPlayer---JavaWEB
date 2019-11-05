@@ -1,8 +1,7 @@
 
 package controller;
 
-import DAO.EntidadeDAO;
-import DB.DAOFactory;
+import DAO.JDBCEntidadeDAO;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -48,8 +47,9 @@ public class cadastrarEntidade extends HttpServlet {
             entidade.setDescricao(descricao);
             entidade.setImagem(fileName);
             
-            EntidadeDAO et = DAOFactory.createEntidadeDAO();
-            et.inserir(entidade);
+            JDBCEntidadeDAO inserirDAO = new JDBCEntidadeDAO();
+            inserirDAO.inserir(entidade);
+            
             
             out.println("<script type=\"text/javascript\">");
             out.println("alert('Entidade Cadastrada!!');");

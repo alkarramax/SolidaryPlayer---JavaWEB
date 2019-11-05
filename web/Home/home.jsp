@@ -1,3 +1,8 @@
+<%@page import="model.Campanha"%>
+<%@page import="DAO.JDBCCampanhaDAO"%>
+<%@page import="model.Entidade"%>
+<%@page import="java.util.List"%>
+<%@page import="DAO.JDBCEntidadeDAO"%>
 <%@page import="DB.DBConnection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.sql.*"%>
@@ -142,100 +147,56 @@
     </header>
     <section>
         <div id="causas" class="causa1">
-            <h2>Apoio para pacientes com câncer</h2>
+            <h2>Apoio para pacientes com CIMA</h2>
             <div class="tab-wrapper">
                 <ul>
                   <li><a href="#" class="active" data-product-info-link="1">Doações</a></li>
                   <li><a href="#" data-product-info-link="2">Campanhas</a></li>
                   <li><a href="#" data-product-info-link="3">Voluntariado</a></li>
                 </ul>
+                <div class='product-info-tab' data-product-info-tab='1' style='display: block;'>
+                    <div class='card-wrapper'>
                 <%
-                    Connection conn = DBConnection.getConnection();
-                    Statement st = conn.createStatement();
-                    String sql = "select * from entidade";
-                    ResultSet rs = st.executeQuery(sql);
+                    
+                    JDBCEntidadeDAO entidadeDAO = new JDBCEntidadeDAO();
+                    List<Entidade> list = entidadeDAO.listar();
+                    
+                    for(Entidade w : list) {
 
-                    while(rs.next()) {
-                        String filename = rs.getString("imagem");
-                        String nome = rs.getString("nome");
-                        String descricao = rs.getString("descricao");
+                                out.println("<div class='card'>");
+                                    out.println("<img src='imageEntidade/"+w.getImagem()+"' alt='card backgroud' class='card-img'>");
+                                    out.println("<img src='imagens/logo-branco-300x287.png' alt='profile backgroud' class='profile-img'>");
+                                    out.println("<h1>"+w.getNome()+"</h1>");
+                                    out.println("<p>"+w.getDescricao()+"</p>");
+                                    out.println("<a href='../SobreDoacao/sobreDoacao.jsp?"+w.getId_entidade()+"' class='btn-doar'>Contribua agora</a>");
+                                out.println("</div>");
+                            
+                        
+                    } 
                 %>
-                <div class="product-info-tab" data-product-info-tab="1" style="display: block;">
-                    <div class="card-wrapper">
-                        <div class="card">
-                            <img src="imageEntidade/<%=filename%>" alt="card background" class="card-img">
-                            <img src="imagens/logo-branco-300x287.png" alt="profile image" class="profile-img">
-                            <h1><%=nome%></h1>
-                            <p><%=descricao%></p>
-                            <a href="../SobreDoacao/sobreDoacao.jsp" class="btn-doar">Contribua agora</a>
-                        </div>
-                        <div class="card">
-                            <img src="imagens/back.jpg" alt="card background" class="card-img">
-                            <img src="imagens/logo-branco-300x287.png" alt="profile image" class="profile-img">
-                            <h1>Solidarity Player</h1>
-                            <p>A ABRALE – Associação Brasileira de Linfoma e Leucemia é uma das mais conceituadas e importantes associações 
-                                que trabalha em todo o país para democratizar o tratamento e qualidade de vida de pessoas com doenças hematológicas.
-                            </p>
-                            <a href="../SobreDoacao/sobreDoacao.jsp" class="btn-doar">Contribua agora</a>
-                        </div>
-                        <div class="card">
-                            <img src="imagens/back.jpg" alt="card background" class="card-img">
-                            <img src="imagens/logo-branco-300x287.png" alt="profile image" class="profile-img">
-                            <h1>Solidarity Player</h1>
-                            <p>A ABRALE – Associação Brasileira de Linfoma e Leucemia é uma das mais conceituadas e importantes associações 
-                                que trabalha em todo o país para democratizar o tratamento e qualidade de vida de pessoas com doenças hematológicas.
-                            </p>
-                            <a href="../SobreDoacao/sobreDoacao.jsp" class="btn-doar">Contribua agora</a>
-                        </div>
                     </div>
-                </div>
-                 <%
-                    }
-                 %>  
+                </div> 
                  
-                 <%
-                     Connection connCp = DBConnection.getConnection();
-                     Statement stCp = connCp.createStatement();
-                     String SQLCP = "select * from campanha";
-                     ResultSet rsCp = stCp.executeQuery(SQLCP);
-                     
-                     while(rsCp.next()) {
-                         String filenameCp = rsCp.getString("imagem");
-                         String nomeCp = rsCp.getString("nome");
-                         String descricaoCp = rsCp.getString("descricao");
-                 %>
-                <div class="product-info-tab" data-product-info-tab="2">
+               
+                 <div class="product-info-tab" data-product-info-tab="2">
                     <div class="card-wrapper">
-                        <div class="card">
-                            <img src="imageCampanha/<%=filenameCp%>" alt="card background" class="card-img">
-                            <img src="imagens/logo-branco-300x287.png" alt="profile image" class="profile-img">
-                            <h1><%=nomeCp%></h1>
-                            <p><%=descricaoCp%></p>
-                            <a href="#" class="btn-doar">Contribua agora</a>
-                        </div>
-                        <div class="card">
-                            <img src="imagens/back.jpg" alt="card background" class="card-img">
-                            <img src="imagens/logo-branco-300x287.png" alt="profile image" class="profile-img">
-                            <h1>Solidarity</h1>
-                            <p>A ABRALE – Associação Brasileira de Linfoma e Leucemia é uma das mais conceituadas e importantes associações 
-                                que trabalha em todo o país para democratizar o tratamento e qualidade de vida de pessoas com doenças hematológicas.
-                            </p>
-                            <a href="#" class="btn-doar">Contribua agora</a>
-                        </div>
-                        <div class="card">
-                            <img src="imagens/back.jpg" alt="card background" class="card-img">
-                            <img src="imagens/logo-branco-300x287.png" alt="profile image" class="profile-img">
-                            <h1>Solidarity</h1>
-                            <p>A ABRALE – Associação Brasileira de Linfoma e Leucemia é uma das mais conceituadas e importantes associações 
-                                que trabalha em todo o país para democratizar o tratamento e qualidade de vida de pessoas com doenças hematológicas.
-                            </p>
-                            <a href="#" class="btn-doar">Contribua agora</a>
-                        </div>
+                        <%
+                            JDBCCampanhaDAO campanhaDAO = new JDBCCampanhaDAO();
+                            List<Campanha> listCampanha = campanhaDAO.listar();
+
+                            for(Campanha y : listCampanha) {
+                                out.println("<div class='card'>");
+                                            out.println("<img src='imageCampanha/"+y.getImagem()+"' alt='card backgroud' class='card-img'>");
+                                            out.println("<img src='imagens/logo-branco-300x287.png' alt='profile backgroud' class='profile-img'>");
+                                            out.println("<h1>"+y.getNome()+"</h1>");
+                                            out.println("<p>"+y.getDescricao()+"</p>");
+                                            out.println("<a href='../SobreDoacao/sobreDoacao.jsp?"+y.getId_campanha()+"' class='btn-doar'>Contribua agora</a>");
+                                        out.println("</div>");
+                            }
+                        %>
                     </div>
                 </div>
-                <%
-                }
-                %>
+   
                 <div class="product-info-tab" data-product-info-tab="3">
                     <div class="card-wrapper">
                         <div class="card">
@@ -270,9 +231,11 @@
             </div>
         </div>
     </section>
+                
+                
     <section>
         <div class="causa">
-            <h2 class="h2card">Apoio para pacientes com câncer</h2>
+            <h2 class="h2card">Apoio para pacientes BAIXO</h2>
             <div class="tab-wrapper">
                 <ul>
                     <li><a href="#" class="active" data-product-info-link="1">Doações</a></li>

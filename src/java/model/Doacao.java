@@ -11,8 +11,8 @@ public class Doacao {
     private int quantidadeDeItens;
     private boolean aberta;
     
-    private Softplayer id_softplayer;
-    private Necessidade id_necessidade;
+    private int id_softplayer;
+    private int id_necessidade;
     private int id_entidade;
 
     public int getId_doacao() {
@@ -80,19 +80,19 @@ public class Doacao {
         this.aberta = aberta;
     }
 
-    public Softplayer getId_softplayer() {
+    public int getId_softplayer() {
         return id_softplayer;
     }
 
-    public void setId_softplayer(Softplayer id_softplayer) {
+    public void setId_softplayer(int id_softplayer) {
         this.id_softplayer = id_softplayer;
     }
 
-    public Necessidade getId_necessidade() {
+    public int getId_necessidade() {
         return id_necessidade;
     }
 
-    public void setId_necessidade(Necessidade id_necessidade) {
+    public void setId_necessidade(int id_necessidade) {
         this.id_necessidade = id_necessidade;
     }
 

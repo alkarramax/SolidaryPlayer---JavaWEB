@@ -20,25 +20,23 @@ public class cadastrarDoacao extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-           
-            String entidadeSelecionada = request.getParameter("entidade");
+            int id_entidade = Integer.parseInt(request.getParameter("u"));
+            
+            
             String nome = request.getParameter("nome");
             String descricao = request.getParameter("descricao");
             String local = request.getParameter("local");
             String data = request.getParameter("data");
-            
-            
-            int entidade = Integer.parseInt(entidadeSelecionada);
-            out.println(entidadeSelecionada);
-            
-            
+
             Doacao doacao = new Doacao();
             
-            doacao.setId_entidade(entidade);
+            doacao.setId_entidade(id_entidade);
             doacao.setNome(nome);
             doacao.setDescricao(descricao);
             doacao.setLocal(local);
-            doacao.setNecessidade(descricao);
+            
+            
+            
             
             
             

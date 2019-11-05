@@ -7,14 +7,18 @@ package DAO;
 
 import DB.DBConnection;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Entidade;
 
 
-public class JDBCEntidadeDAO implements EntidadeDAO {
+public class JDBCEntidadeDAO  {
 
+    private List<Entidade> entidades = new ArrayList();
+    private Entidade entidade;
+    
     Connection connection;
     public JDBCEntidadeDAO() throws SQLException, ClassNotFoundException{
         connection = DBConnection.getConnection();
@@ -22,7 +26,7 @@ public class JDBCEntidadeDAO implements EntidadeDAO {
 
     
     
-    @Override
+    
     public void inserir(Entidade entidade) {
         try {
             String SQL = "INSERT INTO entidade(nome, email, causa, endereco, telefone, descricao, imagem) "
@@ -47,7 +51,7 @@ public class JDBCEntidadeDAO implements EntidadeDAO {
                    
     }
 
-    @Override
+   
     public void remover(int id) {
         try {
             String SQL = "Delete from entidade where id= ?";
@@ -60,17 +64,41 @@ public class JDBCEntidadeDAO implements EntidadeDAO {
         }
     }
 
-    @Override
+   
     public List<Entidade> listar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        try {
+            String sql = "select * from entidade";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery(sql);
+            
+            
+            while(rs.next()) {
+                entidade = new Entidade();
+                
+                entidade.setId_entidade(rs.getInt("id_entidade"));                
+                entidade.setNome(rs.getString("nome"));
+                entidade.setCausa(rs.getString("causa"));
+                entidade.setDescricao(rs.getString("descricao"));
+                entidade.setEmail(rs.getString("email"));
+                entidade.setTelefone(rs.getString("telefone"));
+                entidade.setImagem(rs.getString("imagem"));
+            
+                entidades.add(entidade);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(JDBCEntidadeDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return entidades;
     }
 
-    @Override
+    
     public Entidade buscar(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
+    
     public void editar(Entidade softplayer) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

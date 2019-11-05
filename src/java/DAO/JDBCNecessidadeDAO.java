@@ -15,7 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-public class JDBCNecessidadeDAO implements NecessidadeDAO{
+public class JDBCNecessidadeDAO {
     
     Connection connection;
     
@@ -23,7 +23,6 @@ public class JDBCNecessidadeDAO implements NecessidadeDAO{
         connection = DBConnection.getConnection();
     }
     
-    @Override
     public void inserir(Necessidade necessidade) {
         try {
             String SQL = "insert into Necessidade(necessidade)"
@@ -38,7 +37,6 @@ public class JDBCNecessidadeDAO implements NecessidadeDAO{
         }
     }
 
-    @Override
     public void remover(int id) {
         try {
             String SQL = "Delete from necessidade where id_necessidade= ?";
@@ -51,7 +49,6 @@ public class JDBCNecessidadeDAO implements NecessidadeDAO{
         }
     }
 
-    @Override
     public List<Necessidade> listar() {
         List<Necessidade> necessidades = new ArrayList<>();
         
@@ -73,7 +70,6 @@ public class JDBCNecessidadeDAO implements NecessidadeDAO{
         return necessidades;
     }
 
-    @Override
     public Necessidade buscar(int id) {
         try {
             Necessidade necessidade = new Necessidade();
@@ -97,7 +93,6 @@ public class JDBCNecessidadeDAO implements NecessidadeDAO{
         }
     }
 
-    @Override
     public void editar(Necessidade necessidade) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

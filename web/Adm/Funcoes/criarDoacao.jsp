@@ -22,22 +22,6 @@
     </head>
     <body>
         <form action="../../cadastrarDoacao" method="post" enctype="multipart/form-data">
-            <label style="margin-right: 150px;">Entidade:</label>
-            <select class="form-control" style="width: 250px;">
-                <option value="-1">Selecione a Entidade</option>
-                <%
-                    Connection connEntidade = DBConnection.getConnection();
-                    Statement statEntidade = connEntidade.createStatement();
-                    String SQL = "select * from Entidade"; 
-                    ResultSet rs = statEntidade.executeQuery(SQL);
-
-                    while(rs.next()) {
-                        %>
-                        <option name="entidade" value="<%=rs.getString("id_entidade")%>"><%=rs.getString("nome")%></option>
-                        <%
-                    }
-                %>
-            </select>
             <div class="form-group">
                 <label>Nome da doação: </label>
                 <input type="text" class="form-control" name="nome" >

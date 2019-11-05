@@ -5,8 +5,8 @@
  */
 package controller;
 
-import DAO.EntidadeDAO;
-import DB.DAOFactory;
+
+import DAO.JDBCEntidadeDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -28,8 +28,9 @@ public class deleteEntidade extends HttpServlet {
             String id = request.getParameter("d");
             int no = Integer.parseInt(id);
             
-            EntidadeDAO st = DAOFactory.createEntidadeDAO();
-            st.remover(no);
+            JDBCEntidadeDAO deleteDAO = new JDBCEntidadeDAO();
+            deleteDAO.remover(no);
+            
             
             out.println("<script type=\"text/javascript\">");
             out.println("alert('Entidade deletada!!');");

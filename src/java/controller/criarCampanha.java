@@ -5,8 +5,7 @@
  */
 package controller;
 
-import DAO.CampanhaDAO;
-import DB.DAOFactory;
+import DAO.JDBCCampanhaDAO;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -54,8 +53,9 @@ public class criarCampanha extends HttpServlet {
             campanha.setDescricao(descricao);
             campanha.setImagem(fileName);
             
-            CampanhaDAO cp = DAOFactory.createCampanhaDAO();
-            cp.inserir(campanha);
+            JDBCCampanhaDAO inserirDAO = new JDBCCampanhaDAO();
+            inserirDAO.inserir(campanha);
+            
             
             out.println("<script type=\"text/javascript\">");
             out.println("alert('Campanha Cadastrada!!');");

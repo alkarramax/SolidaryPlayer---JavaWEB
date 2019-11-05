@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 
 
 
-public class JDBCVoluntariadoDAO implements VoluntariadoDAO{
+public class JDBCVoluntariadoDAO {
 
     Connection connection;
     
@@ -22,7 +22,6 @@ public class JDBCVoluntariadoDAO implements VoluntariadoDAO{
         connection = DBConnection.getConnection();
     }
     
-    @Override
     public void inserir(Voluntariado voluntariado) {
        try {
             String SQL = "insert into voluntariado(nome, local, data, hora, descricao, imagem)"
@@ -44,7 +43,6 @@ public class JDBCVoluntariadoDAO implements VoluntariadoDAO{
         }
     }
 
-    @Override
     public void remover(int id) {
         try {
             String SQL = "Delete from voluntario where id_voluntario= ?";
@@ -57,7 +55,6 @@ public class JDBCVoluntariadoDAO implements VoluntariadoDAO{
         }
     }
 
-    @Override
     public List<Voluntariado> listar() {
         List<Voluntariado> voluntariados = new ArrayList<>();
         
@@ -89,7 +86,6 @@ public class JDBCVoluntariadoDAO implements VoluntariadoDAO{
         return voluntariados;
     }
 
-    @Override
     public Voluntariado buscar(int id) {
         try {
             Voluntariado voluntariado = new Voluntariado();
@@ -113,7 +109,6 @@ public class JDBCVoluntariadoDAO implements VoluntariadoDAO{
         }
     }
 
-    @Override
     public void editar(Voluntariado voluntariado) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

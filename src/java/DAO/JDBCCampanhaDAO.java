@@ -15,14 +15,15 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-public class JDBCCampanhaDAO implements CampanhaDAO{
+public class JDBCCampanhaDAO {
+    private List<Campanha> campanhas = new ArrayList<>();
+    private Campanha campanha;
     Connection connection;
     
     public JDBCCampanhaDAO() throws SQLException, SQLException, ClassNotFoundException {
         connection = DBConnection.getConnection();
     }
     
-    @Override
     public void inserir(Campanha campanha) {
         try {
             String SQL = "INSERT INTO campanha(nome, local, dataInicio, dataTermino, descricao, imagem)"
@@ -43,7 +44,6 @@ public class JDBCCampanhaDAO implements CampanhaDAO{
         }
     }
 
-    @Override
     public void remover(int id) {
         try {
             String SQL = "Delete from campanha where id_campanhas= ?";
@@ -56,18 +56,21 @@ public class JDBCCampanhaDAO implements CampanhaDAO{
         }
     }
 
-    @Override
     public List<Campanha> listar() {
-        List<Campanha> campanhas = new ArrayList<>();
+        
         
         try {
-            String SQL = "select * from campanhas";
+            String SQL = "select * from campanha";
             PreparedStatement ps = connection.prepareStatement(SQL);
             ResultSet rs = ps.executeQuery();
             
             while(rs.next()) {
-                Campanha campanha = new Campanha();
-
+                campanha = new Campanha();
+                
+                campanha.setId_campanha(rs.getInt("id_campanha"));
+                campanha.setId_softplayer(rs.getInt("id_softplayer"));
+                campanha.setId_necessidade(rs.getInt("id_necessidade"));
+                
                 campanha.setNome(rs.getString("nome"));
                 campanha.setLocal(rs.getString("local"));
                 
@@ -82,7 +85,6 @@ public class JDBCCampanhaDAO implements CampanhaDAO{
                 campanha.setDescricao(rs.getString("descricao"));
                 campanha.setImagem(rs.getString("imagem"));
 
-
                 campanhas.add(campanha);
             }
             
@@ -92,7 +94,6 @@ public class JDBCCampanhaDAO implements CampanhaDAO{
         return campanhas;
     }
 
-    @Override
     public Campanha buscar(int id) {
         try {
             Campanha campanha = new Campanha();
@@ -116,7 +117,6 @@ public class JDBCCampanhaDAO implements CampanhaDAO{
         }
     }
 
-    @Override
     public void editar(Campanha campanha) {
         
     }
