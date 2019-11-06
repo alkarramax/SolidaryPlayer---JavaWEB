@@ -119,6 +119,11 @@
                         <div class="title">
                             Voluntariado
                         </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a href="./Funcoes/criarVoluntariado.jsp" class="btn btn-primary">Adicionar Voluntariado</a>
+                            </div>
+                        </div>
                     </div>        
                     <div id="doacoes-actions">
                         <div class="title">
@@ -150,7 +155,7 @@
                                     <td><%=rsDoacao.getString("endereco")%></td>
                                     <td><%=rsDoacao.getString("causa")%></td>
                                     <td>
-                                    <a href="./Funcoes/criarDoacao.jsp?u=<%=rsDoacao.getInt("id_entidade")%>" class="btn btn-success">Criar Doação</a>
+                                    <a href="./Funcoes/addDoacao.jsp?u=<%=rsDoacao.getInt("id_entidade")%>" class="btn btn-success">Criar Doação</a>
                                     </td>
                                 </tr>
                                 <%

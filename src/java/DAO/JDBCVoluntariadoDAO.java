@@ -15,7 +15,8 @@ import java.util.logging.Logger;
 
 
 public class JDBCVoluntariadoDAO {
-
+    private List<Voluntariado> voluntariados = new ArrayList<>();
+    private Voluntariado voluntariado;
     Connection connection;
     
     public JDBCVoluntariadoDAO() throws SQLException, SQLException, ClassNotFoundException {
@@ -24,7 +25,7 @@ public class JDBCVoluntariadoDAO {
     
     public void inserir(Voluntariado voluntariado) {
        try {
-            String SQL = "insert into voluntariado(nome, local, data, hora, descricao, imagem)"
+            String SQL = "INSERT INTO voluntariado(nome, local, data, hora, descricao, imagem)"
                     + "values (?,?,?,?,?,?)";
             try (PreparedStatement ps = connection.prepareStatement(SQL)) {
                 ps.setString(1, voluntariado.getNome());
@@ -56,16 +57,15 @@ public class JDBCVoluntariadoDAO {
     }
 
     public List<Voluntariado> listar() {
-        List<Voluntariado> voluntariados = new ArrayList<>();
-        
         try {
-            String SQL = "select * from voluntario";
+            String SQL = "select * from voluntariado";
             PreparedStatement ps = connection.prepareStatement(SQL);
             ResultSet rs = ps.executeQuery();
             
             while(rs.next()) {
-                Voluntariado voluntariado = new Voluntariado();
+                voluntariado = new Voluntariado();
 
+                voluntariado.setId_voluntariado(rs.getInt("id_voluntariado"));
                 voluntariado.setNome(rs.getString("nome"));
                 voluntariado.setLocal(rs.getString("local"));
                 
@@ -74,8 +74,11 @@ public class JDBCVoluntariadoDAO {
                 voluntariado.setData(dt);
                 
                 String hora = rs.getTime("hora").toString();
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
-                //voluntariado.setHora();
+                LocalTime hr = LocalTime.parse(hora);
+                voluntariado.setHora(hr);
+                
+                voluntariado.setDescricao(rs.getString("descricao"));
+                voluntariado.setImagem(rs.getString("imagem"));
                 
                 voluntariados.add(voluntariado);
             }

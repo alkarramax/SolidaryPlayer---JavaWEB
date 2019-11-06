@@ -1,3 +1,5 @@
+<%@page import="model.Voluntariado"%>
+<%@page import="DAO.JDBCVoluntariadoDAO"%>
 <%@page import="model.Campanha"%>
 <%@page import="DAO.JDBCCampanhaDAO"%>
 <%@page import="model.Entidade"%>
@@ -199,33 +201,21 @@
    
                 <div class="product-info-tab" data-product-info-tab="3">
                     <div class="card-wrapper">
-                        <div class="card">
-                            <img src="imagens/back.jpg" alt="card background" class="card-img">
-                            <img src="imagens/logo-branco-300x287.png" alt="profile image" class="profile-img">
-                            <h1>Solidarity Player</h1>
-                            <p>A ABRALE – Associação Brasileira de Linfoma e Leucemia é uma das mais conceituadas e importantes associações 
-                                que trabalha em todo o país para democratizar o tratamento e qualidade de vida de pessoas com doenças hematológicas.
-                            </p>
-                            <a href="#" class="btn-doar">Contribua agora</a>
-                        </div>
-                        <div class="card">
-                            <img src="imagens/back.jpg" alt="card background" class="card-img">
-                            <img src="imagens/logo-branco-300x287.png" alt="profile image" class="profile-img">
-                            <h1>Solidarity Player</h1>
-                            <p>A ABRALE – Associação Brasileira de Linfoma e Leucemia é uma das mais conceituadas e importantes associações 
-                                que trabalha em todo o país para democratizar o tratamento e qualidade de vida de pessoas com doenças hematológicas.
-                            </p>
-                            <a href="#" class="btn-doar">Contribua agora</a>
-                        </div>
-                        <div class="card">
-                            <img src="imagens/back.jpg" alt="card background" class="card-img">
-                            <img src="imagens/logo-branco-300x287.png" alt="profile image" class="profile-img">
-                            <h1>Solidarity Player</h1>
-                            <p>A ABRALE – Associação Brasileira de Linfoma e Leucemia é uma das mais conceituadas e importantes associações 
-                                que trabalha em todo o país para democratizar o tratamento e qualidade de vida de pessoas com doenças hematológicas.
-                            </p>
-                            <a href="#" class="btn-doar">Contribua agora</a>
-                        </div>
+                        <%
+                            JDBCVoluntariadoDAO voluntariadoDAO = new JDBCVoluntariadoDAO();
+                            List<Voluntariado> listVoluntariado = voluntariadoDAO.listar();
+
+                            for(Voluntariado x : listVoluntariado) {
+                                out.println("<div class='card'>");
+                                            out.println("<img src='imageCampanha/"+x.getImagem()+"' alt='card backgroud' class='card-img'>");
+                                            out.println("<img src='imagens/logo-branco-300x287.png' alt='profile backgroud' class='profile-img'>");
+                                            out.println("<h1>"+x.getNome()+"</h1>");
+                                            out.println("<p>"+x.getDescricao()+"</p>");
+                                            out.println("<a href='../SobreDoacao/sobreDoacao.jsp?"+x.getId_voluntariado()+"' class='btn-doar'>Contribua agora</a>");
+                                        out.println("</div>");
+                            }
+                        
+                        %>
                     </div>
                 </div>
             </div>
