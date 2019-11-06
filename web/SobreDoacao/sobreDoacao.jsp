@@ -1,3 +1,5 @@
+<%@page import="java.sql.*"%>
+<%@page import="DB.DBConnection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,13 +13,19 @@
     <title>Doação</title>
     <link rel="shortcut icon" type="image/x-icon" href="imagens/7618Logo.ico">
     
-    <script>
-    function Nova() {
-        location.href="../Home/home.html"
-    }
-    </script>
+    
 </head>
 <body>
+    <%
+        Connection connection = DBConnection.getConnection();
+        Statement st = connection.createStatement();
+        String u = request.getParameter("e");
+        int num = Integer.parseInt(u);
+
+        String data = "select * from entidade where id_entidade='"+num+"'";
+        ResultSet rs = st.executeQuery(data);
+        while(rs.next()) {
+    %>
     <nav>
         <svg  onclick="Nova()" id="i-chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
             <path d="M20 30 L8 16 20 2" />
@@ -48,6 +56,9 @@
             <p>12/12/2019</p>
         </div>
     </div>
+    <%
+    }
+    %>
     <div id="contact" class="contact">
             <form>
                 <div class="form-separator">
@@ -103,5 +114,11 @@
                     <button type="button" class="btn btn-primary">Doar</button>
             </div>
         </div>
+    
+    <script>
+        function Nova() {
+            location.href="/SA-JSP/Home/home.jsp";
+        }
+    </script>
 </body>
 </html>

@@ -30,11 +30,11 @@
                 String u = request.getParameter("u");
                 int num = Integer.parseInt(u);
                 
-                String data = "select * from entidade where id='"+num+"'";
+                String data = "select * from entidade where id_entidade='"+num+"'";
                 ResultSet rs = st.executeQuery(data);
                 while(rs.next()) {
             %>
-            <input type="hidden" name="id" value='<%= rs.getString("id")%>'/>
+            <input type="hidden" name="id" value='<%= rs.getInt("id_entidade")%>'/>
             <div class="form-group">
                 <label>Nome: </label>
                 <input type="text" class="form-control" name="nome" value='<%= rs.getString("nome")%>' >

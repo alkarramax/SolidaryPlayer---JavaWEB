@@ -170,7 +170,7 @@
                                     out.println("<img src='imagens/logo-branco-300x287.png' alt='profile backgroud' class='profile-img'>");
                                     out.println("<h1>"+w.getNome()+"</h1>");
                                     out.println("<p>"+w.getDescricao()+"</p>");
-                                    out.println("<a href='../SobreDoacao/sobreDoacao.jsp?"+w.getId_entidade()+"' class='btn-doar'>Contribua agora</a>");
+                                    out.println("<a href='../SobreDoacao/sobreDoacao.jsp?e="+w.getId_entidade()+"' class='btn-doar'>Contribua agora</a>");
                                 out.println("</div>");
                             
                         
@@ -192,7 +192,7 @@
                                             out.println("<img src='imagens/logo-branco-300x287.png' alt='profile backgroud' class='profile-img'>");
                                             out.println("<h1>"+y.getNome()+"</h1>");
                                             out.println("<p>"+y.getDescricao()+"</p>");
-                                            out.println("<a href='../SobreDoacao/sobreDoacao.jsp?"+y.getId_campanha()+"' class='btn-doar'>Contribua agora</a>");
+                                            out.println("<a href='../SobreCampanha/sobreCampanha.jsp?c="+y.getId_campanha()+"' class='btn-doar'>Contribua agora</a>");
                                         out.println("</div>");
                             }
                         %>
@@ -211,7 +211,7 @@
                                             out.println("<img src='imagens/logo-branco-300x287.png' alt='profile backgroud' class='profile-img'>");
                                             out.println("<h1>"+x.getNome()+"</h1>");
                                             out.println("<p>"+x.getDescricao()+"</p>");
-                                            out.println("<a href='../SobreDoacao/sobreDoacao.jsp?"+x.getId_voluntariado()+"' class='btn-doar'>Contribua agora</a>");
+                                            out.println("<a href='../SobreVoluntariado/sobreVoluntariado.jsp?v="+x.getId_voluntariado()+"' class='btn-doar'>Contribua agora</a>");
                                         out.println("</div>");
                             }
                         

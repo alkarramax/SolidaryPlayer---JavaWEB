@@ -91,15 +91,15 @@ public class JDBCVoluntariadoDAO {
 
     public Voluntariado buscar(int id) {
         try {
-            Voluntariado voluntariado = new Voluntariado();
+            voluntariado = new Voluntariado();
             
-            String sql = "Select * from voluntario where nome = ?";
+            String sql = "Select * from voluntariado where id_voluntariado = ?";
             PreparedStatement ps = connection.prepareStatement(sql);
             
             ResultSet rs = ps.executeQuery();
             
             rs.next();
-            voluntariado.setNome(rs.getString("nome"));
+            voluntariado.setId_voluntariado(rs.getInt("id_voluntariado"));
             
             ps.close();
             rs.close();

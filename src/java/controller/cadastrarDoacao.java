@@ -5,9 +5,14 @@
  */
 package controller;
 
+import DAO.JDBCDoacaoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +22,7 @@ import model.Doacao;
 public class cadastrarDoacao extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, SQLException, ClassNotFoundException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             int id_entidade = Integer.parseInt(request.getParameter("u"));
@@ -28,18 +33,23 @@ public class cadastrarDoacao extends HttpServlet {
             String local = request.getParameter("local");
             String data = request.getParameter("data");
 
+            LocalDate dt = LocalDate.parse(data);
+            
             Doacao doacao = new Doacao();
             
             doacao.setId_entidade(id_entidade);
             doacao.setNome(nome);
             doacao.setDescricao(descricao);
             doacao.setLocal(local);
+            doacao.setData(dt);
             
+            JDBCDoacaoDAO doacaoDAO = new JDBCDoacaoDAO();
+            doacaoDAO.inserir(doacao);
             
-            
-            
-            
-            
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Doação Cadastrada!!');");
+            out.println("location='/SA-JSP/Adm/Funcoes/addEntidades.jsp';");
+            out.println("</script>");
             
         }
     }
@@ -56,7 +66,13 @@ public class cadastrarDoacao extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(cadastrarDoacao.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(cadastrarDoacao.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -70,7 +86,13 @@ public class cadastrarDoacao extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(cadastrarDoacao.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(cadastrarDoacao.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
