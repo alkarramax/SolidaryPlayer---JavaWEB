@@ -46,7 +46,7 @@ public class JDBCVoluntariadoDAO {
 
     public void remover(int id) {
         try {
-            String SQL = "Delete from voluntario where id_voluntario= ?";
+            String SQL = "delete from voluntariado where id_voluntariado= ?";
             PreparedStatement ps = connection.prepareStatement(SQL);
             ps.setInt(1, id);
             ps.executeUpdate();
@@ -91,15 +91,15 @@ public class JDBCVoluntariadoDAO {
 
     public Voluntariado buscar(int id) {
         try {
-            voluntariado = new Voluntariado();
+            Voluntariado voluntariado = new Voluntariado();
             
-            String sql = "Select * from voluntariado where id_voluntariado = ?";
+            String sql = "select * from voluntariado where nome = ?";
             PreparedStatement ps = connection.prepareStatement(sql);
             
             ResultSet rs = ps.executeQuery();
             
             rs.next();
-            voluntariado.setId_voluntariado(rs.getInt("id_voluntariado"));
+            voluntariado.setNome(rs.getString("nome"));
             
             ps.close();
             rs.close();

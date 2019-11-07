@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DAO;
 
 import DB.DBConnection;
@@ -46,7 +41,7 @@ public class JDBCCampanhaDAO {
 
     public void remover(int id) {
         try {
-            String SQL = "Delete from campanha where id_campanhas= ?";
+            String SQL = "delete from campanha where id_campanha= ?";
             PreparedStatement ps = connection.prepareStatement(SQL);
             ps.setInt(1, id);
             ps.executeUpdate();

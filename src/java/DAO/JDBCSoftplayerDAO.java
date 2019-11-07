@@ -46,7 +46,7 @@ public class JDBCSoftplayerDAO {
 
     public void remover(int id) {
         try {
-            String SQL = "Delete from softplayer where id= ?";
+            String SQL = "delete from softplayer where id_softplayer= ?";
             PreparedStatement ps = connection.prepareStatement(SQL);
             ps.setInt(1, id);
             ps.executeUpdate();

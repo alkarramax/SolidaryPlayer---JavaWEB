@@ -1,9 +1,3 @@
-<%-- 
-    Document   : criarDoacao
-    Created on : 28/10/2019, 16:55:42
-    Author     : Aluno
---%>
-
 <%@page import="DB.DBConnection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.sql.*"%>
@@ -37,10 +31,6 @@
             <div class="form-group">
                 <label>Data: </label>
                 <input type="date" class="form-control" name="data" >
-            </div>
-            <div class="form-group">
-                <label>Necessidade: </label>
-                <input type="text" class="form-control" name="necessidade" >
             </div>
             <div>
                 <input type="file" name="photo" size="50"/>

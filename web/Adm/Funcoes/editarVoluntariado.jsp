@@ -4,12 +4,12 @@
 <!DOCTYPE html>
 <html>
     <%
-        Connection connEntidade = DBConnection.getConnection();
+        Connection connVoluntariado = DBConnection.getConnection();
     %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-        <title>Editar Entidade</title>
+        <title>Editar Voluntariado</title>
         
         <style>
             body {
@@ -21,43 +21,43 @@
     <body>
         <div class="row">
             <div class="col-md-6">
-                <h3>Editar Entidade</h3>
+                <h3>Editar Voluntariado</h3>
             </div>
         </div>
-        <form action="../../editarEntidade" method="post">
+        <form action="../../editarVoluntariado" method="post">
             <%
-                Statement st = connEntidade.createStatement();
+                Statement st = connVoluntariado.createStatement();
                 String u = request.getParameter("u");
                 int num = Integer.parseInt(u);
                 
-                String data = "select * from entidade where id_entidade='"+num+"'";
+                String data = "select * from voluntariado where id_voluntariado='"+num+"'";
                 ResultSet rs = st.executeQuery(data);
                 while(rs.next()) {
             %>
-            <input type="hidden" name="id_entidade" value='<%= rs.getString("id_entidade")%>'/>
+            <input type="hidden" name="id_voluntariado" value='<%= rs.getString("id_voluntariado")%>'/>
             <div class="form-group">
                 <label>Nome: </label>
                 <input type="text" class="form-control" name="nome" value='<%= rs.getString("nome")%>' >
             </div>
             <div class="form-group">
-                <label>Email: </label>
-                <input type="text" class="form-control" name="email" value='<%= rs.getString("email")%>'>
+                <label>Local: </label>
+                <input type="text" class="form-control" name="email" value='<%= rs.getString("local")%>'>
             </div>
             <div class="form-group">
-                <label>Causa: </label>
-                <input type="text" class="form-control" name="causa" value='<%= rs.getString("causa")%>'>
+                <label>Data: </label>
+                <input type="text" class="form-control" name="causa" value='<%= rs.getString("data")%>'>
             </div>
             <div class="form-group">
-                <label>Endereço: </label>
-                <input type="text" class="form-control" name="endereco" value='<%= rs.getString("endereco")%>'>
-            </div>
-            <div class="form-group">
-                <label>Telefone: </label>
-                <input type="tel" class="form-control" name="telefone" value='<%= rs.getString("telefone")%>'>
+                <label>Hora:</label>
+                <input type="text" class="form-control" name="endereco" value='<%= rs.getString("hora")%>'>
             </div>
             <div class="form-group">
                 <label>Descrição: </label>
                 <textarea class="form-control" name="descricao" ><%= rs.getString("descricao")%></textarea>
+            </div>
+            <div class="form-group">
+                <label>Imagem: </label>
+                <input type="tel" class="form-control" name="telefone" value='<%= rs.getString("imagem")%>'>
             </div>
             <%
             }

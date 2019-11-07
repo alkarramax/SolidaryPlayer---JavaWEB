@@ -1,7 +1,13 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package controller;
 
 
-import DAO.JDBCSoftplayerDAO;
+import DAO.JDBCCampanhaDAO;
+import DAO.JDBCEntidadeDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -13,7 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-public class deletePlayers extends HttpServlet {
+public class deleteCampanha extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException, ClassNotFoundException {
@@ -23,12 +29,12 @@ public class deletePlayers extends HttpServlet {
             String id = request.getParameter("d");
             int no = Integer.parseInt(id);
             
-            JDBCSoftplayerDAO deleteDAO = new JDBCSoftplayerDAO();
+            JDBCCampanhaDAO deleteDAO = new JDBCCampanhaDAO();
             deleteDAO.remover(no);
             
             
             out.println("<script type=\"text/javascript\">");
-            out.println("alert('Softplayer deletado!!');");
+            out.println("alert('Campanha deletada!!');");
             out.println("location='/SA-JSP/Adm/administrador.jsp';");
             out.println("</script>");
         }
@@ -41,9 +47,9 @@ public class deletePlayers extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(deletePlayers.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(deleteEntidade.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(deletePlayers.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(deleteEntidade.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -54,9 +60,9 @@ public class deletePlayers extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(deletePlayers.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(deleteEntidade.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(deletePlayers.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(deleteEntidade.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controller;
 
 import DAO.JDBCDoacaoDAO;
@@ -10,34 +5,31 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Doacao;
 
+@MultipartConfig(maxFileSize = 169999999)
 public class cadastrarDoacao extends HttpServlet {
-
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException, ClassNotFoundException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            int id_entidade = Integer.parseInt(request.getParameter("u"));
-            
             
             String nome = request.getParameter("nome");
             String descricao = request.getParameter("descricao");
             String local = request.getParameter("local");
             String data = request.getParameter("data");
-
+            
             LocalDate dt = LocalDate.parse(data);
             
             Doacao doacao = new Doacao();
-            
-            doacao.setId_entidade(id_entidade);
+
             doacao.setNome(nome);
             doacao.setDescricao(descricao);
             doacao.setLocal(local);
@@ -45,24 +37,15 @@ public class cadastrarDoacao extends HttpServlet {
             
             JDBCDoacaoDAO doacaoDAO = new JDBCDoacaoDAO();
             doacaoDAO.inserir(doacao);
-            
+
             out.println("<script type=\"text/javascript\">");
             out.println("alert('Doação Cadastrada!!');");
-            out.println("location='/SA-JSP/Adm/Funcoes/addEntidades.jsp';");
+            out.println("location='/SA-JSP/Adm/Funcoes/addCampanha.jsp';");
             out.println("</script>");
-            
         }
     }
+    
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -75,15 +58,6 @@ public class cadastrarDoacao extends HttpServlet {
         }
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
@@ -93,13 +67,12 @@ public class cadastrarDoacao extends HttpServlet {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(cadastrarDoacao.class.getName()).log(Level.SEVERE, null, ex);
         }
+        response.setContentType("text/html;charset=UTF-8");
+       
+        
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
+    
     @Override
     public String getServletInfo() {
         return "Short description";
