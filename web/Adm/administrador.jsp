@@ -247,7 +247,7 @@
                                 <td><%=rsDoac.getString("data")%></td>
                                 <td>
                                     <a href="./Funcoes/editarDoacao.jsp?u=<%=rsDoac.getString("id_doacao")%>" class="btn btn-warning">Editar</a>
-                                    <a href='../deletePlayers?d=<%=rsDoac.getString("id_doacao")%>' class="btn btn-danger">Delete</a>
+                                    <a href='../deleteDoacao?d=<%=rsDoac.getString("id_doacao")%>' class="btn btn-danger">Delete</a>
                                 </td>
 
                              </tr>

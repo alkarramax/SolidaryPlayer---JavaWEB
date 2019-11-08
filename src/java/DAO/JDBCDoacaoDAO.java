@@ -23,16 +23,15 @@ public class JDBCDoacaoDAO{
     
     public void inserir(Doacao doacao) {
         try {
-            String SQL = "insert into doacao(nome, descricao, local, necessidade, data, quantidadeDeItens, aberta) "
-                    + "values (?,?,?,?,?,?,?)";
+            String SQL = "insert into doacao(nome, descricao, local,  data, aberta) "
+                    + "values (?,?,?,?,?)";
             PreparedStatement ps = connection.prepareStatement(SQL);
             ps.setString(1, doacao.getNome());
             ps.setString(2, doacao.getDescricao());
             ps.setString(3, doacao.getLocal());  
-            ps.setString(4, doacao.getNecessidade());
-            ps.setString(5, String.valueOf(doacao.getData()));
-            ps.setInt(6, doacao.getQuantidadeDeItens());
-            ps.setBoolean(7, doacao.isAberta());
+            ps.setString(4, String.valueOf(doacao.getData()));
+            doacao.setAberta(true);
+            ps.setBoolean(5, doacao.isAberta());
             ps.executeUpdate();
             ps.close();
             
@@ -77,10 +76,33 @@ public class JDBCDoacaoDAO{
                 
                 doacoes.add(doacao);
             }
+        }catch(SQLException e){
+            
+        }
+        return doacoes;
     }
 
     public Doacao buscar(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            Doacao doacao = new Doacao();
+            
+            String sql = "Select * from doacao where nome = ?";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            
+            ResultSet rs = ps.executeQuery();
+            
+            rs.next();
+            doacao.setNome(rs.getString("nome"));
+            
+            ps.close();
+            rs.close();
+            
+            return doacao;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(JDBCCampanhaDAO.class.getName()).log(Level.SEVERE, null, ex);
+            throw new RuntimeException("Erro ao buscar Registro", ex);
+        }
     }
 
     public void editar(Doacao doacao) {

@@ -29,7 +29,7 @@ public class editarEntidade extends HttpServlet {
             
             Connection connEntidade = DBConnection.getConnection();
             
-            String id = request.getParameter("id");
+            String id = request.getParameter("id_entidade");
             String nome = request.getParameter("nome");
             String email = request.getParameter("email");
             String causa = request.getParameter("causa");
@@ -38,7 +38,7 @@ public class editarEntidade extends HttpServlet {
             String descricao = request.getParameter("descricao");
 
             if(nome != null && email != null && causa != null && endereco != null && telefone != null && descricao != null) {
-                String query = "update entidade set nome=?, email=?, causa=?, endereco=?, telefone=?, descricao=? where id='"+id+"'";
+                String query = "update entidade set nome=?, email=?, causa=?, endereco=?, telefone=?, descricao=? where id_entidade='"+id+"'";
                 PreparedStatement stmt = connEntidade.prepareStatement(query);
 
                 stmt.setString(1, nome);

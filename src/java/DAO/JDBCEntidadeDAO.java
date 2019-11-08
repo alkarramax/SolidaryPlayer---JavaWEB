@@ -54,7 +54,7 @@ public class JDBCEntidadeDAO  {
    
     public void remover(int id) {
         try {
-            String SQL = "Delete from entidade where id= ?";
+            String SQL = "Delete from entidade where id_entidade= ?";
             PreparedStatement ps = connection.prepareStatement(SQL);
             ps.setInt(1, id);
             ps.executeUpdate();

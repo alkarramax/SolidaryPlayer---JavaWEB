@@ -59,7 +59,7 @@ public class cadastrarVoluntariado extends HttpServlet {
             
             out.println("<script type=\"text/javascript\">");
             out.println("alert('Voluntariado Cadastrada!!');");
-            out.println("location='/SA-JSP/Adm/Funcoes/addCampanha.jsp';");
+            out.println("location='/SA-JSP/Adm/Funcoes/criarVoluntariado.jsp';");
             out.println("</script>");
         }
     }

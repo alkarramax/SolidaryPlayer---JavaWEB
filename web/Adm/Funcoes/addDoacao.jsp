@@ -32,9 +32,7 @@
                 <label>Data: </label>
                 <input type="date" class="form-control" name="data" >
             </div>
-            <div>
-                <input type="file" name="photo" size="50"/>
-            </div>
+            
             </br>
             <button type="submit" class="btn btn-primary">Cadastrar</button>
             <a href="../administrador.jsp" class="btn btn-default">Voltar</a>
