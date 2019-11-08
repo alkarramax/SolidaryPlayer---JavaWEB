@@ -35,10 +35,16 @@ public class editarVoluntariado extends HttpServlet {
             String data = request.getParameter("data");
             String hora = request.getParameter("hora");
             String descricao = request.getParameter("descricao");
-            String imagem = request.getParameter("imagem");
 
-            if(nome != null && local != null && data != null && hora != null && descricao != null && imagem != null) {
-                String query = "update voluntariado set nome=?, local=?, data=?, hora=?, descricao=?, imagem=? where id_voluntariado='"+id+"'";
+            out.print(id);
+            out.print(nome);
+            out.print(local);
+            out.print(data);
+            out.print(hora);
+            out.print(descricao);
+            
+            if(nome != null && local != null && data != null && hora != null && descricao != null) {
+                String query = "update voluntariado set nome=?, local=?, data=?, hora=?, descricao=? where id_voluntariado='"+id+"'";
                 PreparedStatement stmt = connVoluntariado.prepareStatement(query);
 
                 stmt.setString(1, nome);
@@ -46,11 +52,11 @@ public class editarVoluntariado extends HttpServlet {
                 stmt.setString(3, data);
                 stmt.setString(4, hora);
                 stmt.setString(5, descricao);
-                stmt.setString(6, imagem);
                 stmt.executeUpdate();
+                out.print("fghgfhgfhfh");
 
                 out.println("<script type=\"text/javascript\">");
-                out.println("alert('Voluntariado alterada!!');");
+                out.println("alert('Voluntariado alterado!!');");
                 out.println("location='/SA-JSP/Adm/administrador.jsp';");
                 out.println("</script>");
                     

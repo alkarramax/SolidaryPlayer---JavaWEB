@@ -14,7 +14,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
 
 /**
  *
@@ -35,7 +34,7 @@ public class editarCampanha extends HttpServlet {
             String dataInicio = request.getParameter("dataInicio");
             String dataTermino = request.getParameter("dataTermino");
             String descricao = request.getParameter("descricao");
-
+            
             if(nome != null && local != null && dataInicio != null && dataTermino != null && descricao != null) {
                 String query = "update campanha set nome=?, local=?, dataInicio=?, dataTermino=?, descricao=? where id_campanha='"+id+"'";
                 PreparedStatement stmt = connCampanha.prepareStatement(query);

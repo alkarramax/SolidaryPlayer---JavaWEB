@@ -41,23 +41,19 @@
             </div>
             <div class="form-group">
                 <label>Local: </label>
-                <input type="text" class="form-control" name="email" value='<%= rs.getString("local")%>'>
+                <input type="text" class="form-control" name="local" value='<%= rs.getString("local")%>'>
             </div>
             <div class="form-group">
                 <label>Data: </label>
-                <input type="text" class="form-control" name="causa" value='<%= rs.getString("data")%>'>
+                <input type="text" class="form-control" name="data" value='<%= rs.getString("data")%>'>
             </div>
             <div class="form-group">
                 <label>Hora:</label>
-                <input type="text" class="form-control" name="endereco" value='<%= rs.getString("hora")%>'>
+                <input type="text" class="form-control" name="hora" value='<%= rs.getString("hora")%>'>
             </div>
             <div class="form-group">
                 <label>Descrição: </label>
                 <textarea class="form-control" name="descricao" ><%= rs.getString("descricao")%></textarea>
-            </div>
-            <div class="form-group">
-                <label>Imagem: </label>
-                <input type="tel" class="form-control" name="telefone" value='<%= rs.getString("imagem")%>'>
             </div>
             <%
             }

@@ -41,15 +41,15 @@
             </div>
             <div class="form-group">
                 <label>Descrição: </label>
-                <input type="text" class="form-control" name="email" value='<%= rs.getString("descricao")%>'>
+                <input type="text" class="form-control" name="descricao" value='<%= rs.getString("descricao")%>'>
             </div>
             <div class="form-group">
                 <label>Local: </label>
-                <input type="text" class="form-control" name="causa" value='<%= rs.getString("local")%>'>
+                <input type="text" class="form-control" name="local" value='<%= rs.getString("local")%>'>
             </div>
             <div class="form-group">
                 <label>Data: </label>
-                <input type="text" class="form-control" name="endereco" value='<%= rs.getString("data")%>'>
+                <input type="text" class="form-control" name="data" value='<%= rs.getString("data")%>'>
             </div>
             <%
             }
