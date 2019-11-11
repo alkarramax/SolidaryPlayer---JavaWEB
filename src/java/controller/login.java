@@ -23,8 +23,8 @@ public class login extends HttpServlet {
             
            HttpSession session = request.getSession();
            
-           String email = request.getParameter("emailLogar");        
-           String senha = request.getParameter("senhaLogar");
+           String email = request.getParameter("email");        
+           String senha = request.getParameter("senha");
             
             if("admin@admin".equals(email) && "admin".equals(senha)) {
                 response.sendRedirect("/SA-JSP/Adm/administrador.jsp");

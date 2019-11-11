@@ -40,7 +40,7 @@
     </div>
     <div class="text-sobre-info"> 
         <div class="text-sobre-info-detalhe">
-            <p>Local onde poderá levar a doação:</p>
+            <p>Local:</p>
             <p><%=rs.getString("local")%></p>
         </div>
         <div class="text-sobre-info-detalhe">

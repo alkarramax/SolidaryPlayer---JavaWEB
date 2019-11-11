@@ -21,11 +21,11 @@ public class cadastro extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             
             String nome = request.getParameter("nome");
+             String senha = request.getParameter("senha");
             String email = request.getParameter("email");
             String cargo = request.getParameter("cargo");
             String unidade = request.getParameter("unidade");
-            String senha = request.getParameter("senha");
-               
+           
             Softplayer softplayer = new Softplayer();
             
             softplayer.setNome(nome);
@@ -36,7 +36,7 @@ public class cadastro extends HttpServlet {
             
             JDBCSoftplayerDAO inserirDAO = new JDBCSoftplayerDAO();
             inserirDAO.inserir(softplayer);
-            
+           
             
             out.println("<script type=\"text/javascript\">");
             out.println("alert('Cadastro realizado com sucesso!!');");

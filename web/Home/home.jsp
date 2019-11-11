@@ -17,7 +17,7 @@
     <title>Home</title>
     <link rel="shortcut icon" type="image/x-icon" href="imagens/7618Logo.ico">
     <link rel="stylesheet" href="imagens/Logo.png" type="img">
-    <link rel="stylesheet" type="text/css" href="./style1.css">
+    <link rel="stylesheet" type="text/css" href="homeStyle.css">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script type="text/javascript">
@@ -57,7 +57,7 @@
     </script>
 </head>
 <body>
-    <div class="popup">
+<div class="popup">
         <div class="popup-content">
             <div class="container" id="container">
                 <div class="form-container sign-up-container">
@@ -65,33 +65,34 @@
                     <form action="../cadastro">
                         <h1>Crie Sua Conta</h1>
                         <input type="text" name="nome" placeholder="Nome">
+                        <input type="text" name="sobrenome" placeholder="Sobrenome">
+                        <input type="password" name="senha" placeholder="Senha">
                         <input type="email" name="email" placeholder="Email">
                         <input type="text" name="cargo" placeholder="Cargo">
                         <input type="text" name="unidade" placeholder="Unidade">
-                        <input type="password" name="senha" placeholder="Senha">
                         <button>Cadastrar</button>
                     </form>
                 </div>
                 <div class="form-container sign-in-container">
                     <form action="../login">
                         <h1>Entrar</h1>
-                        <input type="email" id="email" name="emailLogar" placeholder="Email">
-                        <input type="password" id="senha" name="senhaLogar" placeholder="Senha">
+                        <input type="email" name="email" id="email" placeholder="Email">
+                        <input type="password" name="senha" id="senha" placeholder="Senha">
                         <a href="#">Esqueceu sua senha?</a>
-                        <button>Entrar</button>
+                        <button onclick="autorizacao()">Entrar</button>
                     </form>
                 </div>
                 <div class="overlay-container">
                     <div class="overlay">
                         <div class="overlay-panel overlay-left">
-                            <h1>Welcome Back!</h1>
-                            <p>To keep connected with us please login with your personal info</p>
+                            <h1>Que bom que você voltou!</h1>
+                            <p>Faça o seu login e continue ajudando quem precisa.</p>
                             <button class="ghost" id="signIn">Entrar</button>
                         </div>
                         <div class="overlay-panel overlay-right">
                             <img src="imagens/./baseline_clear_black_18dp.png" alt="Close" class="close">
                             <h1>Olá, Softplayer!</h1>
-                            <p>Ainda não tem cadastro? Cadastre-se para se tornar um Solidarity Player</p>
+                            <p>Ainda não tem cadastro? Cadastre-se para se tornar um Solidarity Player.</p>
                             <button class="ghost" id="signUp">Cadastrar</button>
                         </div>
                     </div>
@@ -100,12 +101,6 @@
         </div>
     </div>
     
-    <div class="deslogar-modal">
-	<div class="deslogar-contents">
-		<div class="sair">+</div>
-                <a href="../deslogar" class="deslogarHref">Deslogar</a>
-        </div>
-    </div>
 
     <header class="header">
         <nav class="navbar-one">
@@ -129,9 +124,13 @@
                         <li><a class="ancora-scroll" href="#como-funciona">Como funciona?</a></li>
                         
                         <% if(nomeUsuario == null) { %>
-                        <li><a class="nav-link" href="#" id="popUpAparecer">Login</a></li>
+                        <li><a class="nav-link" href="#" id="popUpAparecer">Entrar | Cadastrar</a>
                         <%} else {%>
-                        <li><a class="nav-link" href="#" id="deslogar"><%=nomeUsuario%></a></li>
+                        <li><a class="nav-link" href="#" id="deslogar"><%=nomeUsuario%></a>
+                            <ul class="deslogar">
+                                <li><a href="../deslogar">Deslogar</a></li>
+                            </ul>
+                        </li>
                         <%}%>
                     </ul>
                    
@@ -143,13 +142,13 @@
                  <span class="txt-type" data-wait="3000" data-words='["gera impacto.", "tem transparência.", "ajuda quem precisa."]'></span>
             </h1>
             <h3> Quem você quer ajudar hoje?</h3>
-            <h2> Faça a diferença na vida das pessoas, </br>role para baixo e descubra quem precisa</br> de você!</h2>
+            <h2> Faça a diferença na vida das pessoas, </br><a id="link-leftside" class="ancora-scroll" href="#causas">role</a> para baixo e descubra quem precisa</br> de você!</h2>
             <h2> O solidarity player te conecta com causas</br> e pessoas.</h2>
           </div>
     </header>
     <section>
         <div id="causas" class="causa1">
-            <h2>Apoio para pacientes com CIMA</h2>
+            <h2>Invista no futuro de crianças e adolescentes</h2>
             <div class="tab-wrapper">
                 <ul>
                   <li><a href="#" class="active" data-product-info-link="1">Doações</a></li>
@@ -224,119 +223,77 @@
                 
                 
     <section>
-        <div class="causa">
-            <h2 class="h2card">Apoio para pacientes BAIXO</h2>
+        <div id="causas" class="causa1">
+             <h2 class="h2card">Apoie os idosos e preserve a nossa história</h2>
             <div class="tab-wrapper">
                 <ul>
-                    <li><a href="#" class="active" data-product-info-link="1">Doações</a></li>
-                    <li><a href="#" data-product-info-link="2">Campanhas</a></li>
-                    <li><a href="#" data-product-info-link="3">Voluntariado</a></li>
+                  <li><a href="#" class="active" data-product-info-link="1">Doações</a></li>
+                  <li><a href="#" data-product-info-link="2">Campanhas</a></li>
+                  <li><a href="#" data-product-info-link="3">Voluntariado</a></li>
                 </ul>
-                    <div class="product-info-tab" data-product-info-tab="1" style="display: block;">
-                        <div class="card-wrapper">
-                            <div class="card">
-                                <img src="imagens/back.jpg" alt="card background" class="card-img">
-                                <img src="imagens/logo-branco-300x287.png" alt="profile image" class="profile-img">
-                                <h1>Solidarity Player</h1>
-                                <p>A ABRALE – Associação Brasileira de Linfoma e Leucemia é uma das mais conceituadas e importantes associações 
-                                    que trabalha em todo o país para democratizar o tratamento e qualidade de vida de pessoas com doenças hematológicas.
-                                </p>
-                                <a href="#" class="btn-doar">Contribua agora</a>
-                            </div>
-                            <div class="card">
-                                <img src="imagens/back.jpg" alt="card background" class="card-img">
-                                <img src="imagens/logo-branco-300x287.png" alt="profile image" class="profile-img">
-                                <h1>Solidarity Player</h1>
-                                <p>A ABRALE – Associação Brasileira de Linfoma e Leucemia é uma das mais conceituadas e importantes associações 
-                                    que trabalha em todo o país para democratizar o tratamento e qualidade de vida de pessoas com doenças hematológicas.
-                                </p>
-                                <a href="#" class="btn-doar">Contribua agora</a>
-                            </div>
-                            <div class="card">
-                                <img src="imagens/back.jpg" alt="card background" class="card-img">
-                                <img src="imagens/logo-branco-300x287.png" alt="profile image" class="profile-img">
-                                <h1>Solidarity Player</h1>
-                                <p>A ABRALE – Associação Brasileira de Linfoma e Leucemia é uma das mais conceituadas e importantes associações 
-                                    que trabalha em todo o país para democratizar o tratamento e qualidade de vida de pessoas com doenças hematológicas.
-                                </p>
-                                <a href="#" class="btn-doar">Contribua agora</a>
-                            </div>
-                        </div>
+                <div class='product-info-tab' data-product-info-tab='1' style='display: block;'>
+                    <div class='card-wrapper'>
+                <%
+                    for(Entidade w : list) {
+
+                                out.println("<div class='card'>");
+                                    out.println("<img src='imageEntidade/"+w.getImagem()+"' alt='card backgroud' class='card-img'>");
+                                    out.println("<img src='imagens/logo-branco-300x287.png' alt='profile backgroud' class='profile-img'>");
+                                    out.println("<h1>"+w.getNome()+"</h1>");
+                                    out.println("<p>"+w.getDescricao()+"</p>");
+                                    out.println("<a href='../SobreDoacao/sobreDoacao.jsp?e="+w.getId_entidade()+"' class='btn-doar'>Contribua agora</a>");
+                                out.println("</div>");
+                            
+                        
+                    } 
+                %>
                     </div>
-                    <div class="product-info-tab" data-product-info-tab="2">
-                        <div class="card-wrapper">
-                            <div class="card">
-                            <img src="imagens/back.jpg" alt="card background" class="card-img">
-                            <img src="imagens/logo-branco-300x287.png" alt="profile image" class="profile-img">
-                            <h1>Solidarity</h1>
-                            <p>A ABRALE – Associação Brasileira de Linfoma e Leucemia é uma das mais conceituadas e importantes associações 
-                                que trabalha em todo o país para democratizar o tratamento e qualidade de vida de pessoas com doenças hematológicas.
-                            </p>
-                            <a href="#" class="btn-doar">Contribua agora</a>
-                        </div>
-                        <div class="card">
-                            <img src="imagens/back.jpg" alt="card background" class="card-img">
-                            <img src="imagens/logo-branco-300x287.png" alt="profile image" class="profile-img">
-                            <h1>Solidarity</h1>
-                            <p>A ABRALE – Associação Brasileira de Linfoma e Leucemia é uma das mais conceituadas e importantes associações 
-                                que trabalha em todo o país para democratizar o tratamento e qualidade de vida de pessoas com doenças hematológicas.
-                            </p>
-                            <a href="#" class="btn-doar">Contribua agora</a>
-                        </div>
-                        <div class="card">
-                            <img src="imagens/back.jpg" alt="card background" class="card-img">
-                            <img src="imagens/logo-branco-300x287.png" alt="profile image" class="profile-img">
-                            <h1>Solidarity</h1>
-                            <p>A ABRALE – Associação Brasileira de Linfoma e Leucemia é uma das mais conceituadas e importantes associações 
-                                que trabalha em todo o país para democratizar o tratamento e qualidade de vida de pessoas com doenças hematológicas.
-                            </p>
-                            <a href="#" class="btn-doar">Contribua agora</a>
-                        </div>
+                </div> 
+                 
+               
+                 <div class="product-info-tab" data-product-info-tab="2">
+                    <div class="card-wrapper">
+                        <%
+                          for(Campanha y : listCampanha) {
+                                out.println("<div class='card'>");
+                                            out.println("<img src='imageCampanha/"+y.getImagem()+"' alt='card backgroud' class='card-img'>");
+                                            out.println("<img src='imagens/logo-branco-300x287.png' alt='profile backgroud' class='profile-img'>");
+                                            out.println("<h1>"+y.getNome()+"</h1>");
+                                            out.println("<p>"+y.getDescricao()+"</p>");
+                                            out.println("<a href='../SobreCampanha/sobreCampanha.jsp?c="+y.getId_campanha()+"' class='btn-doar'>Contribua agora</a>");
+                                        out.println("</div>");
+                            }
+                        %>
                     </div>
                 </div>
+   
                 <div class="product-info-tab" data-product-info-tab="3">
                     <div class="card-wrapper">
-                        <div class="card">
-                            <img src="imagens/back.jpg" alt="card background" class="card-img">
-                            <img src="imagens/logo-branco-300x287.png" alt="profile image" class="profile-img">
-                            <h1>Solidarity Player</h1>
-                            <p>A ABRALE – Associação Brasileira de Linfoma e Leucemia é uma das mais conceituadas e importantes associações 
-                                que trabalha em todo o país para democratizar o tratamento e qualidade de vida de pessoas com doenças hematológicas.
-                            </p>
-                            <a href="#" class="btn-doar">Contribua agora</a>
-                        </div>
-                        <div class="card">
-                            <img src="imagens/back.jpg" alt="card background" class="card-img">
-                            <img src="imagens/logo-branco-300x287.png" alt="profile image" class="profile-img">
-                            <h1>Solidarity Player</h1>
-                            <p>A ABRALE – Associação Brasileira de Linfoma e Leucemia é uma das mais conceituadas e importantes associações 
-                            que trabalha em todo o país para democratizar o tratamento e qualidade de vida de pessoas com doenças hematológicas.
-                            </p>
-                            <a href="#" class="btn-doar">Contribua agora</a>
-                        </div>
-                        <div class="card">
-                            <img src="imagens/back.jpg" alt="card background" class="card-img">
-                            <img src="imagens/logo-branco-300x287.png" alt="profile image" class="profile-img">
-                            <h1>Solidarity Player</h1>
-                            <p>A ABRALE – Associação Brasileira de Linfoma e Leucemia é uma das mais conceituadas e importantes associações 
-                                que trabalha em todo o país para democratizar o tratamento e qualidade de vida de pessoas com doenças hematológicas.
-                            </p>
-                            <a href="#" class="btn-doar">Contribua agora</a>
-                        </div>
+                        <%                            
+                            for(Voluntariado x : listVoluntariado) {
+                                out.println("<div class='card'>");
+                                            out.println("<img src='imageCampanha/"+x.getImagem()+"' alt='card backgroud' class='card-img'>");
+                                            out.println("<img src='imagens/logo-branco-300x287.png' alt='profile backgroud' class='profile-img'>");
+                                            out.println("<h1>"+x.getNome()+"</h1>");
+                                            out.println("<p>"+x.getDescricao()+"</p>");
+                                            out.println("<a href='../SobreVoluntariado/sobreVoluntariado.jsp?v="+x.getId_voluntariado()+"' class='btn-doar'>Contribua agora</a>");
+                                        out.println("</div>");
+                            }
+                        
+                        %>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <section>
-        <section id="sobre">
+    </section>
+        <section class="sobre-img-impacto">
             <div class="img-impacto">
                 <h1>Como você quer o mundo?</h1>
                 <h2>A mudança começa a partir de você!</h2>
             </div>
         </section>
-    </section>
-    <section  class="sobre">
+    <section id="sobre" class="sobre">
         <h1> Como o grupo Solidario ajudou </br> milhares de pessoas?</h1>
         <div class="container-sobre">
             <div class="container-sobre-img">
@@ -371,6 +328,21 @@
                 </div>
             </div>
         </div>
+        <div class="container-sobre-pacto-global">
+            <img src="imagens/img-pacto-onu.jpg" alt="">
+            <div class="container-sobre-info-pacto-global">
+                <div class="title"><h2>Pacto Global da ONU</h2></div>
+                <p>Desde 2017 a Softplan é signátaria do Pacto Global da ONU. O Pacto Global é uma iniciativa que 
+                    visa mobilizar a comunidade empresarial internacional para a adoção, em suas práticas de negócios,
+                    de valores fundamentais e internacionalmente aceitos nas áreas de direitos humanos, relações de
+                    trabalho, meio ambiente e combate à corrupção refletidos em 10 princípios.</p>
+            </div>
+        </div>
+    </section>
+    <section id="funciona">
+            <div class="img-impacto2">
+                <h1>Vá alem do trabalho, mude a vida das pessoas.</h1>
+            </div>
     </section>
     <section id="como-funciona" class="como-funciona">
         <h1>Como funciona?</h1>
@@ -394,8 +366,30 @@
             </div>
         </div>
     </section>
-    <footer>
-        
+     <footer>
+        <div class="footer-info">
+            <div class="footer-info-img">
+                <div class="footer-img"> 
+                   <a href=""><img src="imagens/linkedin.png" alt=""></a> 
+                    <h3>Amanda Farias Sena</h3>
+                </div>
+                <div class="footer-img"> 
+                    <img src="imagens/linkedin.png" alt="">
+                    <h3>Alkarramax Ribeiro</h3>
+                </div>
+                <div class="footer-img"> 
+                    <img src="imagens/linkedin.png" alt="">
+                    <h3>Leonardo Rangel</h3>
+                </div>
+            </div>
+            <div class="footer-info-text">
+                <p>Fortalecendo a cultura de doações através da tecnologia, desde 2019.</p>
+            </div>
+            <div class="logo-empresas">
+                <img src="imagens/logo_softplan (1).png" alt="">
+                <img src="imagens/senai-logo-1 (1).png" alt="">
+            </div>
+        </div>
     </footer>
     <script src="./javascript/home.js"></script>
     <script src="./javascript/deslogar.js"></script>
