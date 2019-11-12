@@ -7,26 +7,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="styleDoacao.css">
+    <link rel="stylesheet" type="text/css" href="sobreDoacaoEstilo.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <title>Doação</title>
     <link rel="shortcut icon" type="image/x-icon" href="imagens/7618Logo.ico">
-    
-    
 </head>
 <body>
-    <%
-        Connection connection = DBConnection.getConnection();
-        Statement st = connection.createStatement();
-        String u = request.getParameter("e");
-        int num = Integer.parseInt(u);
-
-        String data = "select * from entidade where id_entidade='"+num+"'";
-        ResultSet rs = st.executeQuery(data);
-        while(rs.next()) {
-    %>
-    <nav>
+    
+     <nav>
         <svg  onclick="Nova()" id="i-chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
             <path d="M20 30 L8 16 20 2" />
         </svg>
@@ -47,25 +36,28 @@
             <p>Local:</p>
             <p>Softplan</p>
         </div>
+        <div class="img-text-sobre">
+            <img src="../imagensSobre/basketball-ball (1).png" alt="">
+        </div>
         <div class="text-sobre-info-detalhe">
             <p>Necessidade:</p>
             <p>Roupas</p>
+        </div>
+        <div class="img-text-sobre">
+            <img src="../imagensSobre/basketball-ball (1).png" alt="">
         </div>
         <div class="text-sobre-info-detalhe">
             <p>Data término:</p>
             <p>12/12/2019</p>
         </div>
     </div>
-    <%
-    }
-    %>
     <div id="contact" class="contact">
             <form>
                 <div class="form-separator">
                     <div class="input">
                         <div class="caixa-input">
                             <img src="../imagensSobre/avatar.png" alt=""/>
-                            <input id="name" type="text" placeholder="Nome"/> <!--placeholder="" dica do input-->
+                            <input  id="name" type="text" placeholder="Nome"/> <!--placeholder="" dica do input-->
                         </div>
                     </div>
                     <div class="input">
@@ -76,20 +68,14 @@
                     </div>
                 </div>
                 <div class="form-separator">
-                    <div class="input2">
-                        <div class="caixa-input2">
-                            <img src="../imagensSobre/wallet (1).png" alt=""/>
-                            <input id="cpf" type="text" placeholder="CPF"/> 
-                        </div>
-                    </div>
-                    <div class="input2">
-                        <div class="caixa-input2">
+                    <div class="input">
+                        <div class="caixa-input">
                             <img src="../imagensSobre/suitcase.png" alt=""/>
-                            <input id="cargo" type="text" placeholder="Cargo"/> 
+                            <input  id="cargo" type="text" placeholder="Cargo"/> <!--placeholder="" dica do input-->
                         </div>
                     </div>
-                    <div class="input2">
-                        <div class="caixa-input2">
+                    <div class="input">
+                        <div class="caixa-input">
                             <img src="../imagensSobre/office-block.png" alt=""/>
                             <input id="unidade" type="text" placeholder="Unidade"/> 
                         </div>
@@ -105,7 +91,7 @@
                     <div class="input">
                         <div class="caixa-input">
                             <img src="../imagensSobre/type.png" alt=""/>
-                            <input id="tipo" type="text" placeholder="Tipo"/> 
+                            <input id="tipo" type="text" placeholder="Necessidade"/> 
                         </div>
                     </div>
                 </div>
@@ -114,11 +100,11 @@
                     <button type="button" class="btn btn-primary">Doar</button>
             </div>
         </div>
-    
-    <script>
-        function Nova() {
-            location.href="/SA-JSP/Home/home.jsp";
-        }
-    </script>
+        
+        <script>
+            function Nova() {
+                location.href="/SA-JSP/Home/home.jsp"
+            }
+        </script>
 </body>
 </html>

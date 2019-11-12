@@ -67,6 +67,8 @@ nav img{
     display: flex;
     width: 90%;
     padding: 1% 0 0 10% ;
+    flex-direction: row;
+    flex-flow: wrap;
 }
 
 .text-sobre-info .text-sobre-info-detalhe p{
@@ -150,4 +152,3 @@ form{
     width: 300px;
     font-weight: bold;
 }
-

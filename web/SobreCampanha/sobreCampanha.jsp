@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="sobreCampanha.css">
+    <link rel="stylesheet" type="text/css" href="sobreCampanhaEstilo.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <title>Campanha</title>
@@ -32,7 +32,6 @@
             <path d="M20 30 L8 16 20 2" />
         </svg>
         <img src="../imagensSobre/Logo.png" alt="">
-        <button type="button" class="btn btn-primary">Venha fazer parte dessa comunidade.</button>
     </nav>
     <div class="text-sobre">
         <h2><%=rs.getString("nome")%></h2>
@@ -72,25 +71,20 @@
                     </div>
                 </div>
                 <div class="form-separator">
-                    <div class="input2">
-                        <div class="caixa-input2">
-                            <img src="../imagensSobre/wallet (1).png" alt=""/>
-                            <input id="cpf" type="text" placeholder="CPF"/> 
-                        </div>
-                    </div>
-                    <div class="input2">
-                        <div class="caixa-input2">
+                    <div class="input">
+                        <div class="caixa-input">
                             <img src="../imagensSobre/suitcase.png" alt=""/>
-                            <input id="cargo" type="text" placeholder="Cargo"/> 
+                            <input id="cargo" type="text" placeholder="Cargo"/> <!--placeholder="" dica do input-->
                         </div>
                     </div>
-                    <div class="input2">
-                        <div class="caixa-input2">
+                    <div class="input">
+                        <div class="caixa-input">
                             <img src="../imagensSobre/office-block.png" alt=""/>
                             <input id="unidade" type="text" placeholder="Unidade"/> 
                         </div>
                     </div>
                 </div>
+                
             </form>
             <div class="button-doar">
                     <button type="button" class="btn btn-primary">Participar</button>

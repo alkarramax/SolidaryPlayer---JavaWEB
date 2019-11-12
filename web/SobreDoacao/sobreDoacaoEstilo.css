@@ -54,6 +54,11 @@ nav img{
 
 }
 
+.text-sobre p{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
 .text-sobre h2{
     color: #01bcd5;
     font-family: WorkSansLight;
@@ -61,19 +66,39 @@ nav img{
 
 .text-sobre-info{
     display: flex;
-    width: 89%;
-    padding: 1% 0 0 10%;
+    flex-direction: row;
+    flex-flow: wrap;
+    width: 90%;
+    padding: 1% 0 0 10% ;
 }
 
-.text-sobre-info p{
+.text-sobre-info .text-sobre-info-detalhe p{
     color: #78909c;
     font-size: 1rem;
     padding-left: 5px;
 }
 
+.text-sobre-info .img-text-sobre{
+    width: 18px;
+    height: 18px;
+}
+
+.text-sobre-info  img{
+    width: 5px;
+    height: 5px;
+}
+
+.text-sobre-info-detalhe .info p{
+    color: #01bcd5;
+}
+
+.text-sobre-info .text-sobre-info-detalhe p:first-child{
+    padding-left: 0;
+}
+
 .text-sobre-info-detalhe{
     display: flex;
-    padding-right: 6%;
+    padding-right: 10px;
 }
 
 form{
@@ -84,6 +109,10 @@ form{
     width: 100%;
     display: flex;
     padding-top: 30px;
+}
+
+.form-separator:first-child{
+    padding-top: 25px;
 }
 
 .input{
@@ -116,37 +145,6 @@ form{
     padding: 10px 0 0 10px;
 }
 
-    
-.caixa-input2{
-    width: 100%;
-    height: 50px;
-    border-radius: 5px;
-    border:1px solid #cfd8dc;
-    display: flex;
-}
-
-.form-separator .caixa-input2 input{
-    width: 100%;
-    border: none;
-    padding-left: 10px;
-    outline: 0;
-}
-
-.caixa-input2 img{
-    width: 35px;
-    height: 35px;
-    padding: 10px 0 0 10px;
-}
-
-.input2{
-    padding-left: 20px;
-    width: 29%;
-}
-
-.input2:first-child{
-    padding-left: 0;
-}
-
 .button-doar{
     text-align: center;
     padding-top: 30px;
@@ -159,4 +157,3 @@ form{
     width: 300px;
     font-weight: bold;
 }
-
