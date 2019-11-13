@@ -6,14 +6,15 @@ import java.time.LocalDate;
 public class Doacao {
     
     private int id_doacao;
-    private String nome, descricao, local, necessidade;
+    private String nome, descricao, local, necessidade, imagem;
+
     private LocalDate data;
     private int quantidadeDeItens;
     private boolean aberta;
     
     private int id_softplayer;
-    private int id_necessidade;
-    private int id_entidade;
+    private int id_necessidade1;
+    private int id_necessidade2;
 
     public int getId_doacao() {
         return id_doacao;
@@ -88,20 +89,30 @@ public class Doacao {
         this.id_softplayer = id_softplayer;
     }
 
-    public int getId_necessidade() {
-        return id_necessidade;
+    public int getId_necessidade1() {
+        return id_necessidade1;
     }
 
-    public void setId_necessidade(int id_necessidade) {
-        this.id_necessidade = id_necessidade;
+    public void setId_necessidade1(int id_necessidade1) {
+        this.id_necessidade1 = id_necessidade1;
     }
 
-    public int getId_entidade() {
-        return id_entidade;
+    public int getId_necessidade2() {
+        return id_necessidade2;
     }
 
-    public void setId_entidade(int id_entidade) {
-        this.id_entidade = id_entidade;
+    public void setId_necessidade2(int id_necessidade2) {
+        this.id_necessidade2 = id_necessidade2;
+    }
+
+   
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
     }
     
     

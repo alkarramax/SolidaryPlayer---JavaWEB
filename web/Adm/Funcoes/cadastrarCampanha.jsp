@@ -5,24 +5,26 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="../admin.css"/>
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-        <title>Cadastrar Doação</title>
+        <title>Cadastrar Campanha</title>
+        
         <style>
             body {
-                margin: 12px;
+                margin: 10px;
             }
-            
         </style>
     </head>
     <body>
-        <form action="../../cadastrarDoacao" method="post" enctype="multipart/form-data">
-            <div class="form-group">
-                <label>Nome da doação: </label>
-                <input type="text" class="form-control" name="nome" >
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Cadastrar Campanha</h3>
             </div>
+        </div>
+        <form action="../../criarCampanha" method="post" enctype="multipart/form-data">
             <div class="form-group">
-                <label>Descrição: </label>
-                <textarea class="form-control" name="descricao" ></textarea>
+                <label>Nome: </label>
+                <input type="text" class="form-control" name="nome" >
             </div>
             <div class="form-group">
                 <label>Local: </label>
@@ -30,13 +32,21 @@
             </div>
             <div class="form-group">
                 <label>Data: </label>
-                <input type="date" class="form-control" name="data" >
+                <input type="date" class="form-control" name="dataInicio" >
+            </div>
+            <div class="form-group">
+                <label>Descrição: </label>
+                <textarea class="form-control" name="descricao" ></textarea>
+            </div>
+            
+            <div>
+                <input type="file" name="file" size="50"/>
             </div>
             
             </br>
             <button type="submit" class="btn btn-primary">Cadastrar</button>
             <a href="../administrador.jsp" class="btn btn-default">Voltar</a>
         </form>
-        
+
     </body>
 </html>
