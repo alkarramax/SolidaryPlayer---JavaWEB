@@ -1,8 +1,7 @@
 package controller;
 
 
-import DAO.JDBCEntidadeDAO;
-import DAO.JDBCVoluntariadoDAO;
+import DAO.JDBCSoftplayerDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -14,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-public class deleteVoluntariado extends HttpServlet {
+public class DeletePlayers extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException, ClassNotFoundException {
@@ -24,12 +23,12 @@ public class deleteVoluntariado extends HttpServlet {
             String id = request.getParameter("d");
             int no = Integer.parseInt(id);
             
-            JDBCVoluntariadoDAO deleteDAO = new JDBCVoluntariadoDAO();
+            JDBCSoftplayerDAO deleteDAO = new JDBCSoftplayerDAO();
             deleteDAO.remover(no);
             
             
             out.println("<script type=\"text/javascript\">");
-            out.println("alert('Voluntariado deletada!!');");
+            out.println("alert('Softplayer deletado!!');");
             out.println("location='/SA-JSP/Adm/administrador.jsp';");
             out.println("</script>");
         }
@@ -42,9 +41,9 @@ public class deleteVoluntariado extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(deleteVoluntariado.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DeletePlayers.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(deleteVoluntariado.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DeletePlayers.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -55,9 +54,9 @@ public class deleteVoluntariado extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(deleteVoluntariado.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DeletePlayers.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(deleteVoluntariado.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DeletePlayers.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

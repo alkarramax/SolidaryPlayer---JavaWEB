@@ -6,7 +6,7 @@
 package controller;
 
 
-import DAO.JDBCEntidadeDAO;
+import DAO.JDBCCampanhaDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-public class deleteEntidade extends HttpServlet {
+public class DeleteDoacao extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException, ClassNotFoundException {
@@ -28,12 +28,12 @@ public class deleteEntidade extends HttpServlet {
             String id = request.getParameter("d");
             int no = Integer.parseInt(id);
             
-            JDBCEntidadeDAO deleteDAO = new JDBCEntidadeDAO();
+            JDBCCampanhaDAO deleteDAO = new JDBCCampanhaDAO();
             deleteDAO.remover(no);
             
             
             out.println("<script type=\"text/javascript\">");
-            out.println("alert('Entidade deletada!!');");
+            out.println("alert('Doação deletada!!');");
             out.println("location='/SA-JSP/Adm/administrador.jsp';");
             out.println("</script>");
         }
@@ -46,9 +46,9 @@ public class deleteEntidade extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(deleteEntidade.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DeleteDoacao.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(deleteEntidade.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DeleteDoacao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -59,9 +59,9 @@ public class deleteEntidade extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(deleteEntidade.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DeleteDoacao.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(deleteEntidade.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DeleteDoacao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

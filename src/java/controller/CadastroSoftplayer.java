@@ -14,7 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Softplayer;
 
-public class cadastro extends HttpServlet {
+public class CadastroSoftplayer extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException, ClassNotFoundException {
         response.setContentType("text/html;charset=UTF-8");
@@ -61,9 +61,9 @@ public class cadastro extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(cadastro.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CadastroSoftplayer.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(cadastro.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CadastroSoftplayer.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -81,9 +81,9 @@ public class cadastro extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(cadastro.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CadastroSoftplayer.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(cadastro.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CadastroSoftplayer.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

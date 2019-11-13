@@ -62,7 +62,7 @@
             <div class="container" id="container">
                 <div class="form-container sign-up-container">
                     <img src="imagens/./baseline_clear_black_18dp.png" alt="Close" class="close2">
-                    <form action="../cadastro">
+                    <form action="../CadastroSoftplayer">
                         <h1>Crie Sua Conta</h1>
                         <input type="text" name="nome" placeholder="Nome">
                         <input type="text" name="sobrenome" placeholder="Sobrenome">
@@ -74,7 +74,7 @@
                     </form>
                 </div>
                 <div class="form-container sign-in-container">
-                    <form action="../login">
+                    <form action="../Login">
                         <h1>Entrar</h1>
                         <input type="email" name="email" id="email" placeholder="Email">
                         <input type="password" name="senha" id="senha" placeholder="Senha">
@@ -128,7 +128,7 @@
                         <%} else {%>
                         <li><a class="nav-link" href="#" id="deslogar"><%=nomeUsuario%></a>
                             <ul class="deslogar">
-                                <li><a href="../deslogar">Deslogar</a></li>
+                                <li><a href="../Deslogar">Deslogar</a></li>
                             </ul>
                         </li>
                         <%}%>
@@ -151,37 +151,10 @@
             <h2>Invista no futuro de crianças e adolescentes</h2>
             <div class="tab-wrapper">
                 <ul>
-                  <li><a href="#" class="active" data-product-info-link="1">Doações</a></li>
-                  <li><a href="#" data-product-info-link="2">Campanhas</a></li>
-                  <li><a href="#" data-product-info-link="3">Voluntariado</a></li>
+                  <li><a href="#" class="active" data-product-info-link="1">Campanhas</a></li>
                 </ul>
                 <div class='product-info-tab' data-product-info-tab='1' style='display: block;'>
-                    <div class='card-wrapper'>
-                <%
-                    
-                    JDBCEntidadeDAO entidadeDAO = new JDBCEntidadeDAO();
-                    List<Entidade> list = entidadeDAO.listar();
-                    
-                    for(Entidade w : list) {
-
-                                out.println("<div class='card'>");
-                                    out.println("<img src='imageEntidade/"+w.getImagem()+"' alt='card backgroud' class='card-img'>");
-                                    out.println("<img src='imagens/logo-branco-300x287.png' alt='profile backgroud' class='profile-img'>");
-                                    out.println("<h1>"+w.getNome()+"</h1>");
-                                    out.println("<p>"+w.getDescricao()+"</p>");
-                                    out.println("<a href='../SobreDoacao/sobreDoacao.jsp?e="+w.getId_entidade()+"' class='btn-doar'>Contribua agora</a>");
-                                out.println("</div>");
-                            
-                        
-                    } 
-                %>
-                    </div>
-                </div> 
-                 
-               
-                 <div class="product-info-tab" data-product-info-tab="2">
-                    <div class="card-wrapper">
-                        <%
+                     <%
                             JDBCCampanhaDAO campanhaDAO = new JDBCCampanhaDAO();
                             List<Campanha> listCampanha = campanhaDAO.listar();
 
@@ -195,66 +168,22 @@
                                         out.println("</div>");
                             }
                         %>
-                    </div>
-                </div>
-   
-                <div class="product-info-tab" data-product-info-tab="3">
-                    <div class="card-wrapper">
-                        <%
-                            JDBCVoluntariadoDAO voluntariadoDAO = new JDBCVoluntariadoDAO();
-                            List<Voluntariado> listVoluntariado = voluntariadoDAO.listar();
-
-                            for(Voluntariado x : listVoluntariado) {
-                                out.println("<div class='card'>");
-                                            out.println("<img src='imageCampanha/"+x.getImagem()+"' alt='card backgroud' class='card-img'>");
-                                            out.println("<img src='imagens/logo-branco-300x287.png' alt='profile backgroud' class='profile-img'>");
-                                            out.println("<h1>"+x.getNome()+"</h1>");
-                                            out.println("<p>"+x.getDescricao()+"</p>");
-                                            out.println("<a href='../SobreVoluntariado/sobreVoluntariado.jsp?v="+x.getId_voluntariado()+"' class='btn-doar'>Contribua agora</a>");
-                                        out.println("</div>");
-                            }
-                        
-                        %>
-                    </div>
-                </div>
+                </div>        
             </div>
         </div>
     </section>
                 
                 
-    <section>
+   <section>
         <div id="causas" class="causa1">
-             <h2 class="h2card">Apoie os idosos e preserve a nossa história</h2>
+            <h2>Invista no futuro de crianças e adolescentes</h2>
             <div class="tab-wrapper">
                 <ul>
-                  <li><a href="#" class="active" data-product-info-link="1">Doações</a></li>
-                  <li><a href="#" data-product-info-link="2">Campanhas</a></li>
-                  <li><a href="#" data-product-info-link="3">Voluntariado</a></li>
+                  <li><a href="#" class="active" data-product-info-link="1">Campanhas</a></li>
                 </ul>
                 <div class='product-info-tab' data-product-info-tab='1' style='display: block;'>
-                    <div class='card-wrapper'>
-                <%
-                    for(Entidade w : list) {
-
-                                out.println("<div class='card'>");
-                                    out.println("<img src='imageEntidade/"+w.getImagem()+"' alt='card backgroud' class='card-img'>");
-                                    out.println("<img src='imagens/logo-branco-300x287.png' alt='profile backgroud' class='profile-img'>");
-                                    out.println("<h1>"+w.getNome()+"</h1>");
-                                    out.println("<p>"+w.getDescricao()+"</p>");
-                                    out.println("<a href='../SobreDoacao/sobreDoacao.jsp?e="+w.getId_entidade()+"' class='btn-doar'>Contribua agora</a>");
-                                out.println("</div>");
-                            
-                        
-                    } 
-                %>
-                    </div>
-                </div> 
-                 
-               
-                 <div class="product-info-tab" data-product-info-tab="2">
-                    <div class="card-wrapper">
-                        <%
-                          for(Campanha y : listCampanha) {
+                     <%
+                            for(Campanha y : listCampanha) {
                                 out.println("<div class='card'>");
                                             out.println("<img src='imageCampanha/"+y.getImagem()+"' alt='card backgroud' class='card-img'>");
                                             out.println("<img src='imagens/logo-branco-300x287.png' alt='profile backgroud' class='profile-img'>");
@@ -263,29 +192,12 @@
                                             out.println("<a href='../SobreCampanha/sobreCampanha.jsp?c="+y.getId_campanha()+"' class='btn-doar'>Contribua agora</a>");
                                         out.println("</div>");
                             }
-                        %>
-                    </div>
-                </div>
-   
-                <div class="product-info-tab" data-product-info-tab="3">
-                    <div class="card-wrapper">
-                        <%                            
-                            for(Voluntariado x : listVoluntariado) {
-                                out.println("<div class='card'>");
-                                            out.println("<img src='imageCampanha/"+x.getImagem()+"' alt='card backgroud' class='card-img'>");
-                                            out.println("<img src='imagens/logo-branco-300x287.png' alt='profile backgroud' class='profile-img'>");
-                                            out.println("<h1>"+x.getNome()+"</h1>");
-                                            out.println("<p>"+x.getDescricao()+"</p>");
-                                            out.println("<a href='../SobreVoluntariado/sobreVoluntariado.jsp?v="+x.getId_voluntariado()+"' class='btn-doar'>Contribua agora</a>");
-                                        out.println("</div>");
-                            }
-                        
-                        %>
-                    </div>
-                </div>
+                    %>
+                </div>        
             </div>
         </div>
     </section>
+                
     </section>
         <section class="sobre-img-impacto">
             <div class="img-impacto">

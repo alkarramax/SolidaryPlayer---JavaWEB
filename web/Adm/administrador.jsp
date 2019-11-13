@@ -29,9 +29,6 @@
                 </div>
                 <ul id="menu">
                     <li><a id="home">Home</a></li>
-                    <li><a id="entidade">Entidades</a></li>
-                    <li><a id="campanha">Campanhas</a></li>
-                    <li><a id="voluntariado">Voluntariado</a></li>
                     <li><a id="doacoes">Doações</a></li>
                     <li><a id="player">Players</a></li>
                 </ul>
@@ -54,161 +51,6 @@
                             Home
                         </div>
                     </div>
-                    <div id="entidades-actions">
-                        <div class="title">
-                            Entidades
-                        </div>
-                        <div class="row">
-                            <div id="botaoCadastrar" class="col-md-6">
-                                <a href="./Funcoes/addEntidades.jsp" class="btn btn-primary">Adicionar Entidade</a>
-                            </div>
-                        </div>
-                            
-                        <table class="table table-bordered table-striped table-hover">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Nome</th>
-                                    <th>Causa</th>
-                                    <th>Endereço</th>
-                                    <th>Email</th>
-                                    <th>Telefone</th>
-                                    <th>Funções</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <%
-                                    Connection connEntidade = DBConnection.getConnection();
-                                    Statement statEntidade = connEntidade.createStatement();
-
-                                    String dataEntidade = "select * from entidade";
-                                    ResultSet rsEntin = statEntidade.executeQuery(dataEntidade);
-
-                                    while(rsEntin.next()) {
-                                %>  
-                                <tr>
-                                    <td><%=rsEntin.getString("id_entidade")%></td>
-                                    <td><%=rsEntin.getString("nome")%></td>
-                                    <td><%=rsEntin.getString("causa")%></td>
-                                    <td><%=rsEntin.getString("endereco")%></td>
-                                    <td><%=rsEntin.getString("email")%></td>
-                                    <td><%=rsEntin.getString("telefone")%></td>
-                                    <td>
-                                    <a href="./Funcoes/editarEntidade.jsp?u=<%=rsEntin.getString("id_entidade")%>" class="btn btn-warning">Editar</a>
-                                    <a href='../deleteEntidade?d=<%=rsEntin.getString("id_entidade")%>' class="btn btn-danger">Delete</a>
-                                    </td>
-                                </tr>
-                                <%
-                                }
-                                %>
-                            </tbody>
-                        </table>
-                        
-                    </div>
-                    <div id="campanhas-actions">
-                        <div class="title">
-                            Campanhas
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <a href="./Funcoes/addCampanha.jsp" class="btn btn-primary">Adicionar Campanha</a>
-                            </div>
-                        </div>
-                        
-                        <table class="table table-bordered table-striped table-hover">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Nome</th>
-                                    <th>Local</th>
-                                    <th>Data Início</th>
-                                    <th>Data Término</th>
-                                    <th>Funções</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <%
-                                    Connection connCampanha = DBConnection.getConnection();
-                                    Statement statCampanha = connCampanha.createStatement();
-
-                                    String dataCampanha = "select * from campanha";
-                                    ResultSet rsCamp = statCampanha.executeQuery(dataCampanha);
-
-                                    while(rsCamp.next()) {
-                                %>  
-                                <tr>
-                                    <td><%=rsCamp.getString("id_campanha")%></td>
-                                    <td><%=rsCamp.getString("nome")%></td>
-                                    <td><%=rsCamp.getString("local")%></td>
-                                    <td><%=rsCamp.getString("dataInicio")%></td>
-                                    <td><%=rsCamp.getString("dataTermino")%></td>
-                                    <td>
-                                    <a href="./Funcoes/editarCampanha.jsp?u=<%=rsCamp.getString("id_campanha")%>" class="btn btn-warning">Editar</a>
-                                    <a href='../deleteCampanha?d=<%=rsCamp.getString("id_campanha")%>' class="btn btn-danger">Delete</a>
-                                    </td>
-                                </tr>
-                                <%
-                                }
-                                %>
-                            </tbody>
-                        </table>
-                        
-                    </div>
-                            
-                            
-                    <div id="voluntariado-actions">
-                        <div class="title">
-                            Voluntariado
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <a href="./Funcoes/criarVoluntariado.jsp" class="btn btn-primary">Adicionar Voluntariado</a>
-                            </div>
-                        </div>
-                        
-                        
-                        <table class="table table-bordered table-striped table-hover">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Nome</th>
-                                    <th>Local</th>
-                                    <th>Data</th>
-                                    <th>Hora</th>
-                                    <th>Funções</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <%
-                                    Connection connVoluntariado = DBConnection.getConnection();
-                                    Statement statVoluntariado = connVoluntariado.createStatement();
-
-                                    String dataVoluntariado = "select * from voluntariado";
-                                    ResultSet rsVolu = statVoluntariado.executeQuery(dataVoluntariado);
-
-                                    while(rsVolu.next()) {
-                                %>  
-                                <tr>
-                                    <td><%=rsVolu.getString("id_voluntariado")%></td>
-                                    <td><%=rsVolu.getString("nome")%></td>
-                                    <td><%=rsVolu.getString("local")%></td>
-                                    <td><%=rsVolu.getString("data")%></td>
-                                    <td><%=rsVolu.getString("hora")%></td>
-                                    <td>
-                                    <a href="./Funcoes/editarVoluntariado.jsp?u=<%=rsVolu.getString("id_voluntariado")%>" class="btn btn-warning">Editar</a>
-                                    <a href='../deleteVoluntariado?d=<%=rsVolu.getString("id_voluntariado")%>' class="btn btn-danger">Delete</a>
-                                    </td>
-                                </tr>
-                                <%
-                                }
-                                %>
-                            </tbody>
-                        </table>
-                        
-                        
-                        
-                    </div> 
-                            
                             
                     <div id="doacoes-actions">
                         <div class="title">
@@ -292,7 +134,7 @@
                                 <td><%=rs.getString("cargo")%></td>
                                 <td><%=rs.getString("unidade")%></td>
                                 <td>
-                                    <a href='../deletePlayers?d=<%=rs.getString("id_softplayer")%>' class="btn btn-danger">Delete</a>
+                                    <a href='../DeletePlayers?d=<%=rs.getString("id_softplayer")%>' class="btn btn-danger">Delete</a>
                                 </td>
 
                              </tr>

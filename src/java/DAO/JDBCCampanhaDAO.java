@@ -1,47 +1,48 @@
 package DAO;
 
 import DB.DBConnection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
-import model.Campanha;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import model.Doacao;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-
-public class JDBCCampanhaDAO {
-    private List<Campanha> campanhas = new ArrayList<>();
-    private Campanha campanha;
+public class JDBCCampanhaDAO{
+    private List<Doacao> doacoes = new ArrayList<>();
+    private Doacao doacao;
     Connection connection;
-    
+
     public JDBCCampanhaDAO() throws SQLException, SQLException, ClassNotFoundException {
         connection = DBConnection.getConnection();
     }
     
-    public void inserir(Campanha campanha) {
+    
+    public void inserir(Doacao doacao) {
         try {
-            String SQL = "INSERT INTO campanha(nome, local, dataInicio, dataTermino, descricao, imagem)"
-                    + "values (?,?,?,?,?,?)";
-            try (PreparedStatement ps = connection.prepareStatement(SQL)) {
-                ps.setString(1, campanha.getNome());
-                ps.setString(2, campanha.getLocal());
-                ps.setString(3, String.valueOf(campanha.getDataInicio()));
-                ps.setString(4, String.valueOf(campanha.getDataTermino()));
-                ps.setString(5, campanha.getDescricao());
-                ps.setString(6, campanha.getImagem());
-                
-                ps.executeUpdate();
-                ps.close();
-            }
-        } catch (Exception e) {
-        
+            String SQL = "insert into doacao(nome, descricao, local,  data, aberta) "
+                    + "values (?,?,?,?,?)";
+            PreparedStatement ps = connection.prepareStatement(SQL);
+            ps.setString(1, doacao.getNome());
+            ps.setString(2, doacao.getDescricao());
+            ps.setString(3, doacao.getLocal());  
+            ps.setString(4, String.valueOf(doacao.getData()));
+            doacao.setAberta(true);
+            ps.setBoolean(5, doacao.isAberta());
+            ps.executeUpdate();
+            ps.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(JDBCSoftplayerDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     public void remover(int id) {
         try {
-            String SQL = "delete from campanha where id_campanha= ?";
+            String SQL = "delete from doacao where id_doacao= ?";
             PreparedStatement ps = connection.prepareStatement(SQL);
             ps.setInt(1, id);
             ps.executeUpdate();
@@ -51,60 +52,52 @@ public class JDBCCampanhaDAO {
         }
     }
 
-    public List<Campanha> listar() {
-        
-        
+    public List<Doacao> listar() throws SQLException {
         try {
-            String SQL = "select * from campanha";
+            String SQL = "select * from doacao";
             PreparedStatement ps = connection.prepareStatement(SQL);
             ResultSet rs = ps.executeQuery();
             
             while(rs.next()) {
-                campanha = new Campanha();
+                doacao = new Doacao();
                 
-                campanha.setId_campanha(rs.getInt("id_campanha"));
-                campanha.setId_softplayer(rs.getInt("id_softplayer"));
-                campanha.setId_necessidade(rs.getInt("id_necessidade"));
+                doacao.setId_doacao(rs.getInt("id_doacao"));
+                doacao.setId_softplayer(rs.getInt("id_softplayer"));
+                doacao.setId_necessidade(rs.getInt("id_necessidade"));
+                doacao.setId_entidade(rs.getInt("id_entidade"));
                 
-                campanha.setNome(rs.getString("nome"));
-                campanha.setLocal(rs.getString("local"));
+                doacao.setNome(rs.getString("nome"));
+                doacao.setDescricao(rs.getString("descricao"));
+                doacao.setLocal(rs.getString("local"));
                 
-                String dataInicio = rs.getDate("dataInicio").toString();
-                LocalDate dtInicio = LocalDate.parse(dataInicio);
-                campanha.setDataInicio(dtInicio);
+                String data = rs.getDate("data").toString();
+                LocalDate dt = LocalDate.parse(data);
+                doacao.setData(dt);
                 
-                String dataTermino = rs.getDate("dataTermino").toString();
-                LocalDate dtTermino = LocalDate.parse(dataTermino);
-                campanha.setDataTermino(dtTermino);
-                
-                campanha.setDescricao(rs.getString("descricao"));
-                campanha.setImagem(rs.getString("imagem"));
-
-                campanhas.add(campanha);
+                doacoes.add(doacao);
             }
-            
-        } catch (Exception e) {
+        }catch(SQLException e){
             
         }
-        return campanhas;
+        return doacoes;
     }
 
-    public Campanha buscar(int id) {
+    public Doacao buscar(int id) {
         try {
-            Campanha campanha = new Campanha();
+            Doacao doacao = new Doacao();
             
-            String sql = "Select * from campanha where nome = ?";
+            String sql = "Select * from doacao where nome = ?";
             PreparedStatement ps = connection.prepareStatement(sql);
             
             ResultSet rs = ps.executeQuery();
             
             rs.next();
-            campanha.setNome(rs.getString("nome"));
+            doacao.setNome(rs.getString("nome"));
             
             ps.close();
             rs.close();
             
-            return campanha;
+            return doacao;
             
         } catch (SQLException ex) {
             Logger.getLogger(JDBCCampanhaDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -112,8 +105,8 @@ public class JDBCCampanhaDAO {
         }
     }
 
-    public void editar(Campanha campanha) {
-        
+    public void editar(Doacao doacao) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

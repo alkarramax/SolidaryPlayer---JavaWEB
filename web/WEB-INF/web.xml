@@ -3,15 +3,15 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
         <servlet-name>login</servlet-name>
-        <servlet-class>controller.login</servlet-class>
+        <servlet-class>controller.Login</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>cadastro</servlet-name>
-        <servlet-class>controller.cadastro</servlet-class>
+        <servlet-class>controller.CadastroSoftplayer</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>deletePlayers</servlet-name>
-        <servlet-class>controller.deletePlayers</servlet-class>
+        <servlet-class>controller.DeletePlayers</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>cadastrarEntidade</servlet-name>
@@ -27,11 +27,11 @@
     </servlet>
     <servlet>
         <servlet-name>deslogar</servlet-name>
-        <servlet-class>controller.deslogar</servlet-class>
+        <servlet-class>controller.Deslogar</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>cadastrarDoacao</servlet-name>
-        <servlet-class>controller.cadastrarDoacao</servlet-class>
+        <servlet-class>controller.CadastrarDoacao</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>cadastrarCampanha</servlet-name>
@@ -47,11 +47,11 @@
     </servlet>
     <servlet>
         <servlet-name>editarDoacao</servlet-name>
-        <servlet-class>controller.editarDoacao</servlet-class>
+        <servlet-class>controller.EditarDoacao</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>deleteDoacao</servlet-name>
-        <servlet-class>controller.deleteDoacao</servlet-class>
+        <servlet-class>controller.DeleteDoacao</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>editarCampanha</servlet-name>

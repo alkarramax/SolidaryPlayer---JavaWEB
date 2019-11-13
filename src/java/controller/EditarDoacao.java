@@ -16,47 +16,33 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author Aluno
- */
-public class editarVoluntariado extends HttpServlet {
+public class EditarDoacao extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException, ClassNotFoundException, ClassNotFoundException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
-            Connection connVoluntariado = DBConnection.getConnection();
+            Connection connDoacao = DBConnection.getConnection();
             
-            String id = request.getParameter("id_voluntariado");
+            String id = request.getParameter("id_doacao");
             String nome = request.getParameter("nome");
+            String descricao = request.getParameter("descricao");
             String local = request.getParameter("local");
             String data = request.getParameter("data");
-            String hora = request.getParameter("hora");
-            String descricao = request.getParameter("descricao");
 
-            out.print(id);
-            out.print(nome);
-            out.print(local);
-            out.print(data);
-            out.print(hora);
-            out.print(descricao);
-            
-            if(nome != null && local != null && data != null && hora != null && descricao != null) {
-                String query = "update voluntariado set nome=?, local=?, data=?, hora=?, descricao=? where id_voluntariado='"+id+"'";
-                PreparedStatement stmt = connVoluntariado.prepareStatement(query);
+            if(nome != null && descricao != null && local != null && data != null) {
+                String query = "update doacao set nome=?, descricao=?, local=?, data=? where id_doacao='"+id+"'";
+                PreparedStatement stmt = connDoacao.prepareStatement(query);
 
                 stmt.setString(1, nome);
-                stmt.setString(2, local);
-                stmt.setString(3, data);
-                stmt.setString(4, hora);
-                stmt.setString(5, descricao);
+                stmt.setString(2, descricao);
+                stmt.setString(3, local);
+                stmt.setString(4, data);
                 stmt.executeUpdate();
-                out.print("fghgfhgfhfh");
 
                 out.println("<script type=\"text/javascript\">");
-                out.println("alert('Voluntariado alterado!!');");
+                out.println("alert('Doacao alterada!!');");
                 out.println("location='/SA-JSP/Adm/administrador.jsp';");
                 out.println("</script>");
                     
@@ -70,9 +56,9 @@ public class editarVoluntariado extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(editarVoluntariado.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EditarDoacao.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(editarVoluntariado.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EditarDoacao.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
@@ -82,9 +68,9 @@ public class editarVoluntariado extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(editarVoluntariado.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EditarDoacao.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(editarVoluntariado.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EditarDoacao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     @Override
