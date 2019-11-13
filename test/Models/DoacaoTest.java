@@ -1,7 +1,7 @@
 package Models;
 
 import java.util.Date;
-import model.Doacao;
+import model.Campanha;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -11,12 +11,12 @@ import static org.junit.Assert.*;
 
 public class DoacaoTest {
     
-    private Doacao d;
+    private Campanha d;
     private Date data;
     
     @Before
     public void setUp(){
-        d = new Doacao();
+        d = new Campanha();
         data = new Date();
     }
     

@@ -2,27 +2,32 @@
 package model;
 
 import java.time.LocalDate;
+import java.util.List;
 
-public class Doacao {
+public class Campanha {
     
-    private int id_doacao;
+    private int id_campanha;
     private String nome, descricao, local, necessidade, imagem;
 
     private LocalDate data;
     private int quantidadeDeItens;
     private boolean aberta;
     
+    private List<Softplayer> listaSoftplayers;
+    
     private int id_softplayer;
     private int id_necessidade1;
     private int id_necessidade2;
 
-    public int getId_doacao() {
-        return id_doacao;
+    public int getId_campanha() {
+        return id_campanha;
     }
 
-    public void setId_doacao(int id_doacao) {
-        this.id_doacao = id_doacao;
+    public void setId_campanha(int id_campanha) {
+        this.id_campanha = id_campanha;
     }
+
+    
 
     public String getNome() {
         return nome;

@@ -1,7 +1,7 @@
 package DAO;
 
 import java.util.List;
-import model.Doacao;
+import model.Campanha;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
 public class DoacaoDAOTest {
     
     private DoacaoDAO dDAO;
-    private Doacao d;
+    private Campanha d;
     
     public DoacaoDAOTest() {
     }
@@ -28,7 +28,7 @@ public class DoacaoDAOTest {
     @Before
     public void setUp() {
         dDAO = new DoacaoDAOImpl();
-        d = new Doacao();
+        d = new Campanha();
     }
     
     @After
@@ -62,21 +62,21 @@ public class DoacaoDAOTest {
 
     public class DoacaoDAOImpl implements DoacaoDAO {
 
-        public void inserir(Doacao doacao) {
+        public void inserir(Campanha doacao) {
         }
 
         public void remover(int id) {
         }
 
-        public List<Doacao> listar() {
+        public List<Campanha> listar() {
             return null;
         }
 
-        public Doacao buscar(int id) {
+        public Campanha buscar(int id) {
             return null;
         }
 
-        public void editar(Doacao doacao) {
+        public void editar(Campanha doacao) {
         }
     }
     

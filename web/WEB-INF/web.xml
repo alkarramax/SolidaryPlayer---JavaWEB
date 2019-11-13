@@ -3,7 +3,7 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
         <servlet-name>login</servlet-name>
-        <servlet-class>controller.Login</servlet-class>
+        <servlet-class>controller.login</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>cadastro</servlet-name>
@@ -68,6 +68,10 @@
     <servlet>
         <servlet-name>deleteVoluntariado</servlet-name>
         <servlet-class>controller.deleteVoluntariado</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Doar</servlet-name>
+        <servlet-class>controller.Doar</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>login</servlet-name>
@@ -136,6 +140,10 @@
     <servlet-mapping>
         <servlet-name>deleteVoluntariado</servlet-name>
         <url-pattern>/deleteVoluntariado</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Doar</servlet-name>
+        <url-pattern>/Doar</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

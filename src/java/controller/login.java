@@ -36,6 +36,7 @@ public class login extends HttpServlet {
                 ResultSet rs = stmt.executeQuery("select * from softplayer where email='"+email+"' and senha='"+senha+"'");
                 if(rs.next()) {
                     session.setAttribute("nome", rs.getString("nome"));
+                    session.setAttribute("id", rs.getInt("id_softplayer"));
                     response.sendRedirect("/SA-JSP/Home/home.jsp");
                 } else {
                     out.println("<script type=\"text/javascript\">");

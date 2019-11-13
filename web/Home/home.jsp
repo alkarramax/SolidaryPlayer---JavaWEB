@@ -1,10 +1,6 @@
-<%@page import="model.Voluntariado"%>
-<%@page import="DAO.JDBCVoluntariadoDAO"%>
 <%@page import="model.Campanha"%>
 <%@page import="DAO.JDBCCampanhaDAO"%>
-<%@page import="model.Entidade"%>
 <%@page import="java.util.List"%>
-<%@page import="DAO.JDBCEntidadeDAO"%>
 <%@page import="DB.DBConnection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.sql.*"%>
@@ -62,7 +58,7 @@
             <div class="container" id="container">
                 <div class="form-container sign-up-container">
                     <img src="imagens/./baseline_clear_black_18dp.png" alt="Close" class="close2">
-                    <form action="../CadastroSoftplayer">
+                    <form action="../cadastro">
                         <h1>Crie Sua Conta</h1>
                         <input type="text" name="nome" placeholder="Nome">
                         <input type="text" name="sobrenome" placeholder="Sobrenome">
@@ -74,7 +70,7 @@
                     </form>
                 </div>
                 <div class="form-container sign-in-container">
-                    <form action="../Login">
+                    <form action="../login">
                         <h1>Entrar</h1>
                         <input type="email" name="email" id="email" placeholder="Email">
                         <input type="password" name="senha" id="senha" placeholder="Senha">
@@ -148,7 +144,7 @@
     </header>
     <section>
         <div id="causas" class="causa1">
-            <h2>Invista no futuro de crianças e adolescentes</h2>
+            <h2>Invista no futuro de Crianças</h2>
             <div class="tab-wrapper">
                 <ul>
                   <li><a href="#" class="active" data-product-info-link="1">Campanhas</a></li>
@@ -176,7 +172,7 @@
                 
    <section>
         <div id="causas" class="causa1">
-            <h2>Invista no futuro de crianças e adolescentes</h2>
+            <h2>Invista no futuro de Idosos</h2>
             <div class="tab-wrapper">
                 <ul>
                   <li><a href="#" class="active" data-product-info-link="1">Campanhas</a></li>

@@ -1,3 +1,6 @@
+<%@page import="model.Necessidade"%>
+<%@page import="java.util.List"%>
+<%@page import="DAO.JDBCNecessidadeDAO"%>
 <%@page import="DB.DBConnection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.sql.*"%>
@@ -21,7 +24,7 @@
                 <h3>Cadastrar Campanha</h3>
             </div>
         </div>
-        <form action="../../criarCampanha" method="post" enctype="multipart/form-data">
+        <form action="../../cadastrarCampanha" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label>Nome: </label>
                 <input type="text" class="form-control" name="nome" >
@@ -32,15 +35,52 @@
             </div>
             <div class="form-group">
                 <label>Data: </label>
-                <input type="date" class="form-control" name="dataInicio" >
+                <input type="date" class="form-control" name="data" >
             </div>
             <div class="form-group">
                 <label>Descrição: </label>
                 <textarea class="form-control" name="descricao" ></textarea>
             </div>
             
+            <label>Beneficiario</label>
+            <div class="form-check">
+                <input type="checkbox" name="idosos" class="form-check-input" id="idosos">
+                <label class="form-check-label" for="idosos">Idosos</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" name="criancas" class="form-check-input" id="criancas">
+                <label class="form-check-label" for="criancas">Crianças</label>
+            </div>
+            
             <div>
                 <input type="file" name="file" size="50"/>
+            </div>
+            
+            <div>
+                <label style="margin-right: 150px;">Necessidade</label>
+                <select name="necessidade1" class="form-control" style="width: 250px;">
+                    <option value="-1">Selecione a necessidade</option>
+                    <%
+                        JDBCNecessidadeDAO necessidadeDAO = new JDBCNecessidadeDAO();
+                        List<Necessidade> nest = necessidadeDAO.listar();
+                        
+                        for(Necessidade nec : nest) {
+                            out.println("<option value="+nec.getId_necessidade()+">"+nec.getNecessidade()+"</option>");
+                        }
+                    %>    
+                </select>
+            </div>
+            
+            <div>
+                <label style="margin-right: 150px;">Necessidade</label>
+                <select name="necessidade2" class="form-control" style="width: 250px;">
+                    <option value="-1">Selecione a necessidade</option>
+                    <%
+                        for(Necessidade nec : nest) {
+                            out.println("<option value="+nec.getId_necessidade()+">"+nec.getNecessidade()+"</option>");
+                        }
+                    %>    
+                </select>
             </div>
             
             </br>

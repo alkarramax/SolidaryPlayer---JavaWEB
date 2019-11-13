@@ -5,6 +5,7 @@
  */
 package controller;
 
+import DB.DBConnection;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -12,31 +13,41 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-/**
- *
- * @author alkar
- */
-public class deslogar extends HttpServlet {
+public class Doar extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, SQLException, ClassNotFoundException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-          
-            HttpSession session = request.getSession();
-
-            if (session.getAttribute("nome") != null) {  
-                    session.invalidate();
-                    response.sendRedirect("/SA-JSP/Home/home.jsp");
-                    return; 
-            }
-            if (session.getAttribute("id") != null) {  
-                    session.invalidate();
-                    response.sendRedirect("/SA-JSP/Home/home.jsp");
-                    return; 
-            }
             
+            HttpSession session = request.getSession();
+            String id = request.getParameter("id");
+            String quantidade = request.getParameter("quantidadeDoada");
+            
+            int id_campanha = Integer.parseInt(id);
+            int id_softplayer = (Integer) session.getAttribute("id");
+            int quantidadeDoada = Integer.parseInt(quantidade);
+            
+            Connection connEntidade = DBConnection.getConnection();
+            
+
+            if(quantidade != null) {
+                String query = "update campanha set id_softplayer=?, quantidade_doada=? where id_campanha='"+id_campanha+"'";
+                try (PreparedStatement stmt = connEntidade.prepareStatement(query)) {
+                    stmt.setInt(1, id_softplayer);
+                    stmt.setInt(2, quantidadeDoada);
+                    stmt.executeUpdate();
+                }
+                
+                out.println("<script type=\"text/javascript\">");
+                out.println("alert('Doação realizada com successful!!');");
+                out.println("location='/SA-JSP/Home/home.jsp';");
+                out.println("</script>");
+            }
         }
     }
 
@@ -52,7 +63,13 @@ public class deslogar extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(Doar.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Doar.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -66,7 +83,13 @@ public class deslogar extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(Doar.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Doar.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
