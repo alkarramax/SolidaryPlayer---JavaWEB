@@ -25,7 +25,7 @@ public class JDBCNecessidadeDAO {
     
     public void inserir(Necessidade necessidade) {
         try {
-            String SQL = "insert into Necessidade(necessidade)"
+            String SQL = "insert into Necessidade(descricao)"
                     + "values (?)";
             try (PreparedStatement ps = connection.prepareStatement(SQL)) {
                 ps.setString(1, necessidade.getNecessidade());
@@ -60,7 +60,7 @@ public class JDBCNecessidadeDAO {
             while(rs.next()) {
                 Necessidade necessidade = new Necessidade();
 
-                necessidade.setNecessidade(rs.getString("necessidade"));
+                necessidade.setNecessidade(rs.getString("descricao"));
                 necessidades.add(necessidade);
             }
             
@@ -80,7 +80,7 @@ public class JDBCNecessidadeDAO {
             ResultSet rs = ps.executeQuery();
             
             rs.next();
-            necessidade.setNecessidade(rs.getString("necessidade"));
+            necessidade.setNecessidade(rs.getString("descricao"));
             
             ps.close();
             rs.close();
