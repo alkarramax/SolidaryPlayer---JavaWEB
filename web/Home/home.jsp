@@ -70,7 +70,7 @@
                     </form>
                 </div>
                 <div class="form-container sign-in-container">
-                    <form action="../login">
+                    <form action="../Login">
                         <h1>Entrar</h1>
                         <input type="email" name="email" id="email" placeholder="Email">
                         <input type="password" name="senha" id="senha" placeholder="Senha">

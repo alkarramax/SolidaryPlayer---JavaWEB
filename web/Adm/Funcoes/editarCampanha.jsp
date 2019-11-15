@@ -13,7 +13,7 @@
         
         <style>
             body {
-                margin: 50px;
+                margin: 8px;
                 margin-top: 10px;
             }
         </style>

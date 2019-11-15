@@ -25,24 +25,26 @@ public class editarDoacao extends HttpServlet {
             
             Connection connDoacao = DBConnection.getConnection();
             
-            String id = request.getParameter("id_doacao");
+            String id = request.getParameter("id_campanha");
             String nome = request.getParameter("nome");
             String descricao = request.getParameter("descricao");
             String local = request.getParameter("local");
             String data = request.getParameter("data");
+            
+            Date dt = Date.valueOf(data);
 
             if(nome != null && descricao != null && local != null && data != null) {
-                String query = "update doacao set nome=?, descricao=?, local=?, data=? where id_doacao='"+id+"'";
+                String query = "update campanha set nome=?, descricao=?, local=?, data=? where id_campanha='"+id+"'";
                 PreparedStatement stmt = connDoacao.prepareStatement(query);
 
                 stmt.setString(1, nome);
                 stmt.setString(2, descricao);
                 stmt.setString(3, local);
-                stmt.setString(4, data);
+                stmt.setDate(4, dt);
                 stmt.executeUpdate();
 
                 out.println("<script type=\"text/javascript\">");
-                out.println("alert('Doacao alterada!!');");
+                out.println("alert('Campanha alterada!!');");
                 out.println("location='/SA-JSP/Adm/administrador.jsp';");
                 out.println("</script>");
                     
