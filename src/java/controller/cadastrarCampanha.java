@@ -47,6 +47,8 @@ public class cadastrarCampanha extends HttpServlet {
             campanha.setLocal(local);
             campanha.setData(dt);
             campanha.setImagem(fileName);
+            campanha.setId_necessidade1(id_necessidade1);
+            campanha.setId_necessidade2(id_necessidade2);
             
             JDBCCampanhaDAO campanhaDAO = new JDBCCampanhaDAO();
             campanhaDAO.inserir(campanha);

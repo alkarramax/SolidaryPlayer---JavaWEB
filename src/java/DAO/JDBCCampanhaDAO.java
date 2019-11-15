@@ -23,8 +23,8 @@ public class JDBCCampanhaDAO{
    
     public void inserir(Campanha campanha) {
         try {
-            String SQL = "insert into campanha(nome, descricao, local, data, imagem, aberta) "
-                    + "values (?,?,?,?,?,?)";
+            String SQL = "insert into campanha(nome, descricao, local, data, imagem, aberta, id_necessidade1, id_necessidade2) "
+                    + "values (?,?,?,?,?,?,?,?)";
             PreparedStatement ps = connection.prepareStatement(SQL);
             
             ps.setString(1, campanha.getNome());
@@ -34,6 +34,8 @@ public class JDBCCampanhaDAO{
             campanha.setAberta(true);
             ps.setString(5, campanha.getImagem());
             ps.setBoolean(6, campanha.isAberta());
+            ps.setInt(7, campanha.getId_necessidade1());
+            ps.setInt(8, campanha.getId_necessidade2());
             ps.executeUpdate();
             ps.close();
            

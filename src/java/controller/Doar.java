@@ -34,7 +34,6 @@ public class Doar extends HttpServlet {
             
             Connection connEntidade = DBConnection.getConnection();
             
-
             if(quantidade != null) {
                 String query = "update campanha set id_softplayer=?, quantidade_doada=? where id_campanha='"+id_campanha+"'";
                 try (PreparedStatement stmt = connEntidade.prepareStatement(query)) {

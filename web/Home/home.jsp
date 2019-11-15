@@ -58,7 +58,7 @@
             <div class="container" id="container">
                 <div class="form-container sign-up-container">
                     <img src="imagens/./baseline_clear_black_18dp.png" alt="Close" class="close2">
-                    <form action="../cadastro">
+                    <form action="../CadastroSoftplayer">
                         <h1>Crie Sua Conta</h1>
                         <input type="text" name="nome" placeholder="Nome">
                         <input type="text" name="sobrenome" placeholder="Sobrenome">

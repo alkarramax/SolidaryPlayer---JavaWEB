@@ -59,8 +59,10 @@ public class JDBCNecessidadeDAO {
             
             while(rs.next()) {
                 Necessidade necessidade = new Necessidade();
-
+                
+                necessidade.setId_necessidade(rs.getInt("id_necessidade"));
                 necessidade.setNecessidade(rs.getString("descricao"));
+              
                 necessidades.add(necessidade);
             }
             

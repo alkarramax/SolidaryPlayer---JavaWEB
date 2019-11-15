@@ -40,18 +40,28 @@
             <p><%=rs.getString("local")%></p>
         </div>
         <div class="text-sobre-info-detalhe">
-            <p>Necessidade:</p>
-            <p><%=rs.getString("id_necessidade1")%></p>
-        </div>
-        <div class="text-sobre-info-detalhe">
             <p>Data:</p>
             <p><%=rs.getString("data")%></p>
         </div>
-    </div>
     <%
     }
     %>
     
+    <%
+        String queryNecessidade = "SELECT necessidade.descricao FROM campanha INNER JOIN necessidade ON campanha.id_necessidade1 = necessidade.id_necessidade or campanha.id_necessidade2 = necessidade.id_necessidade";
+        ResultSet query = st.executeQuery(queryNecessidade);
+        
+        while(query.next()) {
+    %>
+        <div class="text-sobre-info-detalhe">
+            <p>Necessidade:</p>
+            <p><%=query.getString("id_necessidade1")%>, <%=query.getString("id_necessidade2")%></p>
+        </div>
+    </div>
+    <%
+        }
+    %>
+        
     <%
         HttpSession sessao = request.getSession();
         int id_softplayer = (Integer) sessao.getAttribute("id");
@@ -119,5 +129,6 @@
                 location.href="/SA-JSP/Home/home.jsp"
             }
         </script>
+        <script src="sweetalert2.all.min.js"></script>
 </body>
 </html>
