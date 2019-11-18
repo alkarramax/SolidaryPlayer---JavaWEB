@@ -5,6 +5,7 @@
  */
 package controller;
 
+import DAO.JDBCCampanhaDAO;
 import DB.DBConnection;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -32,15 +33,14 @@ public class Doar extends HttpServlet {
             int id_softplayer = (Integer) session.getAttribute("id");
             int quantidadeDoada = Integer.parseInt(quantidade);
             
-            Connection connEntidade = DBConnection.getConnection();
+            JDBCCampanhaDAO antigoValor = new JDBCCampanhaDAO();
+            int valorA = antigoValor.getQuantidadeAntiga(id_campanha);
             
-            if(quantidade != null) {
-                String query = "update campanha set id_softplayer=?, quantidade_doada=? where id_campanha='"+id_campanha+"'";
-                try (PreparedStatement stmt = connEntidade.prepareStatement(query)) {
-                    stmt.setInt(1, id_softplayer);
-                    stmt.setInt(2, quantidadeDoada);
-                    stmt.executeUpdate();
-                }
+            int newV = valorA + quantidadeDoada;
+            
+            JDBCCampanhaDAO newValor = new JDBCCampanhaDAO();
+            newValor.setQuantidadeNova(newV, id_campanha, id_softplayer);
+         
                 
                 out.println("<script type=\"text/javascript\">");
                 out.println("alert('Doação realizada com successful!!');");
@@ -48,7 +48,7 @@ public class Doar extends HttpServlet {
                 out.println("</script>");
             }
         }
-    }
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

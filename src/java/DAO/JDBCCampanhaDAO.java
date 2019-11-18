@@ -110,4 +110,24 @@ public class JDBCCampanhaDAO{
             throw new RuntimeException("Erro ao buscar a campanha!", ex);
         }
     }
+    
+    public int getQuantidadeAntiga(int id_camp) throws SQLException{
+        String sql = "select quantidade_doada from campanha where id_campanha='"+id_camp+"'";
+        PreparedStatement ps = connection.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery(sql);
+        
+        int valor = 0;
+        
+        while(rs.next()){
+            valor = rs.getInt("quantidade_doada");
+        }
+        return valor;
+    }
+    public void setQuantidadeNova(int newValor, int id_campanha, int idUser) throws SQLException{
+        String sql = "update campanha set id_softplayer='"+idUser+"' , quantidade_doada='"+newValor+"' where id_campanha='"+id_campanha+"'";
+        PreparedStatement ps = connection.prepareStatement(sql);
+        
+        
+        ps.executeUpdate();
+    }
 }

@@ -40,18 +40,19 @@
             <p><%=rs.getString("local")%></p>
         </div>
         <div class="text-sobre-info-detalhe">
-            <p>Necessidade:</p>
-            <p></p>
-        </div>
-        <div class="text-sobre-info-detalhe">
             <p>Data:</p>
             <p><%=rs.getString("data")%></p>
+        </div>
+    
+   
+        <div class="text-sobre-info-detalhe">
+            <p>Necessidade:</p>
+            <p></p>
         </div>
     </div>
     <%
     }
     %>
-   
         
     <%
         HttpSession sessao = request.getSession();

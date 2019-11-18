@@ -68,7 +68,8 @@
                                     <th>ID</th>
                                     <th>Nome</th>
                                     <th>Local</th>
-                                    <th>data</th>
+                                    <th>Data</th>
+                                    <th>Qtd. Doada</th>
                                     <th>Funções</th>
                                 </tr>
                             </thead>
@@ -87,6 +88,7 @@
                                 <td><%=rsCamp.getString("nome")%></td>
                                 <td><%=rsCamp.getString("local")%></td>
                                 <td><%=rsCamp.getString("data")%></td>
+                                <td><%=rsCamp.getInt("quantidade_doada")%></td>
                                 <td>
                                     <a href="./Funcoes/editarCampanha.jsp?u=<%=rsCamp.getString("id_campanha")%>" class="btn btn-warning">Editar</a>
                                     <a href='../deleteCampanha?d=<%=rsCamp.getString("id_campanha")%>' class="btn btn-danger">Delete</a>
