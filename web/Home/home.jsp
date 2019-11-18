@@ -144,16 +144,11 @@
     </header>
     <section>
         <div id="causas" class="causa1">
-            <h2>Invista no futuro de Crianças</h2>
-            <div class="tab-wrapper">
-                <ul>
-                  <li><a href="#" class="active" data-product-info-link="1">Campanhas</a></li>
-                </ul>
-                <div class='product-info-tab' data-product-info-tab='1' style='display: block;'>
-                     <%
+            <h2>Invista no futuro de crianças e adolescentes</h2>
+                    <div class="card-wrapper">
+                        <%
                             JDBCCampanhaDAO campanhaDAO = new JDBCCampanhaDAO();
                             List<Campanha> listCampanha = campanhaDAO.listar();
-
                             for(Campanha y : listCampanha) {
                                 out.println("<div class='card'>");
                                             out.println("<img src='imageCampanha/"+y.getImagem()+"' alt='card backgroud' class='card-img'>");
@@ -164,21 +159,14 @@
                                         out.println("</div>");
                             }
                         %>
-                </div>        
-            </div>
+                    </div>
         </div>
     </section>
-                
-                
-   <section>
-        <div id="causas" class="causa1">
-            <h2>Invista no futuro de Idosos</h2>
-            <div class="tab-wrapper">
-                <ul>
-                  <li><a href="#" class="active" data-product-info-link="1">Campanhas</a></li>
-                </ul>
-                <div class='product-info-tab' data-product-info-tab='1' style='display: block;'>
-                     <%
+    <section>
+        <div class="causa">
+        <h2 class="h2card">Apoie os idosos e preserve a nossa história</h2>
+                    <div class="card-wrapper">
+                        <%
                             for(Campanha y : listCampanha) {
                                 out.println("<div class='card'>");
                                             out.println("<img src='imageCampanha/"+y.getImagem()+"' alt='card backgroud' class='card-img'>");
@@ -188,12 +176,9 @@
                                             out.println("<a href='../SobreCampanha/sobreCampanha.jsp?c="+y.getId_campanha()+"' class='btn-doar'>Contribua agora</a>");
                                         out.println("</div>");
                             }
-                    %>
-                </div>        
-            </div>
-        </div>
-    </section>
-                
+                        %>
+                    </div>
+        </div>              
     </section>
         <section class="sobre-img-impacto">
             <div class="img-impacto">
