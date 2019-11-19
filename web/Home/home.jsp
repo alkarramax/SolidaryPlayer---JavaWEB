@@ -13,43 +13,97 @@
     <title>Home</title>
     <link rel="shortcut icon" type="image/x-icon" href="imagens/7618Logo.ico">
     <link rel="stylesheet" href="imagens/Logo.png" type="img">
-    <link rel="stylesheet" type="text/css" href="homeStyle.css">
+    <link rel="stylesheet" type="text/css" href="home.css">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script type="text/javascript">
-        $(window).on("scroll", function(){
+ $(window).on("scroll", function(){
             if($(window).scrollTop()){
                 $("nav").addClass("navFixed");
             }else{
                 $("nav").removeClass("navFixed");
             }
-        });
+        })
         $(document).ready(function(){
             $("#bar").click(function(){
                 $(".navbar").toggleClass("active");
-            });
-        });
+            })
+        })
         $(function() {
-            $( "[data-product-info-link]" ).click(function(e) {
-                e.preventDefault();
-                var theLink = $(this);
-                var tabNum = $(this).data('product-info-link');
-                var tabItem = '[data-product-info-tab="' + tabNum +'"]';
-                var check = $(tabItem).is(':visible');
-                if ( !check ) {
-                    var other = $('[data-product-info-link]').not(this).removeClass('active');
-                    var fadeOutDone = $('[data-product-info-tab]').css('display','none');
-                    $(tabItem).css('display','block');
-                    $(theLink).addClass('active');
-                }
-            });
+        $( "[data-product-info-link]" ).click(function(e) {
+            e.preventDefault();
+            var theLink = $(this);
+            var tabNum = $(this).data('product-info-link');
+            var tabItem = '[data-product-info-tab="' + tabNum +'"]';
+            var check = $(tabItem).is(':visible');
+            if ( !check ) {
+                var other = $('[data-product-info-link]').not(this).removeClass('active');
+                var fadeOutDone = $('[data-product-info-tab]').css('display','none');
+                $(tabItem).css('display','block');
+                $(theLink).addClass('active');
+            }
         });
+    });
         jQuery(document).ready(function($){
             $(".ancora-scroll").click(function(event){
                 event.preventDefault();
-                $("html,body").animate({scrollTop:$(this.hash).offset().top},800);
+                $("html,body").animate({scrollTop:$(this.hash).offset().top},1000)
             });
         });
+        $(document).ready(function(){
+            $('.card-wrapper').slick({
+            infinite: false,
+            speed: 300,
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            nextArrow: $('.right'),    
+            prevArrow: $('.left'),
+            responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+                infinite: true,
+                }
+            },
+            {
+                breakpoint: 880,
+                settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+                }
+            }
+            ]
+        });
+        });
+        $(document).ready(function(){
+            $('.card-wrapper2').slick({
+            infinite: false,
+            speed: 300,
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            nextArrow: $('.right2'),    
+            prevArrow: $('.left2'),
+            responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+                infinite: true,
+                }
+            },
+            {
+                breakpoint: 880,
+                settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+                }
+            }
+            ]
+        });
+    });
     </script>
 </head>
 <body>
@@ -124,7 +178,7 @@
                         <%} else {%>
                         <li><a class="nav-link" href="#" id="deslogar"><%=nomeUsuario%></a>
                             <ul class="deslogar">
-                                <li><a href="../Deslogar">Deslogar</a></li>
+                                <li><a href="../deslogar">Deslogar</a></li>
                             </ul>
                         </li>
                         <%}%>
@@ -144,41 +198,45 @@
     </header>
     <section>
         <div id="causas" class="causa1">
-            <h2>Invista no futuro de crianças e adolescentes</h2>
-                    <div class="card-wrapper">
-                        <%
-                            JDBCCampanhaDAO campanhaDAO = new JDBCCampanhaDAO();
-                            List<Campanha> listCampanha = campanhaDAO.listar();
-                            for(Campanha y : listCampanha) {
-                                out.println("<div class='card'>");
-                                            out.println("<img src='imageCampanha/"+y.getImagem()+"' alt='card backgroud' class='card-img'>");
-                                            out.println("<img src='imagens/logo-branco-300x287.png' alt='profile backgroud' class='profile-img'>");
-                                            out.println("<h1>"+y.getNome()+"</h1>");
-                                            out.println("<p>"+y.getDescricao()+"</p>");
-                                            out.println("<a href='../SobreCampanha/sobreCampanha.jsp?c="+y.getId_campanha()+"' class='btn-doar'>Contribua agora</a>");
-                                        out.println("</div>");
-                            }
-                        %>
-                    </div>
+        <h2>Invista no futuro de crianças e adolescentes</h2>
+        <div id="right" class="right"> <i class="fa fa-angle-right"></i></div>    
+        <div id="left" class="left"> <i class="fa fa-angle-left"></i></div>
+            <div class="card-wrapper">
+                <%
+                    JDBCCampanhaDAO campanhaDAO = new JDBCCampanhaDAO();
+                    List<Campanha> listCampanha = campanhaDAO.listar();
+                    for(Campanha y : listCampanha) {
+                        out.println("<div class='card'>");
+                            out.println("<img src='imageCampanha/"+y.getImagem()+"' alt='card backgroud' class='card-img'>");
+                            out.println("<img src='imagens/logo-branco-300x287.png' alt='profile backgroud' class='profile-img'>");
+                            out.println("<h1>"+y.getNome()+"</h1>");
+                            out.println("<p>"+y.getDescricao()+"</p>");
+                            out.println("<a href='../SobreCampanha/sobreCampanha.jsp?c="+y.getId_campanha()+"' class='btn-doar'>Contribua agora</a>");
+                        out.println("</div>");
+                    }
+                %>
+            </div>
         </div>
     </section>
     <section>
         <div class="causa">
         <h2 class="h2card">Apoie os idosos e preserve a nossa história</h2>
-                    <div class="card-wrapper">
-                        <%
-                            for(Campanha y : listCampanha) {
-                                out.println("<div class='card'>");
-                                            out.println("<img src='imageCampanha/"+y.getImagem()+"' alt='card backgroud' class='card-img'>");
-                                            out.println("<img src='imagens/logo-branco-300x287.png' alt='profile backgroud' class='profile-img'>");
-                                            out.println("<h1>"+y.getNome()+"</h1>");
-                                            out.println("<p>"+y.getDescricao()+"</p>");
-                                            out.println("<a href='../SobreCampanha/sobreCampanha.jsp?c="+y.getId_campanha()+"' class='btn-doar'>Contribua agora</a>");
-                                        out.println("</div>");
-                            }
-                        %>
-                    </div>
-        </div>              
+        <div id="right" class="right2"> <i class="fa fa-angle-right"></i></div>    
+        <div id="left" class="left2"> <i class="fa fa-angle-left"></i></div>
+            <div class="card-wrapper2">
+                 <%
+                    for(Campanha y : listCampanha) {
+                        out.println("<div class='card'>");
+                            out.println("<img src='imageCampanha/"+y.getImagem()+"' alt='card backgroud' class='card-img'>");
+                            out.println("<img src='imagens/logo-branco-300x287.png' alt='profile backgroud' class='profile-img'>");
+                            out.println("<h1>"+y.getNome()+"</h1>");
+                            out.println("<p>"+y.getDescricao()+"</p>");
+                            out.println("<a href='../SobreCampanha/sobreCampanha.jsp?c="+y.getId_campanha()+"' class='btn-doar'>Contribua agora</a>");
+                        out.println("</div>");
+                    }
+                %>
+            </div>
+        </div>
     </section>
         <section class="sobre-img-impacto">
             <div class="img-impacto">
@@ -186,8 +244,8 @@
                 <h2>A mudança começa a partir de você!</h2>
             </div>
         </section>
-    <section id="sobre" class="sobre">
-        <h1> Como o grupo Solidario ajudou </br> milhares de pessoas?</h1>
+    <section id=sobre class="sobre">
+        <h1> Como a Softplan e o grupo Solidário </br> ajudaram milhares de pessoas?</h1>
         <div class="container-sobre">
             <div class="container-sobre-img">
                 <img src="imagens/campanha_do-_agasalho_03-768x768.jpg" alt="">
@@ -234,9 +292,9 @@
     </section>
     <section id="funciona">
             <div class="img-impacto2">
-                <h1>Vá alem do trabalho, mude a vida das pessoas.</h1>
+                <h1>Vá além do trabalho, mude a vida das pessoas.</h1>
             </div>
-    </section>
+        </section>
     <section id="como-funciona" class="como-funciona">
         <h1>Como funciona?</h1>
         <div class="container">
@@ -246,9 +304,9 @@
                     venenatis litora pulvinar sed sit fusce elit sagittis vestibulum.</p>
             </div>
             <div class="container-sobre">
-                    <img src="imagens/Design sem nome (7).png" alt="">
-                    <p>Dapibus nam elit condimentum sollicitudin inceptos accumsan odio in mattis elit, 
-                        venenatis litora pulvinar sed sit fusce elit sagittis vestibulum.</p>
+                <img src="imagens/Design sem nome (7).png" alt="">
+                <p>Dapibus nam elit condimentum sollicitudin inceptos accumsan odio in mattis elit, 
+                    venenatis litora pulvinar sed sit fusce elit sagittis vestibulum.</p>
             </div>
         </div>
         <div class="container-function2">
@@ -259,19 +317,62 @@
             </div>
         </div>
     </section>
-     <footer>
+    <div class="popup">
+        <div class="popup-content">
+            <div class="container" id="container">
+                <div class="form-container sign-up-container">
+                    <img src="imagens/./baseline_clear_black_18dp.png" alt="Close" class="close2">
+                    <form action="#">
+                        <h1>Crie Sua Conta</h1>
+                        <input type="text" placeholder="Nome">
+                        <input type="text" placeholder="Sobrenome">
+                        <input type="password" placeholder="Senha">
+                        <input type="email" placeholder="Email">
+                        <input type="text" placeholder="Cargo">
+                        <input type="text" placeholder="Unidade">
+                        <button>Cadastrar</button>
+                    </form>
+                </div>
+                <div class="form-container sign-in-container">
+                    <form action="#">
+                        <h1>Entrar</h1>
+                        <input type="email" id="email" placeholder="Email">
+                        <input type="password" id="senha" placeholder="Senha">
+                        <a href="#">Esqueceu sua senha?</a>
+                        <button onclick="autorizacao()">Entrar</button>
+                    </form>
+                </div>
+                <div class="overlay-container">
+                    <div class="overlay">
+                        <div class="overlay-panel overlay-left">
+                            <h1>Que bom que você voltou!</h1>
+                            <p>Faça o seu login e continue ajudando quem precisa.</p>
+                            <button class="ghost" id="signIn">Entrar</button>
+                        </div>
+                        <div class="overlay-panel overlay-right">
+                            <img src="imagens/./baseline_clear_black_18dp.png" alt="Close" class="close">
+                            <h1>Olá, Softplayer!</h1>
+                            <p>Ainda não tem cadastro? Cadastre-se para se tornar um Solidarity Player.</p>
+                            <button class="ghost" id="signUp">Cadastrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
         <div class="footer-info">
             <div class="footer-info-img">
                 <div class="footer-img"> 
-                   <a href=""><img src="imagens/linkedin.png" alt=""></a> 
+                   <a href="https://www.linkedin.com/in/amanda-farias-sena-506bb817b/" target="_blank"><img src="imagens/linkedin.png" alt=""></a> 
                     <h3>Amanda Farias Sena</h3>
                 </div>
                 <div class="footer-img"> 
-                    <img src="imagens/linkedin.png" alt="">
-                    <h3>Alkarramax Ribeiro</h3>
+                    <a href="https://www.linkedin.com/in/alkarramax-junior-6a560b162/" target="_blank"><img src="imagens/linkedin.png" alt=""></a> 
+                    <h3>Alkarramax Junior</h3>
                 </div>
                 <div class="footer-img"> 
-                    <img src="imagens/linkedin.png" alt="">
+                    <a href="https://www.linkedin.com/in/leonardo-rangel-230821162/" target="_blank"><img src="imagens/linkedin.png" alt=""></a> 
                     <h3>Leonardo Rangel</h3>
                 </div>
             </div>
@@ -284,7 +385,9 @@
             </div>
         </div>
     </footer>
-    <script src="./javascript/home.js"></script>
-    <script src="./javascript/deslogar.js"></script>
+
+    <script src="home.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://kit.fontawesome.com/27aa4e62af.js" crossorigin="anonymous"></script>
 </body>
 </html>

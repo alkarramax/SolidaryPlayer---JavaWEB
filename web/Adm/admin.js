@@ -34,9 +34,10 @@ window.onload = function () {
 
     var home_act = document.getElementById('home-actions'),
         doacoes_act = document.getElementById('doacoes-actions'),
+        necessidade_act = document.getElementById('necessidade-actions'),
         players_act = document.getElementById('players-actions');
 
-    var actions = [home_act, doacoes_act, players_act];
+    var actions = [home_act, doacoes_act, necessidade_act, players_act];
 
     function show(index) {
         for(var i = 0; i < actions.length; i++) {
@@ -53,9 +54,10 @@ window.onload = function () {
 
     var home = document.getElementById('home'),
         doacoes  = document.getElementById('doacoes'),
+        necessidades  = document.getElementById('necessidades'),
         players  = document.getElementById('player');
     
-    var buttons = [home, doacoes, players];
+    var buttons = [home, doacoes, necessidades, players];
 
     buttons[0].addEventListener('click', function() {
         show(0);
@@ -65,6 +67,9 @@ window.onload = function () {
     }, false);
     buttons[2].addEventListener('click', function() {
         show(2);
+    }, false);
+    buttons[3].addEventListener('click', function() {
+        show(3);
     }, false);
 
     var exit = document.getElementById("exit");

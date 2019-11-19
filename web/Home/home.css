@@ -40,7 +40,7 @@ body{
 
 nav.navFixed{
     background: #fff;
-    z-index: 2;
+    z-index: 99;
     box-shadow: 0 1px 7px rgba(0,0,0,0.6)
 }
 
@@ -233,6 +233,10 @@ nav.navFixed .logo img{
     .sobre .container-sobre-info-pacto-global {
         padding-top: 0;
     }
+
+    #right{
+        margin-left: 92% !important;
+    }
 }
 
 @media screen and (min-width: 816px) and (max-width: 1200px){
@@ -359,6 +363,18 @@ nav.navFixed .logo img{
         width: 21rem !important;
     }
 
+}
+
+
+.card-wrapper2{
+    width: 95%;
+    margin: 0 2em 2em 2em;
+    overflow: hidden;
+}
+
+.card-wrapper2 .card{
+    display: inline-block;
+    text-align: center;
 }
 
 .card-wrapper{
@@ -893,18 +909,38 @@ footer{
     margin-right: 50px;
 }
 
-button{
-    border: 1px solid #2bbd7e;
-    background-color: #2bbd7e;
+.fa-angle-left:before{
+    font-size: 45px;
+    margin-left: 10px;
+    color: #2bbd7e;
+}
+
+.fa-angle-right:before{
+    font-size: 45px;
+    margin-left: 10px;
+    color: #2bbd7e;
+}
+
+.slick-track{
+    z-index: 1;
+}
+
+#left{
+    width: 50px;
     border-radius: 50px;
+    position: absolute;
+    margin-left: 35px;
+    z-index: 2;
+    background-color: #eeeeee;
+    margin-top: 350px;
 }
 
-ul.slick-dots{
-    list-style: none;
-    display: flex;
-    justify-content: center;
-}
-
-li.slack-dots{
-    margin-right: 20px;
+#right{
+    width: 50px;
+    border-radius: 50px;
+    margin-left: 94%;
+    position: absolute;
+    z-index: 2;
+    background-color: #eeeeee;
+    margin-top: 350px;
 }

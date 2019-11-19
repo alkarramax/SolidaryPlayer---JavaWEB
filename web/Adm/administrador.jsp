@@ -30,6 +30,7 @@
                 <ul id="menu">
                     <li><a id="home">Home</a></li>
                     <li><a id="doacoes">Campanha</a></li>
+                    <li><a id="necessidades">Necessidade</a></li>
                     <li><a id="player">Players</a></li>
                 </ul>
                 <div id="minimize" class="minimize">
@@ -100,10 +101,53 @@
                             %>
                            
                         </table>
-                       
-                       
-                       
                     </div>
+                    
+                    <div id="necessidade-actions">
+                        <div class="title">
+                            Necessidades
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a href="./Funcoes/cadastrarNecessidade.jsp" class="btn btn-primary">Adicionar Necessidade</a>
+                            </div>
+                        </div>
+                        
+                        <table class="table table-bordered table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nome</th>
+                                    <th>Local</th>
+                                    <th>Data</th>
+                                    <th>Qtd. Doada</th>
+                                    <th>Funções</th>
+                                </tr>
+                            </thead>
+                           
+                            <%
+                               
+                               String dataNecessidade = "select * from necessidade";
+                               ResultSet rsNecessidade = statCamp.executeQuery(dataNecessidade);
+
+                               while(rsNecessidade.next()) {
+                            %>
+                             <tr>
+                                <td><%=rsNecessidade.getString("id_necessidade")%></td>
+                                <td><%=rsNecessidade.getString("descricao")%></td>
+                                <td>
+                                    <a href='../DeleteNecessidade?n=<%=rsNecessidade.getString("id_necessidade")%>' class="btn btn-danger">Delete</a>
+                                </td>
+
+                             </tr>
+                            <%
+                             }
+                            %>
+                           
+                        </table>
+                            
+                    </div>        
+                            
                     <div id="players-actions">
                         <div class="title">
                             Players

@@ -24,7 +24,7 @@ public class JDBCNecessidadeDAO {
     
     public void inserir(Necessidade necessidade) {
         try {
-            String SQL = "insert into Necessidade(descricao)"
+            String SQL = "INSERT INTO necessidade(descricao)"
                     + "values (?)";
             try (PreparedStatement ps = connection.prepareStatement(SQL)) {
                 ps.setString(1, necessidade.getNecessidade());
@@ -38,7 +38,7 @@ public class JDBCNecessidadeDAO {
 
     public void remover(int id) {
         try {
-            String SQL = "Delete from necessidade where id_necessidade= ?";
+            String SQL = "DELETE FROM necessidade WHERE id_necessidade= ?";
             PreparedStatement ps = connection.prepareStatement(SQL);
             ps.setInt(1, id);
             ps.executeUpdate();
@@ -51,7 +51,7 @@ public class JDBCNecessidadeDAO {
     public List<Necessidade> listar() {
         
         try {
-            String SQL = "select * from necessidade";
+            String SQL = "SELECT * FROM necessidade";
             PreparedStatement ps = connection.prepareStatement(SQL);
             ResultSet rs = ps.executeQuery();
             
@@ -74,7 +74,7 @@ public class JDBCNecessidadeDAO {
         try {
             necessidade = new Necessidade();
             
-            String sql = "Select * from necessidade where id_necessidade = '"+id+"'";
+            String sql = "SELECT * FROM necessidade WHERE id_necessidade = '"+id+"'";
             PreparedStatement ps = connection.prepareStatement(sql);
             
             ResultSet rs = ps.executeQuery();
