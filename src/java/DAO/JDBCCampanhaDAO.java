@@ -75,11 +75,11 @@ public class JDBCCampanhaDAO{
                 campanha.setLocal(rs.getString("local"));
                 campanha.setImagem(rs.getString("imagem"));
                
-               
+               /*
                 String data = rs.getDate("data").toString();
                 LocalDate dt = LocalDate.parse(data);
                 campanha.setData(dt);
-               
+               */
                 campanhas.add(campanha);
             }
         }catch(SQLException e){
@@ -123,6 +123,7 @@ public class JDBCCampanhaDAO{
         }
         return valor;
     }
+    
     public void setQuantidadeNova(int newValor, int id_campanha, int idUser) throws SQLException{
         String sql = "update campanha set id_softplayer='"+idUser+"' , quantidade_doada='"+newValor+"' where id_campanha='"+id_campanha+"'";
         PreparedStatement ps = connection.prepareStatement(sql);

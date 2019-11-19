@@ -1,6 +1,5 @@
-package Models;
+package model;
 
-import model.Ranking;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -10,28 +9,25 @@ import static org.junit.Assert.*;
 
 public class RankingTest {
     
-    private Ranking r; 
-    
+    Ranking r;
     
     @Before
-    public void setUp(){
+    public void setUp() {
         r = new Ranking();
     }
     
     @Test
-    public void set(){
-        r.setId_ranking(2);
-        r.setPontuacao(333);
-        r.setUnidade("Justiça");
-        r.setSoftplayer_ranking_fk(3);
+    public void testSetters(){
+        r.setId_ranking(1);
+        r.setPontuacao(1000);
+        r.setUnidade("Saúde");
     }
     
     @Test
-    public void get(){
+    public void testGetters(){
         r.getId_ranking();
         r.getPontuacao();
         r.getUnidade();
-        r.getSoftplayer_ranking_fk();
     }
     
 }

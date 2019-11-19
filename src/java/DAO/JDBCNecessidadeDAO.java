@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DAO;
 
 import DB.DBConnection;
@@ -17,6 +12,8 @@ import java.util.logging.Logger;
 
 public class JDBCNecessidadeDAO {
     
+    private Necessidade necessidade = new Necessidade();
+    List<Necessidade> necessidades = new ArrayList<>();
     Connection connection;
     
     public JDBCNecessidadeDAO() throws SQLException, SQLException, ClassNotFoundException {
@@ -50,7 +47,6 @@ public class JDBCNecessidadeDAO {
     }
 
     public List<Necessidade> listar() {
-        List<Necessidade> necessidades = new ArrayList<>();
         
         try {
             String SQL = "select * from necessidade";
@@ -58,7 +54,7 @@ public class JDBCNecessidadeDAO {
             ResultSet rs = ps.executeQuery();
             
             while(rs.next()) {
-                Necessidade necessidade = new Necessidade();
+                necessidade = new Necessidade();
                 
                 necessidade.setId_necessidade(rs.getInt("id_necessidade"));
                 necessidade.setNecessidade(rs.getString("descricao"));
@@ -74,9 +70,9 @@ public class JDBCNecessidadeDAO {
 
     public Necessidade buscar(int id) {
         try {
-            Necessidade necessidade = new Necessidade();
+            necessidade = new Necessidade();
             
-            String sql = "Select * from necessidade where necessidade = ?";
+            String sql = "Select * from necessidade where id_necessidade = '"+id+"'";
             PreparedStatement ps = connection.prepareStatement(sql);
             
             ResultSet rs = ps.executeQuery();
@@ -96,9 +92,9 @@ public class JDBCNecessidadeDAO {
     }
 
     public void editar(Necessidade necessidade) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); 
     }
     
-    public List<Necessidade> 
+     
     
 }

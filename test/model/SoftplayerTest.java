@@ -1,6 +1,5 @@
-package Models;
+package model;
 
-import model.Softplayer;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -9,30 +8,29 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class SoftplayerTest {
-
-    private Softplayer s;
     
+    Softplayer s;
     
     @Before
-    public void setUp(){
+    public void setUp() {
         s = new Softplayer();
     }
     
+    
     @Test
-    public void set(){
-        s.setId_softplayer(3);
+    public void testSetters(){
+        s.setId_softplayer(14);
         s.setNome("João");
-        s.setSobrenome("Clayton");
-        s.setEmail("joao@top.com");
-        s.setCargo("Coordena tudo");
-        s.setUnidade("SENAI todo");
-        s.setSenha("joaozin123");
+        s.setEmail("joao@gmail.com");
+        s.setCargo("Coordenador");
+        s.setUnidade("Justiça");
+        s.setSenha("123321");
     }
     
     @Test
-    public void get(){
+    public void testGetters(){
+        s.getId_softplayer();
         s.getNome();
-        s.getSobrenome();
         s.getEmail();
         s.getCargo();
         s.getUnidade();

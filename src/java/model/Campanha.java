@@ -119,6 +119,14 @@ public class Campanha {
     public void setImagem(String imagem) {
         this.imagem = imagem;
     }
+
+    public List<Softplayer> getListaSoftplayers() {
+        return listaSoftplayers;
+    }
+
+    public void setListaSoftplayers(List<Softplayer> listaSoftplayers) {
+        this.listaSoftplayers = listaSoftplayers;
+    }
     
     
 }

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controller;
 
 
@@ -31,9 +26,8 @@ public class DeleteCampanha extends HttpServlet {
             JDBCCampanhaDAO deleteDAO = new JDBCCampanhaDAO();
             deleteDAO.remover(no);
             
-            
             out.println("<script type=\"text/javascript\">");
-            out.println("alert('Doação deletada!!');");
+            out.println("alert('Campanha deletada!!');");
             out.println("location='/SA-JSP/Adm/administrador.jsp';");
             out.println("</script>");
         }
