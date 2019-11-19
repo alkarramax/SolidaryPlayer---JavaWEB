@@ -1,3 +1,6 @@
+<%@page import="model.Necessidade"%>
+<%@page import="java.util.List"%>
+<%@page import="DAO.JDBCNecessidadeDAO"%>
 <%@page import="java.sql.*"%>
 <%@page import="DB.DBConnection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -43,16 +46,21 @@
             <p>Data:</p>
             <p><%=rs.getString("data")%></p>
         </div>
-    
-   
-        <div class="text-sobre-info-detalhe">
-            <p>Necessidade:</p>
-            <p></p>
-        </div>
-    </div>
     <%
     }
     %>
+        <div class="text-sobre-info-detalhe">
+            <p>Necessidade:</p>
+   <%
+       JDBCNecessidadeDAO necessidadeDAO = new JDBCNecessidadeDAO();
+       List<Necessidade> necessidades = necessidadeDAO.getDescricao(num);
+       
+       for(Necessidade amanda : necessidades) {
+           out.println("<p>"+amanda.getNecessidade()+",</p>");
+       }
+   %>
+        </div>
+    </div>
         
     <%
         HttpSession sessao = request.getSession();

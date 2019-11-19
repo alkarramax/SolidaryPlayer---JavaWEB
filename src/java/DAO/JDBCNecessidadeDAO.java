@@ -14,6 +14,8 @@ public class JDBCNecessidadeDAO {
     
     private Necessidade necessidade = new Necessidade();
     List<Necessidade> necessidades = new ArrayList<>();
+    List<Necessidade> descricoes = new ArrayList<>();
+    
     Connection connection;
     
     public JDBCNecessidadeDAO() throws SQLException, SQLException, ClassNotFoundException {
@@ -95,6 +97,26 @@ public class JDBCNecessidadeDAO {
         throw new UnsupportedOperationException("Not supported yet."); 
     }
     
+    public List<Necessidade> getDescricao(int id_campanha) {
+        try {
+            String sql = "select necessidade.descricao from necessidade inner join campanha on campanha.id_necessidade1 = necessidade.id_necessidade or campanha.id_necessidade2 = necessidade.id_necessidade where campanha.id_campanha = '"+id_campanha+"'";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next()) {
+                necessidade = new Necessidade();
+   
+                necessidade.setNecessidade(rs.getString("descricao"));
+                descricoes.add(necessidade);
+            }
+            
+            
+        } catch (Exception e) {
+        
+        }
+        
+        return descricoes;
+    }
      
     
 }
