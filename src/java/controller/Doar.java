@@ -5,8 +5,7 @@
  */
 package controller;
 
-import DAO.JDBCCampanhaDAO;
-import DB.DBConnection;
+import DAO.JDBCDoacaoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -17,6 +16,7 @@ import javax.servlet.http.HttpSession;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.Doacao;
 
 public class Doar extends HttpServlet {
 
@@ -33,12 +33,20 @@ public class Doar extends HttpServlet {
             int id_softplayer = (Integer) session.getAttribute("id");
             int quantidadeDoada = Integer.parseInt(quantidade);
             
-            JDBCCampanhaDAO antigoValor = new JDBCCampanhaDAO();
+            Doacao doacao = new Doacao();
+            doacao.setId_softplayer(id_softplayer);
+            doacao.setId_campanha(id_campanha);
+            doacao.setQuantidadeDoada(quantidadeDoada);
+            
+            JDBCDoacaoDAO doacaoDAO = new JDBCDoacaoDAO();
+            doacaoDAO.inserir(doacao);
+            
+            JDBCDoacaoDAO antigoValor = new JDBCDoacaoDAO();
             int valorA = antigoValor.getQuantidadeAntiga(id_campanha);
             
             int newV = valorA + quantidadeDoada;
             
-            JDBCCampanhaDAO newValor = new JDBCCampanhaDAO();
+            JDBCDoacaoDAO newValor = new JDBCDoacaoDAO();
             newValor.setQuantidadeNova(newV, id_campanha, id_softplayer);
          
                 

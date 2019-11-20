@@ -7,15 +7,13 @@ import java.util.List;
 public class Campanha {
     
     private int id_campanha;
-    private String nome, descricao, local, necessidade, imagem;
+    private String nome, descricao, local, necessidade, imagem, beneficiario;
 
     private LocalDate data;
-    private int quantidadeDeItens;
     private boolean aberta;
     
     private List<Softplayer> listaSoftplayers;
     
-    private int id_softplayer;
     private int id_necessidade1;
     private int id_necessidade2;
 
@@ -27,7 +25,6 @@ public class Campanha {
         this.id_campanha = id_campanha;
     }
 
-    
 
     public String getNome() {
         return nome;
@@ -69,15 +66,6 @@ public class Campanha {
         this.data = data;
     }
 
-
-    public int getQuantidadeDeItens() {
-        return quantidadeDeItens;
-    }
-
-    public void setQuantidadeDeItens(int quantidadeDeItens) {
-        this.quantidadeDeItens = quantidadeDeItens;
-    }
-
     public boolean isAberta() {
         return aberta;
     }
@@ -86,14 +74,15 @@ public class Campanha {
         this.aberta = aberta;
     }
 
-    public int getId_softplayer() {
-        return id_softplayer;
+  
+    public String getBeneficiario() {
+        return beneficiario;
     }
 
-    public void setId_softplayer(int id_softplayer) {
-        this.id_softplayer = id_softplayer;
+    public void setBeneficiario(String beneficiario) {
+        this.beneficiario = beneficiario;
     }
-
+    
     public int getId_necessidade1() {
         return id_necessidade1;
     }
@@ -109,8 +98,6 @@ public class Campanha {
     public void setId_necessidade2(int id_necessidade2) {
         this.id_necessidade2 = id_necessidade2;
     }
-
-   
 
     public String getImagem() {
         return imagem;
