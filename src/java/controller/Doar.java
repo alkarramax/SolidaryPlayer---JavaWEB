@@ -26,7 +26,7 @@ public class Doar extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             
             HttpSession session = request.getSession();
-            String id = request.getParameter("id");
+            String id = request.getParameter("id_campanha");
             String quantidade = request.getParameter("quantidadeDoada");
             
             int id_campanha = Integer.parseInt(id);
@@ -34,6 +34,7 @@ public class Doar extends HttpServlet {
             int quantidadeDoada = Integer.parseInt(quantidade);
             
             Doacao doacao = new Doacao();
+            
             doacao.setId_softplayer(id_softplayer);
             doacao.setId_campanha(id_campanha);
             doacao.setQuantidadeDoada(quantidadeDoada);
@@ -50,10 +51,11 @@ public class Doar extends HttpServlet {
             newValor.setQuantidadeNova(newV, id_campanha, id_softplayer);
          
                 
-                out.println("<script type=\"text/javascript\">");
-                out.println("alert('Doação realizada com successful!!');");
-                out.println("location='/SA-JSP/Home/home.jsp';");
-                out.println("</script>");
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Doação realizada com successful!!');");
+            out.println("location='/SA-JSP/Home/home.jsp';");
+            out.println("</script>");
+            
             }
         }
     

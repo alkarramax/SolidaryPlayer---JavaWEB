@@ -33,8 +33,8 @@ public class JDBCCampanhaDAO{
             ps.setString(4, String.valueOf(campanha.getData()));
             campanha.setAberta(true);
             ps.setString(5, campanha.getImagem());
-            ps.setBoolean(6, campanha.isAberta());
-            ps.setString(7, campanha.getBeneficiario());
+            ps.setString(6, campanha.getBeneficiario());
+            ps.setBoolean(7, campanha.isAberta());
             ps.setInt(8, campanha.getId_necessidade1());
             ps.setInt(9, campanha.getId_necessidade2());
             ps.executeUpdate();

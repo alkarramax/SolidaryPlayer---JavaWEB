@@ -14,15 +14,14 @@ public class JDBCDoacaoDAO {
     
     public void inserir(Doacao doacao) throws SQLException {
         try {
-        String sql = "INSERT INTO doacao(id_softplayer, id_campanha, quantidade_doada)"
+        String sql = "INSERT INTO doacao(softplayer_id, campanha_id, quantidade_doada)"
                 + "values(?,?,?)";
         PreparedStatement ps = connection.prepareStatement(sql);
         
         ps.setInt(1, doacao.getId_softplayer());
         ps.setInt(2, doacao.getId_campanha());
-        ps.setInt(1, doacao.getQuantidadeDoada());
+        ps.setInt(3, doacao.getQuantidadeDoada());
         ps.executeUpdate();
-        ps.close();
             
         } catch (Exception e) {
             System.out.println("Erro no cadastro da Doacao!");

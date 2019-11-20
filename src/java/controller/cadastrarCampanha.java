@@ -29,7 +29,9 @@ public class cadastrarCampanha extends HttpServlet {
             String descricao = request.getParameter("descricao");
             String local = request.getParameter("local");
             String data = request.getParameter("data");
-           
+            String checkBox = request.getParameter("beneficiarios");
+            
+
             LocalDate dt = LocalDate.parse(data);
             int id_necessidade1 = Integer.parseInt(necessidade1);
             int id_necessidade2 = Integer.parseInt(necessidade2);
@@ -49,6 +51,8 @@ public class cadastrarCampanha extends HttpServlet {
             campanha.setImagem(fileName);
             campanha.setId_necessidade1(id_necessidade1);
             campanha.setId_necessidade2(id_necessidade2);
+            campanha.setBeneficiario(checkBox);
+           
             
             JDBCCampanhaDAO campanhaDAO = new JDBCCampanhaDAO();
             campanhaDAO.inserir(campanha);
@@ -57,6 +61,7 @@ public class cadastrarCampanha extends HttpServlet {
             out.println("alert('Campanha Cadastrada!!');");
             out.println("location='/SA-JSP/Adm/Funcoes/cadastrarCampanha.jsp';");
             out.println("</script>");
+            
         }
     }
     

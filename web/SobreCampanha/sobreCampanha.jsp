@@ -72,7 +72,7 @@
         
     %>
     <div id="contact" class="contact">
-        <form action="../Doar?id=<%=num%>" method="POST">
+        <form action="../Doar?id_campanha=<%=num%>" method="POST">
                 <div class="form-separator">
                     <div class="input">
                         <div class="caixa-input">

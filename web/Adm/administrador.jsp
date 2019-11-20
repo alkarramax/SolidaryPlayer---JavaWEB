@@ -69,6 +69,7 @@
                                     <th>ID</th>
                                     <th>Nome</th>
                                     <th>Local</th>
+                                    <th>Beneficiario</th>
                                     <th>Data</th>
                                     <th>Funções</th>
                                 </tr>
@@ -87,6 +88,7 @@
                                 <td><%=rsCamp.getString("id_campanha")%></td>
                                 <td><%=rsCamp.getString("nome")%></td>
                                 <td><%=rsCamp.getString("local")%></td>
+                                <td><%=rsCamp.getString("beneficiario")%></td>
                                 <td><%=rsCamp.getString("data")%></td>
                                 <td>
                                     <a href="./Funcoes/editarCampanha.jsp?u=<%=rsCamp.getString("id_campanha")%>" class="btn btn-warning">Editar</a>

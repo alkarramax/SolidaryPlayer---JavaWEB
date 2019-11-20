@@ -44,11 +44,11 @@
             
             <label>Beneficiario</label>
             <div class="form-check">
-                <input type="checkbox" name="idosos" class="form-check-input" id="idosos">
+                <input type="checkbox" name="beneficiarios" class="form-check-input" id="idosos" value="idoso">
                 <label class="form-check-label" for="idosos">Idosos</label>
             </div>
             <div class="form-check">
-                <input type="checkbox" name="criancas" class="form-check-input" id="criancas">
+                <input type="checkbox" name="beneficiarios" class="form-check-input" id="criancas" value="criancas">
                 <label class="form-check-label" for="criancas">Crianças</label>
             </div>
             

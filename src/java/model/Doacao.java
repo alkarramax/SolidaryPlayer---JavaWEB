@@ -1,6 +1,7 @@
 package model;
 public class Doacao {
     
+    
     private int id_softplayer;
     private int id_campanha;
     private int quantidadeDoada;
