@@ -41,20 +41,11 @@ public class Doar extends HttpServlet {
             
             JDBCDoacaoDAO doacaoDAO = new JDBCDoacaoDAO();
             doacaoDAO.inserir(doacao);
-            
-            JDBCDoacaoDAO antigoValor = new JDBCDoacaoDAO();
-            int valorA = antigoValor.getQuantidadeAntiga(id_campanha);
-            
-            int newV = valorA + quantidadeDoada;
-            
-            JDBCDoacaoDAO newValor = new JDBCDoacaoDAO();
-            newValor.setQuantidadeNova(newV, id_campanha, id_softplayer);
          
-                
             out.println("<script type=\"text/javascript\">");
             out.println("alert('Doação realizada com successful!!');");
             out.println("location='/SA-JSP/Home/home.jsp';");
-            out.println("</script>");
+            out.println("</script>");    
             
             }
         }

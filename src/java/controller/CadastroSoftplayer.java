@@ -21,7 +21,7 @@ public class CadastroSoftplayer extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             
             String nome = request.getParameter("nome");
-             String senha = request.getParameter("senha");
+            String senha = request.getParameter("senha");
             String email = request.getParameter("email");
             String cargo = request.getParameter("cargo");
             String unidade = request.getParameter("unidade");

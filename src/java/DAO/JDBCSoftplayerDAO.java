@@ -9,7 +9,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class JDBCSoftplayerDAO {
-
+    
+    private List<Softplayer> softplayers = new ArrayList<>();
+    private Softplayer softplayer = new Softplayer();
     Connection connection;
     public JDBCSoftplayerDAO() throws SQLException, ClassNotFoundException {
         connection = DBConnection.getConnection();
@@ -52,15 +54,14 @@ public class JDBCSoftplayerDAO {
     }
 
     public List<Softplayer> listar() {
-        List<Softplayer> softplayers = new ArrayList<>();
-        
+
         try {
             String SQL = "select * from softplayer";
             PreparedStatement ps = connection.prepareStatement(SQL);
             ResultSet rs = ps.executeQuery();
             
             while(rs.next()) {
-                Softplayer softplayer = new Softplayer();
+                softplayer = new Softplayer();
                 
                 softplayer.setNome(rs.getString("nome"));
                 softplayer.setEmail(rs.getString("email"));
@@ -77,18 +78,10 @@ public class JDBCSoftplayerDAO {
 
     public Softplayer buscar(String email) { 
         try {
-            Softplayer softplayer = new Softplayer();
-            
-            String sql = "Select * from softplayer where email = ?";
+            String sql = "Select from softplayer where email = ?";
             PreparedStatement ps = connection.prepareStatement(sql);
-            
-            ResultSet rs = ps.executeQuery();
-            
-            rs.next();
-            softplayer.setNome(rs.getString("nome"));
-            
-            ps.close();
-            rs.close();
+            ps.setString(1, email);
+            ps.executeUpdate();
             
             return softplayer;
             

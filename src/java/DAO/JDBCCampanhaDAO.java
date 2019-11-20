@@ -90,7 +90,7 @@ public class JDBCCampanhaDAO{
 
     public Campanha buscar(int id) {
         try {
-            Campanha campanha = new Campanha();
+            campanha = new Campanha();
            
             String sql = "Select * from campanha where nome = ?";
             PreparedStatement ps = connection.prepareStatement(sql);

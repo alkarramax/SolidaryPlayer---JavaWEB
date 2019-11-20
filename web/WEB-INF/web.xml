@@ -53,6 +53,10 @@
         <servlet-class>controller.editarCampanha</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>ConfirmarEmail</servlet-name>
+        <servlet-class>controller.ConfirmarEmail</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>deleteCampanha</servlet-name>
         <servlet-class>controller.deleteCampanha</servlet-class>
     </servlet>
@@ -79,10 +83,6 @@
     <servlet>
         <servlet-name>DeleteNecessidade</servlet-name>
         <servlet-class>controller.DeleteNecessidade</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ConfirmarEmail</servlet-name>
-        <servlet-class>controller.ConfirmarEmail</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CadastroSoftplayer</servlet-name>
@@ -168,6 +168,7 @@
         <servlet-name>ConfirmarEmail</servlet-name>
         <url-pattern>/ConfirmarEmail</url-pattern>
     </servlet-mapping>
+    
     <session-config>
         <session-timeout>
             30

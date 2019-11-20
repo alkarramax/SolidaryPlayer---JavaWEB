@@ -5,7 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="../admin.css"/>
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-        <title>Cadastrar Campanha</title>
+        <title>Esqueceu sua senha?</title>
         
         <style>
             body {
@@ -16,13 +16,13 @@
     <body>
         <div class="row">
             <div class="col-md-6">
-                <h3>Cadastrar Necessidade</h3>
+                <h3>Insira o seu e-mail</h3>
             </div>
         </div>
-        <form action="../../ConfirmarEmail" method="post" enctype="multipart/form-data">  
+        <form action="../../ConfirmarEmail" method="post">  
             <div class="form-group">
-                <label>Nome: </label>
-                <input type="text" class="form-control" name="nomeNecessidade"/>
+                <label>E-mail: </label>
+                <input type="email" class="form-control" name="email"/>
             </div>
            
             <button type="submit" class="btn btn-primary">Cadastrar</button>
