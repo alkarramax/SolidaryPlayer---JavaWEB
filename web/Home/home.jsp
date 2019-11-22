@@ -150,8 +150,6 @@
             </div>
         </div>
     </div>
-    
-
     <header class="header">
         <nav class="navbar-one">
             <div class="responsive-bar">
@@ -317,49 +315,6 @@
             </div>
         </div>
     </section>
-    <div class="popup">
-        <div class="popup-content">
-            <div class="container" id="container">
-                <div class="form-container sign-up-container">
-                    <img src="imagens/./baseline_clear_black_18dp.png" alt="Close" class="close2">
-                    <form action="#">
-                        <h1>Crie Sua Conta</h1>
-                        <input type="text" placeholder="Nome">
-                        <input type="text" placeholder="Sobrenome">
-                        <input type="password" placeholder="Senha">
-                        <input type="email" placeholder="Email">
-                        <input type="text" placeholder="Cargo">
-                        <input type="text" placeholder="Unidade">
-                        <button>Cadastrar</button>
-                    </form>
-                </div>
-                <div class="form-container sign-in-container">
-                    <form action="#">
-                        <h1>Entrar</h1>
-                        <input type="email" id="email" placeholder="Email">
-                        <input type="password" id="senha" placeholder="Senha">
-                        <a href="#">Esqueceu sua senha?</a>
-                        <button onclick="autorizacao()">Entrar</button>
-                    </form>
-                </div>
-                <div class="overlay-container">
-                    <div class="overlay">
-                        <div class="overlay-panel overlay-left">
-                            <h1>Que bom que você voltou!</h1>
-                            <p>Faça o seu login e continue ajudando quem precisa.</p>
-                            <button class="ghost" id="signIn">Entrar</button>
-                        </div>
-                        <div class="overlay-panel overlay-right">
-                            <img src="imagens/./baseline_clear_black_18dp.png" alt="Close" class="close">
-                            <h1>Olá, Softplayer!</h1>
-                            <p>Ainda não tem cadastro? Cadastre-se para se tornar um Solidarity Player.</p>
-                            <button class="ghost" id="signUp">Cadastrar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <footer>
         <div class="footer-info">
             <div class="footer-info-img">
@@ -386,7 +341,7 @@
         </div>
     </footer>
 
-    <script src="home.js"></script>
+    <script src="./javascript/home.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://kit.fontawesome.com/27aa4e62af.js" crossorigin="anonymous"></script>
 </body>

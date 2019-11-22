@@ -104,6 +104,13 @@
     <%
     }
     %>
+    
+    <%
+        String necessidade = "select necessidade.descricao from necessidade inner join campanha on campanha.id_necessidade1 = necessidade.id_necessidade or campanha.id_necessidade2 = necessidade.id_necessidade where campanha.id_campanha = '"+num+"'";;
+        ResultSet rsNes = st.executeQuery(necessidade);
+        
+        while(rsNes.next()) {
+    %>
                 <div class="form-separator">
                     <div class="input">
                         <div class="caixa-input">
@@ -114,7 +121,13 @@
                     <div class="input">
                         <div class="caixa-input">
                             <img src="../imagensSobre/type.png" alt=""/>
-                            <input id="tipo" type="text" name="necessidade" placeholder="Necessidade"/> 
+                            <input id="tipo" type="text" name="necessidade" value="<%=rsNes.getString("descricao")%>"/> 
+                        </div>
+                    </div>
+                    <div class="input">
+                        <div class="caixa-input">
+                            <img src="../imagensSobre/type.png" alt=""/>
+                            <input id="tipo" type="text" name="necessidade" value="<%=rsNes.getString("descricao")%>"/> 
                         </div>
                     </div>
                 </div>
@@ -123,7 +136,9 @@
                 </div>
             </form>
         </div>
-        
+    <%
+        }
+    %>
         <script>
             function Nova() {
                 location.href="/SA-JSP/Home/home.jsp"
