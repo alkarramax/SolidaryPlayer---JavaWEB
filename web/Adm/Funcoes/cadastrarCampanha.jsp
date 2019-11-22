@@ -48,7 +48,7 @@
                 <label class="form-check-label" for="idosos">Idosos</label>
             </div>
             <div class="form-check">
-                <input type="checkbox" name="beneficiarios" class="form-check-input" id="criancas" value="criancas">
+                <input type="checkbox" name="beneficiarios" class="form-check-input" id="criancas" value="crianca">
                 <label class="form-check-label" for="criancas">Crianças</label>
             </div>
             
