@@ -1,3 +1,6 @@
+<%@page import="model.Campanha"%>
+<%@page import="java.util.List"%>
+<%@page import="DAO.JDBCCampanhaDAO"%>
 <%@page import="DB.DBConnection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.sql.*"%>
@@ -55,15 +58,35 @@
                         <table class="table table-bordered table-striped table-hover">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
                                     <th>Nome</th>
                                     <th>Local</th>
-                                    <th>Beneficiario</th>
                                     <th>Data</th>
-                                    <th>Funções</th>
+                                    <th>Beneficiario</th>
                                 </tr>
                             </thead>
                            
+                            
+                            
+                            
+                            <%
+                               JDBCCampanhaDAO relIdoso = new JDBCCampanhaDAO();
+                               List<Campanha> IdosoRel = relIdoso.listarIdosos();
+
+                               for(Campanha y : IdosoRel) {
+                            %>
+                             <tr>
+                                <td><%=y.getNome()%></td>
+                                <td><%= y.getLocal() %></td>
+                                <td><%= y.getData() %></td>
+                                <td><%= y.getBeneficiario() %></td>
+                             </tr>
+                            <%
+                             }
+                            %>
+                            
+                            
+                            
+                            
                         </table>
                         
                     </div>
@@ -96,7 +119,6 @@
                                
                                String dataCamp = "select * from campanha";
                                ResultSet rsCamp = statCamp.executeQuery(dataCamp);
-                               String dt = rsCamp.getString("data");
                                
 
                                while(rsCamp.next()) {

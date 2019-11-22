@@ -224,14 +224,14 @@
             <div class="card-wrapper2">
                  <%
                     JDBCCampanhaDAO campanhaDAO2 = new JDBCCampanhaDAO();
-                    List<Campanha> listCampanha = campanhaDAO2.listar();
-                    for(Campanha y : listCampanha) {
+                    List<Campanha> listIdoso = campanhaDAO2.listarIdosos();
+                    for(Campanha g : listIdoso) {
                         out.println("<div class='card'>");
-                            out.println("<img src='imageCampanha/"+y.getImagem()+"' alt='card backgroud' class='card-img'>");
+                            out.println("<img src='imageCampanha/"+g.getImagem()+"' alt='card backgroud' class='card-img'>");
                             out.println("<img src='imagens/logo-branco-300x287.png' alt='profile backgroud' class='profile-img'>");
-                            out.println("<h1>"+y.getNome()+"</h1>");
-                            out.println("<p>"+y.getDescricao()+"</p>");
-                            out.println("<a href='../SobreCampanha/sobreCampanha.jsp?c="+y.getId_campanha()+"' class='btn-doar'>Contribua agora</a>");
+                            out.println("<h1>"+g.getNome()+"</h1>");
+                            out.println("<p>"+g.getDescricao()+"</p>");
+                            out.println("<a href='../SobreCampanha/sobreCampanha.jsp?c="+g.getId_campanha()+"' class='btn-doar'>Contribua agora</a>");
                         out.println("</div>");
                     }
                 %>
