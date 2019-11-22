@@ -84,6 +84,10 @@
         <servlet-name>DeleteNecessidade</servlet-name>
         <servlet-class>controller.DeleteNecessidade</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControlarDoacao</servlet-name>
+        <servlet-class>controller.ControlarDoacao</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CadastroSoftplayer</servlet-name>
         <url-pattern>/CadastroSoftplayer</url-pattern>
@@ -168,7 +172,10 @@
         <servlet-name>ConfirmarEmail</servlet-name>
         <url-pattern>/ConfirmarEmail</url-pattern>
     </servlet-mapping>
-    
+    <servlet-mapping>
+        <servlet-name>ControlarDoacao</servlet-name>
+        <url-pattern>/ControlarDoacao</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
