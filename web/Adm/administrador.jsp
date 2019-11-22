@@ -51,6 +51,21 @@
                         <div class="title">
                             Home
                         </div>
+                        
+                        <table class="table table-bordered table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nome</th>
+                                    <th>Local</th>
+                                    <th>Beneficiario</th>
+                                    <th>Data</th>
+                                    <th>Funções</th>
+                                </tr>
+                            </thead>
+                           
+                        </table>
+                        
                     </div>
                            
                     <div id="doacoes-actions">
@@ -81,6 +96,8 @@
                                
                                String dataCamp = "select * from campanha";
                                ResultSet rsCamp = statCamp.executeQuery(dataCamp);
+                               String dt = rsCamp.getString("data");
+                               
 
                                while(rsCamp.next()) {
                             %>
@@ -92,7 +109,7 @@
                                 <td><%=rsCamp.getString("data")%></td>
                                 <td>
                                     <a href="./Funcoes/editarCampanha.jsp?u=<%=rsCamp.getString("id_campanha")%>" class="btn btn-warning">Editar</a>
-                                    <a href='../deleteCampanha?d=<%=rsCamp.getString("id_campanha")%>' class="btn btn-danger">Delete</a>
+                                    <a href='../DeleteCampanha?d=<%=rsCamp.getString("id_campanha")%>' class="btn btn-danger">Delete</a>
                                 </td>
 
                              </tr>
@@ -135,7 +152,7 @@
                                 <td><%=rsNecessidade.getString("id_necessidade")%></td>
                                 <td><%=rsNecessidade.getString("descricao")%></td>
                                 <td>
-                                    <a href='../DeleteNecessidade?n=<%=rsNecessidade.getString("id_necessidade")%>' class="btn btn-danger">Delete</a>
+                                    <a href='../DeleteNecessidade?d=<%=rsNecessidade.getString("id_necessidade")%>' class="btn btn-danger">Delete</a>
                                 </td>
 
                              </tr>

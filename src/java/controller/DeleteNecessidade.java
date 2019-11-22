@@ -26,7 +26,7 @@ public class DeleteNecessidade extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
            
-            String id = request.getParameter("n");
+            String id = request.getParameter("d");
             
             int id_necessidade = Integer.parseInt(id);
             

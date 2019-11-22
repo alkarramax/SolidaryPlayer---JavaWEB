@@ -202,8 +202,8 @@
             <div class="card-wrapper">
                 <%
                     JDBCCampanhaDAO campanhaDAO = new JDBCCampanhaDAO();
-                    List<Campanha> listCampanha = campanhaDAO.listar();
-                    for(Campanha y : listCampanha) {
+                    List<Campanha> listCrianca = campanhaDAO.listarCrianca();
+                    for(Campanha y : listCrianca) {
                         out.println("<div class='card'>");
                             out.println("<img src='imageCampanha/"+y.getImagem()+"' alt='card backgroud' class='card-img'>");
                             out.println("<img src='imagens/logo-branco-300x287.png' alt='profile backgroud' class='profile-img'>");
@@ -223,6 +223,8 @@
         <div id="left" class="left2"> <i class="fa fa-angle-left"></i></div>
             <div class="card-wrapper2">
                  <%
+                    JDBCCampanhaDAO campanhaDAO2 = new JDBCCampanhaDAO();
+                    List<Campanha> listCampanha = campanhaDAO2.listar();
                     for(Campanha y : listCampanha) {
                         out.println("<div class='card'>");
                             out.println("<img src='imageCampanha/"+y.getImagem()+"' alt='card backgroud' class='card-img'>");
