@@ -5,6 +5,7 @@ public class Necessidade {
     
     private int id_necessidade;
     private String necessidade;
+    private String unidade; 
     
     //MÉTODOS ESPECIAIS
     public int getId_necessidade() {
@@ -22,7 +23,13 @@ public class Necessidade {
     public void setNecessidade(String necessidade) {
         this.necessidade = necessidade;
     }
-    
-    
+
+    public String getUnidade() {
+        return unidade;
+    }
+
+    public void setUnidade(String unidade) {
+        this.unidade = unidade;
+    }
     
 }

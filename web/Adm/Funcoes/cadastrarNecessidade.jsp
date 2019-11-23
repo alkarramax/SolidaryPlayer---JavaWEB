@@ -26,8 +26,12 @@
         </div>
         <form action="../../CadastrarNecessidade" method="post">  
             <div class="form-group">
-                <label>Nome: </label>
-                <input class="form-control" name="necessidade"/>
+                <label>Necessidade: </label>
+                <input class="form-control" name="necessidade" placeholder="Ex: Roupas"/>
+            </div>
+            <div class="form-group">
+                <label>Unidade: </label>
+                <input class="form-control" name="unidade" placeholder="Ex: Peças"/>
             </div>
            
             <button type="submit" class="btn btn-primary">Cadastrar</button>

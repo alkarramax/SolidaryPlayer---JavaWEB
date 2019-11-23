@@ -25,9 +25,11 @@ public class CadastrarNecessidade extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
            
             String nome = request.getParameter("necessidade");
+            String unidade = request.getParameter("unidade");
 
             Necessidade necessidade = new Necessidade();
             necessidade.setNecessidade(nome);
+            necessidade.setUnidade(unidade);
             
             JDBCNecessidadeDAO necessidadeDAO = new JDBCNecessidadeDAO();
             necessidadeDAO.inserir(necessidade);
