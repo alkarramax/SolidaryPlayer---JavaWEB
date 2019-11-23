@@ -128,8 +128,8 @@
                         <h1>Entrar</h1>
                         <input type="email" name="email" id="email" placeholder="Email">
                         <input type="password" name="senha" id="senha" placeholder="Senha">
-                        <a href="#">Esqueceu sua senha?</a>
-                        <button onclick="autorizacao()">Entrar</button>
+                        <a href="./EsquecerSenha/esquecerSenhaEmail.jsp">Esqueceu sua senha?</a>
+                        <button>Entrar</button>
                     </form>
                 </div>
                 <div class="overlay-container">
@@ -209,7 +209,7 @@
                             out.println("<img src='imagens/logo-branco-300x287.png' alt='profile backgroud' class='profile-img'>");
                             out.println("<h1>"+y.getNome()+"</h1>");
                             out.println("<p>"+y.getDescricao()+"</p>");
-                            out.println("<a href='../SobreCampanha/sobreCampanha.jsp?c="+y.getId_campanha()+"' class='btn-doar'>Contribua agora</a>");
+                            out.println("<a href='../ControlarDoacao?c="+y.getId_campanha()+"' class='btn-doar'>Contribua agora</a>");
                         out.println("</div>");
                     }
                 %>
@@ -231,7 +231,7 @@
                             out.println("<img src='imagens/logo-branco-300x287.png' alt='profile backgroud' class='profile-img'>");
                             out.println("<h1>"+g.getNome()+"</h1>");
                             out.println("<p>"+g.getDescricao()+"</p>");
-                            out.println("<a href='../SobreCampanha/sobreCampanha.jsp?c="+g.getId_campanha()+"' class='btn-doar'>Contribua agora</a>");
+                            out.println("<a href='../ControlarDoacao?c="+g.getId_campanha()+"' class='btn-doar'>Contribua agora</a>");
                         out.println("</div>");
                     }
                 %>

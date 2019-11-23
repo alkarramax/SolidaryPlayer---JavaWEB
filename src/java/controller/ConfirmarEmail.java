@@ -27,10 +27,13 @@ public class ConfirmarEmail extends HttpServlet {
             ResultSet rs = ps.executeQuery(sql);
             
             while(rs.next()) {
-                
-              response.sendRedirect("Home/EsquecerSenha/confirmarSenha.jsp?email='"+email+"'");
-                
+                    out.println("<script type=\"text/javascript\">");
+                    out.println("location='/SA-JSP/Home/EsquecerSenha/confirmarSenha.jsp?email="+rs.getString("email")+"';");
+                    out.println("</script>");
             }
+            
+            
+            
             
             
            

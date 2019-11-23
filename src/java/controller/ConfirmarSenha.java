@@ -5,39 +5,54 @@
  */
 package controller;
 
+import DB.DBConnection;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-/**
- *
- * @author alkar
- */
-public class ControlarDoacao extends HttpServlet {
+public class ConfirmarSenha extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, ClassNotFoundException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
            
-            HttpSession sessao = request.getSession();
+            Connection connDoacao = DBConnection.getConnection();
             
-            String id_campanha = request.getParameter("c");
+            String email = request.getParameter("email");
             
-            if(sessao.getAttribute("id") == null) {
+            String senha = request.getParameter("senha");
+            String confirmarSenha = request.getParameter("confirmarSenha");
+            
+            
+            if(senha.equals(confirmarSenha)) {
+                
+                String query = "update softplayer set senha=? where email='"+email+"'";
+                PreparedStatement stmt = connDoacao.prepareStatement(query);
+
+                stmt.setString(1, senha);
+                stmt.executeUpdate();
+                connDoacao.close();
+                
                 out.println("<script type=\"text/javascript\">");
-                out.println("alert('Para realizar uma doação é necessário estar logado!!');");
+                out.println("alert('Senha alterada com sucesso!!');");
                 out.println("location='/SA-JSP/Home/home.jsp';");
                 out.println("</script>");
+                
             } else {
+                
                 out.println("<script type=\"text/javascript\">");
-                out.println("location='/SA-JSP/SobreCampanha/sobreCampanha.jsp?id_campanha="+id_campanha+"';");
+                out.println("alert('A senha precisa ser igual!!');");
+                out.println("location='/SA-JSP/Home/EsquecerSenha/confirmarSenha.jsp?email="+email+"';");
                 out.println("</script>");
+                
             }
-            
         }
     }
 
@@ -53,7 +68,13 @@ public class ControlarDoacao extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ConfirmarSenha.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ConfirmarSenha.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -67,7 +88,13 @@ public class ControlarDoacao extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ConfirmarSenha.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ConfirmarSenha.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

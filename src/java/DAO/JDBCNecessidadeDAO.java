@@ -118,5 +118,4 @@ public class JDBCNecessidadeDAO {
         return descricoes;
     }
      
-    
 }

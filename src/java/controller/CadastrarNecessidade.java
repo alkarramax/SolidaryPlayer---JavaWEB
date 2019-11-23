@@ -24,8 +24,8 @@ public class CadastrarNecessidade extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
            
-            String nome = request.getParameter("Necessidade");
-            
+            String nome = request.getParameter("necessidade");
+
             Necessidade necessidade = new Necessidade();
             necessidade.setNecessidade(nome);
             

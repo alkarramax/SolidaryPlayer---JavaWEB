@@ -193,5 +193,37 @@ public class JDBCCampanhaDAO{
         
         ps.executeUpdate();
     }
-
+    
+    
+    public List<Campanha> buscarCampanha(int id_campanha) throws SQLException {
+        try {
+            String SQL = "select * from campanha where id_campanha='"+id_campanha+"' ";
+            PreparedStatement ps = connection.prepareStatement(SQL);
+            ResultSet rs = ps.executeQuery();
+           
+            while(rs.next()) {
+                campanha = new Campanha();
+               
+                campanha.setId_campanha(rs.getInt("id_campanha"));
+                campanha.setId_necessidade1(rs.getInt("id_necessidade1"));
+                campanha.setId_necessidade2(rs.getInt("id_necessidade2"));
+               
+                campanha.setNome(rs.getString("nome"));
+                campanha.setDescricao(rs.getString("descricao"));
+                campanha.setLocal(rs.getString("local"));
+                campanha.setImagem(rs.getString("imagem"));
+               
+               /*
+                String data = rs.getDate("data").toString();
+                LocalDate dt = LocalDate.parse(data);
+                campanha.setData(dt);
+               */
+                campanhas.add(campanha);
+            }
+        }catch(SQLException e){
+            System.out.println("Erro ao listar as campanhas!");
+        }
+        return campanhas;
+    }
+    
 }

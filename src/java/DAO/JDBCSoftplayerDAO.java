@@ -76,19 +76,26 @@ public class JDBCSoftplayerDAO {
         return softplayers;
     }
 
-    public Softplayer buscar(String email) { 
-        try {
-            String sql = "Select from softplayer where email = ?";
-            PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setString(1, email);
-            ps.executeUpdate();
+    public List<Softplayer> buscarSoftplayer(int id_softplayer) { 
+         try {
+            String SQL = "select * from softplayer where id_softplayer='"+id_softplayer+"'";
+            PreparedStatement ps = connection.prepareStatement(SQL);
+            ResultSet rs = ps.executeQuery();
             
-            return softplayer;
+            while(rs.next()) {
+                softplayer = new Softplayer();
+                
+                softplayer.setNome(rs.getString("nome"));
+                softplayer.setEmail(rs.getString("email"));
+                softplayer.setCargo(rs.getString("cargo"));
+                softplayer.setUnidade(rs.getString("unidade"));
+                softplayers.add(softplayer);
+            }
             
-        } catch (SQLException ex) {
-            Logger.getLogger(JDBCSoftplayerDAO.class.getName()).log(Level.SEVERE, null, ex);
-            throw new RuntimeException("Erro ao buscar Registro", ex);
+        } catch (Exception e) {
+            
         }
+        return softplayers;
         
     }
 

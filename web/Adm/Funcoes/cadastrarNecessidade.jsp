@@ -10,7 +10,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="../admin.css"/>
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-        <title>Cadastrar Campanha</title>
+        <title>Cadastrar Necessidade</title>
         
         <style>
             body {
@@ -24,11 +24,10 @@
                 <h3>Cadastrar Necessidade</h3>
             </div>
         </div>
-        <form action="../../CadastrarNecessidade" method="post" enctype="multipart/form-data">  
+        <form action="../../CadastrarNecessidade" method="post">  
             <div class="form-group">
                 <label>Nome: </label>
-                <input type="text" class="form-control" name="nomeNecessidade"/>
-                <input type="text" class="form-control" name="Necessidade"/>
+                <input class="form-control" name="necessidade"/>
             </div>
            
             <button type="submit" class="btn btn-primary">Cadastrar</button>

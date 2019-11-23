@@ -88,6 +88,10 @@
         <servlet-name>ControlarDoacao</servlet-name>
         <servlet-class>controller.ControlarDoacao</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ConfirmarSenha</servlet-name>
+        <servlet-class>controller.ConfirmarSenha</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CadastroSoftplayer</servlet-name>
         <url-pattern>/CadastroSoftplayer</url-pattern>
@@ -175,6 +179,10 @@
     <servlet-mapping>
         <servlet-name>ControlarDoacao</servlet-name>
         <url-pattern>/ControlarDoacao</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConfirmarSenha</servlet-name>
+        <url-pattern>/ConfirmarSenha</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
