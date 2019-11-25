@@ -131,7 +131,7 @@
                                 <td><%=rsCamp.getString("data")%></td>
                                 <td>
                                     <a href="./Funcoes/editarCampanha.jsp?u=<%=rsCamp.getString("id_campanha")%>" class="btn btn-warning">Editar</a>
-                                    <a href='../DeleteCampanha?d=<%=rsCamp.getString("id_campanha")%>' class="btn btn-danger">Delete</a>
+                                    <a href='../deleteCampanha?d=<%=rsCamp.getString("id_campanha")%>' class="btn btn-danger">Delete</a>
                                 </td>
 
                              </tr>
@@ -157,8 +157,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Nome</th>
-                                    <th>Local</th>
-                                    <th>Data</th>
+                                    <th>Unidade</th>
                                     <th>Funções</th>
                                 </tr>
                             </thead>
@@ -173,6 +172,7 @@
                              <tr>
                                 <td><%=rsNecessidade.getString("id_necessidade")%></td>
                                 <td><%=rsNecessidade.getString("descricao")%></td>
+                                <td><%=rsNecessidade.getString("unidade")%></td>
                                 <td>
                                     <a href='../DeleteNecessidade?d=<%=rsNecessidade.getString("id_necessidade")%>' class="btn btn-danger">Delete</a>
                                 </td>

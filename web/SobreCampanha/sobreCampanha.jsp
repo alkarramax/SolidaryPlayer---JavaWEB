@@ -108,27 +108,29 @@
         }
         
     %>
-                <div class="form-separator">
-                    <div class="input">
-                        <div class="caixa-input">
-                            <img src="../imagensSobre/plank.png" alt=""/>
-                            <input id="quantidade" type="text" name="quantidadeDoada" placeholder="Quantidade"/> 
-                        </div>
-                    </div>
+             
     <%
         
         for(Necessidade necessidade : necessidades) {
-            out.println("<div class='input'>");
-                out.println("<div class='caixa-input'>");
-                    out.println("<img src='../imagensSobre/type.png' alt=''/>");
-                    out.println("<input id='tipo' name='necessidade' value="+necessidade.getNecessidade()+">");
+            out.println("<div class='form-separator'>");
+                out.println("<div class='input'>");
+                    out.println("<div class='caixa-input'>");
+                        out.println("<img src='../imagensSobre/type.png' alt=''/>");
+                        out.println("<input id='quantidade' type='text' name='quantidadeDoada' placeholder='Quantidade. Ex.:"+necessidade.getUnidade()+"'>");
+                    out.println("</div>");
+                out.println("</div>");
+            
+                out.println("<div class='input'>");
+                    out.println("<div class='caixa-input'>");
+                        out.println("<img src='../imagensSobre/type.png' alt=''/>");
+                        out.println("<input id='tipo' name='necessidade' value="+necessidade.getNecessidade()+">");
+                    out.println("</div>");
                 out.println("</div>");
             out.println("</div>");
             
         }
        
     %>
-                </div>
    
                 <div class="button-doar">
                     <button type="submit" class="btn btn-primary">Doar</button>

@@ -62,7 +62,7 @@ public class JDBCNecessidadeDAO {
                 
                 necessidade.setId_necessidade(rs.getInt("id_necessidade"));
                 necessidade.setNecessidade(rs.getString("descricao"));
-                necessidade.setUnidade(rs.getString("necessidade"));
+                necessidade.setUnidade(rs.getString("unidade"));
               
                 necessidades.add(necessidade);
             }
@@ -102,14 +102,16 @@ public class JDBCNecessidadeDAO {
     
     public List<Necessidade> getDescricao(int id_campanha) {
         try {
-            String sql = "select necessidade.descricao from necessidade inner join campanha on campanha.id_necessidade1 = necessidade.id_necessidade or campanha.id_necessidade2 = necessidade.id_necessidade where campanha.id_campanha = '"+id_campanha+"'";
+            String sql = "select necessidade.descricao, necessidade.unidade, necessidade.id_necessidade from necessidade inner join campanha on campanha.id_necessidade1 = necessidade.id_necessidade or campanha.id_necessidade2 = necessidade.id_necessidade where campanha.id_campanha = '"+id_campanha+"'";
             PreparedStatement ps = connection.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             
             while(rs.next()) {
                 necessidade = new Necessidade();
-   
+                
                 necessidade.setNecessidade(rs.getString("descricao"));
+                necessidade.setId_necessidade(rs.getInt("id_necessidade"));
+                necessidade.setUnidade(rs.getString("unidade"));
                 descricoes.add(necessidade);
             }
             

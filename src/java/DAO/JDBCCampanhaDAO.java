@@ -75,11 +75,11 @@ public class JDBCCampanhaDAO{
                 campanha.setLocal(rs.getString("local"));
                 campanha.setImagem(rs.getString("imagem"));
                
-               /*
+            
                 String data = rs.getDate("data").toString();
                 LocalDate dt = LocalDate.parse(data);
                 campanha.setData(dt);
-               */
+               
                 campanhas.add(campanha);
             }
         }catch(SQLException e){
@@ -106,11 +106,11 @@ public class JDBCCampanhaDAO{
                 campanha.setLocal(rs.getString("local"));
                 campanha.setImagem(rs.getString("imagem"));
                
-               /*
+               
                 String data = rs.getDate("data").toString();
                 LocalDate dt = LocalDate.parse(data);
                 campanha.setData(dt);
-               */
+               
                 campanhas.add(campanha);
             }
         }catch(SQLException e){
@@ -137,11 +137,11 @@ public class JDBCCampanhaDAO{
                 campanha.setLocal(rs.getString("local"));
                 campanha.setImagem(rs.getString("imagem"));
                
-               /*
+               
                 String data = rs.getDate("data").toString();
                 LocalDate dt = LocalDate.parse(data);
                 campanha.setData(dt);
-               */
+              
                 campanhas.add(campanha);
             }
         }catch(SQLException e){
@@ -213,11 +213,11 @@ public class JDBCCampanhaDAO{
                 campanha.setLocal(rs.getString("local"));
                 campanha.setImagem(rs.getString("imagem"));
                
-               /*
+              
                 String data = rs.getDate("data").toString();
                 LocalDate dt = LocalDate.parse(data);
                 campanha.setData(dt);
-               */
+              
                 campanhas.add(campanha);
             }
         }catch(SQLException e){
