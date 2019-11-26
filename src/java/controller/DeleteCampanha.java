@@ -1,64 +1,40 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package controller;
 
-import DAO.JDBCSoftplayerDAO;
-import DB.DBConnection;
+import DAO.JDBCCampanhaDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import model.Softplayer;
 
-public class CadastroSoftplayer extends HttpServlet {
+/**
+ *
+ * @author Aluno
+ */
+public class DeleteCampanha extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException, ClassNotFoundException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
-            String nome = request.getParameter("nome");
-            String senha = request.getParameter("senha");
-            String email = request.getParameter("email");
-            String cargo = request.getParameter("cargo");
-            String unidade = request.getParameter("unidade");
            
-            Connection connection = DBConnection.getConnection();
-           
-            String sql = "SELECT * FROM softplayer where email=?";
+            String id = request.getParameter("d");
+            int id_campanha = Integer.parseInt(id);
             
-            PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setString(1, email);
-            ResultSet rs = ps.executeQuery();
+            JDBCCampanhaDAO campanhaDAO = new JDBCCampanhaDAO();
+            campanhaDAO.remover(id_campanha);
             
-            while(rs.next()) {
-                  if(email.equals(rs.getString("email"))) {
-                      out.println("<script type=\"text/javascript\">");
-                      out.println("alert('O E-mail já está cadastrado');");
-                      out.println("location='/SA-JSP/Home/home.jsp';");
-                      out.println("</script>");
-                      return;
-                  } 
-            } 
-            
-            Softplayer softplayer = new Softplayer();
-
-            softplayer.setNome(nome);
-            softplayer.setEmail(email);
-            softplayer.setCargo(cargo);
-            softplayer.setUnidade(unidade);
-            softplayer.setSenha(senha);
-
-            JDBCSoftplayerDAO inserirDAO = new JDBCSoftplayerDAO();
-            inserirDAO.inserir(softplayer);
-
-
             out.println("<script type=\"text/javascript\">");
-            out.println("alert('Cadastro realizado com sucesso!!');");
-            out.println("location='/SA-JSP/Home/home.jsp';");
+            out.println("alert('Campanha removida com sucesso!!');");
+            out.println("location='/SA-JSP/Adm/administrador.jsp';");
             out.println("</script>");
         }
     }
@@ -78,9 +54,9 @@ public class CadastroSoftplayer extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(CadastroSoftplayer.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DeleteCampanha.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(CadastroSoftplayer.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DeleteCampanha.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -98,9 +74,9 @@ public class CadastroSoftplayer extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(CadastroSoftplayer.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DeleteCampanha.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(CadastroSoftplayer.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DeleteCampanha.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

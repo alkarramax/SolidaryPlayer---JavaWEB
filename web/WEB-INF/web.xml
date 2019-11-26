@@ -6,7 +6,7 @@
     </servlet>
     <servlet>
         <servlet-name>deletePlayers</servlet-name>
-        <servlet-class>controller.DeletePlayers</servlet-class>
+        <servlet-class>controller.deletePlayers</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>cadastrarEntidade</servlet-name>
@@ -57,10 +57,6 @@
         <servlet-class>controller.ConfirmarEmail</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>deleteCampanha</servlet-name>
-        <servlet-class>controller.deleteCampanha</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>editarVoluntariado</servlet-name>
         <servlet-class>controller.editarVoluntariado</servlet-class>
     </servlet>
@@ -91,6 +87,10 @@
     <servlet>
         <servlet-name>ConfirmarSenha</servlet-name>
         <servlet-class>controller.ConfirmarSenha</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteCampanha</servlet-name>
+        <servlet-class>controller.DeleteCampanha</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CadastroSoftplayer</servlet-name>
@@ -145,10 +145,6 @@
         <url-pattern>/editarCampanha</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>deleteCampanha</servlet-name>
-        <url-pattern>/deleteCampanha</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>editarVoluntariado</servlet-name>
         <url-pattern>/editarVoluntariado</url-pattern>
     </servlet-mapping>
@@ -183,6 +179,10 @@
     <servlet-mapping>
         <servlet-name>ConfirmarSenha</servlet-name>
         <url-pattern>/ConfirmarSenha</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteCampanha</servlet-name>
+        <url-pattern>/DeleteCampanha</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

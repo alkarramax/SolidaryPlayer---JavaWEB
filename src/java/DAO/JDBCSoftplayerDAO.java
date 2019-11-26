@@ -13,6 +13,7 @@ public class JDBCSoftplayerDAO {
     private List<Softplayer> softplayers = new ArrayList<>();
     private Softplayer softplayer = new Softplayer();
     Connection connection;
+    
     public JDBCSoftplayerDAO() throws SQLException, ClassNotFoundException {
         connection = DBConnection.getConnection();
     }
@@ -98,7 +99,31 @@ public class JDBCSoftplayerDAO {
         return softplayers;
         
     }
-
+    
+    public List<Softplayer> buscarSoftplayerEmail(int email) { 
+         try {
+            String SQL = "select * from softplayer where email='"+email+"'";
+            PreparedStatement ps = connection.prepareStatement(SQL);
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next()) {
+                softplayer = new Softplayer();
+                
+                softplayer.setNome(rs.getString("nome"));
+                softplayer.setEmail(rs.getString("email"));
+                softplayer.setCargo(rs.getString("cargo"));
+                softplayer.setUnidade(rs.getString("unidade"));
+                softplayers.add(softplayer);
+            }
+            
+        } catch (Exception e) {
+            
+        }
+        return softplayers;
+        
+    }
+    
+    
     public void editar(Softplayer softplayer) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

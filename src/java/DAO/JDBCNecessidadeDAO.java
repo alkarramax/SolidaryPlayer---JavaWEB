@@ -77,9 +77,9 @@ public class JDBCNecessidadeDAO {
         try {
             necessidade = new Necessidade();
             
-            String sql = "SELECT * FROM necessidade WHERE id_necessidade = '"+id+"'";
+            String sql = "SELECT * FROM necessidade WHERE id_necessidade=?";
             PreparedStatement ps = connection.prepareStatement(sql);
-            
+            ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             
             rs.next();
@@ -102,8 +102,10 @@ public class JDBCNecessidadeDAO {
     
     public List<Necessidade> getDescricao(int id_campanha) {
         try {
-            String sql = "select necessidade.descricao, necessidade.unidade, necessidade.id_necessidade from necessidade inner join campanha on campanha.id_necessidade = necessidade.id_necessidade where campanha.id_campanha = '"+id_campanha+"'";
+            String sql = "select necessidade.descricao, necessidade.unidade, necessidade.id_necessidade from necessidade inner join campanha on campanha.id_necessidade = necessidade.id_necessidade where campanha.id_campanha=?";
             PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, id_campanha);
+            
             ResultSet rs = ps.executeQuery();
             
             while(rs.next()) {

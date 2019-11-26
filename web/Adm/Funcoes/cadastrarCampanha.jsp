@@ -39,7 +39,7 @@
             </div>
             <div class="form-group">
                 <label>Descrição: </label>
-                <textarea class="form-control" name="descricao" ></textarea>
+                <textarea class="form-control" name="descricao"  maxlength="1000" ></textarea>
             </div>
             
             <label>Beneficiario</label>

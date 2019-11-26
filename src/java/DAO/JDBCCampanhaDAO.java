@@ -92,10 +92,11 @@ public class JDBCCampanhaDAO{
 
     public List<Campanha> listarCrianca() throws SQLException {
         try {
-            String SQL = "select * from campanha where beneficiario = 'crianca'";
+            String SQL = "select * from campanha where beneficiario=?";
             PreparedStatement ps = connection.prepareStatement(SQL);
+            ps.setString(1, "crianca");
+            
             ResultSet rs = ps.executeQuery();
-           
             while(rs.next()) {
                 campanha = new Campanha();
                
@@ -106,7 +107,7 @@ public class JDBCCampanhaDAO{
                 campanha.setDescricao(rs.getString("descricao"));
                 campanha.setLocal(rs.getString("local"));
                 campanha.setImagem(rs.getString("imagem"));
-               
+                campanha.setBeneficiario("crianca");
                
                 String data = rs.getDate("data").toString();
                 LocalDate dt = LocalDate.parse(data);
@@ -122,10 +123,11 @@ public class JDBCCampanhaDAO{
     
     public List<Campanha> listarIdosos() throws SQLException {
         try {
-            String SQL = "select * from campanha where beneficiario='idoso'";
+            String SQL = "select * from campanha where beneficiario=?";
             PreparedStatement ps = connection.prepareStatement(SQL);
+            ps.setString(1, "idoso");
+            
             ResultSet rs = ps.executeQuery();
-           
             while(rs.next()) {
                 campanha = new Campanha();
                
@@ -136,7 +138,7 @@ public class JDBCCampanhaDAO{
                 campanha.setDescricao(rs.getString("descricao"));
                 campanha.setLocal(rs.getString("local"));
                 campanha.setImagem(rs.getString("imagem"));
-               
+                campanha.setBeneficiario("idosos");
                
                 String data = rs.getDate("data").toString();
                 LocalDate dt = LocalDate.parse(data);
@@ -196,10 +198,11 @@ public class JDBCCampanhaDAO{
     
     public List<Campanha> buscarCampanha(int id_campanha) throws SQLException {
         try {
-            String SQL = "select * from campanha where id_campanha='"+id_campanha+"' ";
+            String SQL = "select * from campanha where id_campanha=?";
             PreparedStatement ps = connection.prepareStatement(SQL);
+            ps.setInt(1, id_campanha);
+            
             ResultSet rs = ps.executeQuery();
-           
             while(rs.next()) {
                 campanha = new Campanha();
                

@@ -64,31 +64,39 @@
                                     <th>Beneficiario</th>
                                 </tr>
                             </thead>
-                           
-                            
-                            
-                            
-                            <%
-                               JDBCCampanhaDAO relIdoso = new JDBCCampanhaDAO();
-                               List<Campanha> IdosoRel = relIdoso.listarIdosos();
 
-                               for(Campanha y : IdosoRel) {
+                            <%
+                               JDBCCampanhaDAO listCrianca = new JDBCCampanhaDAO();
+                               List<Campanha> listCriancas = listCrianca.listarCrianca();
+
+                               for(Campanha y : listCriancas) {
                             %>
                              <tr>
                                 <td><%=y.getNome()%></td>
-                                <td><%= y.getLocal() %></td>
-                                <td><%= y.getData() %></td>
-                                <td><%= y.getBeneficiario() %></td>
+                                <td><%=y.getLocal() %></td>
+                                <td><%=y.getData() %></td>
+                                <td><%=y.getBeneficiario() %></td>
                              </tr>
                             <%
                              }
                             %>
                             
-                            
-                            
-                            
+                            <%
+                               JDBCCampanhaDAO listIdoso = new JDBCCampanhaDAO();
+                               List<Campanha> listIdosos = listIdoso.listarIdosos();
+
+                               for(Campanha w : listIdosos) {
+                            %>
+                             <tr>
+                                <td><%=w.getNome()%></td>
+                                <td><%=w.getLocal() %></td>
+                                <td><%=w.getData() %></td>
+                                <td><%=w.getBeneficiario() %></td>
+                             </tr>
+                            <%
+                             }
+                            %>
                         </table>
-                        
                     </div>
                            
                     <div id="doacoes-actions">
@@ -131,7 +139,7 @@
                                 <td><%=rsCamp.getString("data")%></td>
                                 <td>
                                     <a href="./Funcoes/editarCampanha.jsp?u=<%=rsCamp.getString("id_campanha")%>" class="btn btn-warning">Editar</a>
-                                    <a href='../deleteCampanha?d=<%=rsCamp.getString("id_campanha")%>' class="btn btn-danger">Delete</a>
+                                    <a href='../DeleteCampanha?d=<%=rsCamp.getString("id_campanha")%>' class="btn btn-danger">Delete</a>
                                 </td>
 
                              </tr>
@@ -218,7 +226,7 @@
                                 <td><%=rs.getString("cargo")%></td>
                                 <td><%=rs.getString("unidade")%></td>
                                 <td>
-                                    <a href='../DeletePlayers?d=<%=rs.getString("id_softplayer")%>' class="btn btn-danger">Delete</a>
+                                    <a href='../deletePlayers?d=<%=rs.getString("id_softplayer")%>' class="btn btn-danger">Delete</a>
                                 </td>
 
                              </tr>

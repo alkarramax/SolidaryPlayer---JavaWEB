@@ -18,25 +18,31 @@ public class ConfirmarEmail extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
-            Connection connection = DBConnection.getConnection();
-           
             String email = request.getParameter("email");
-            String sql = "SELECT * FROM softplayer where email='"+email+"'";
+            
+            
+            Connection connection = DBConnection.getConnection();
+            
+            String sql = "SELECT * FROM softplayer where email=?";
             
             PreparedStatement ps = connection.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery(sql);
+            ps.setString(1, email);
+            ResultSet rs = ps.executeQuery();
             
             while(rs.next()) {
+                if(email.equals(rs.getString("email"))) {
                     out.println("<script type=\"text/javascript\">");
                     out.println("location='/SA-JSP/Home/EsquecerSenha/confirmarSenha.jsp?email="+rs.getString("email")+"';");
                     out.println("</script>");
+                    return;
+                }
             }
             
             
-            
-            
-            
-           
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Email incorreto');");
+            out.println("location='/SA-JSP/Home/EsquecerSenha/esquecerSenhaEmail.jsp';");
+            out.println("</script>");
         }
     }
 
