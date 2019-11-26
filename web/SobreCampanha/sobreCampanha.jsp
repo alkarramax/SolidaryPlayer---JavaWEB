@@ -58,7 +58,7 @@
         List<Necessidade> necessidades = necessidadeDAO.getDescricao(id_campanha);
 
         for(Necessidade amanda : necessidades) {
-            out.println("<p>"+amanda.getNecessidade()+",</p>");
+            out.println("<p>"+amanda.getNecessidade()+"</p>");
         }
     %>
         </div>
@@ -120,15 +120,13 @@
                         out.println("<input id='quantidade' type='text' name='quantidadeDoada' placeholder='Quantidade. Ex.:"+necessidade.getUnidade()+"'>");
                     out.println("</div>");
                 out.println("</div>");
-            
                 
-                out.println("<input type='hidden' name='id_necessidade' id='id_necessidade' value="+ necessidade.getId_necessidade() +" >");
-                out.println("<input type='hidden' name='id_necessidade2' id='id_necessidade' value="+ necessidade.getId_necessidade() +" >");
+                out.println("<input type='hidden' name='necessidade_id' value="+ necessidade.getId_necessidade() +" >");
                 
                 out.println("<div class='input'>");
                     out.println("<div class='caixa-input'>");
                         out.println("<img src='../imagensSobre/type.png' alt=''/>");
-                        out.println("<input id='tipo' name='necessidade' value="+necessidade.getNecessidade()+">");
+                        out.println("<input id='tipo' value="+necessidade.getNecessidade()+">");
                     out.println("</div>");
                 out.println("</div>");
             out.println("</div>");

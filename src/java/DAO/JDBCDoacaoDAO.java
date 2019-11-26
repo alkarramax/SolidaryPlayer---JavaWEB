@@ -19,14 +19,14 @@ public class JDBCDoacaoDAO {
     
     public void inserir(Doacao doacao) throws SQLException {
         try {
-        String sql = "INSERT INTO doacao(softplayer_id, campanha_id, quantidade_doada, necessidade)"
-                + "values(?,?,?,?,?)";
+        String sql = "INSERT INTO doacao(softplayer_id, campanha_id, quantidade_doada, necessidade_id)"
+                + "values(?,?,?,?)";
         PreparedStatement ps = connection.prepareStatement(sql);
          
         ps.setInt(1, doacao.getId_softplayer());
         ps.setInt(2, doacao.getId_campanha());
         ps.setInt(3, doacao.getQuantidadeDoada());
-        ps.setString(4, doacao.getNecessidade());
+        ps.setInt(4, doacao.getNecessidade_id());
         ps.executeUpdate();
             
         } catch (Exception e) {
@@ -46,7 +46,7 @@ public class JDBCDoacaoDAO {
                 doacao.setId_campanha(rs.getInt("campanha_id"));
                 doacao.setId_softplayer(rs.getInt("softplayer_id"));
                 doacao.setQuantidadeDoada(rs.getInt("quantidade_doada"));
-                doacao.setNecessidade(rs.getString("necessidade"));
+                doacao.setNecessidade_id(rs.getInt("necessidade_id"));
                 
                 doacoes.add(doacao);
             }

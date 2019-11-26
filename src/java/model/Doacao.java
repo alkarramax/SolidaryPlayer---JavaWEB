@@ -5,8 +5,7 @@ public class Doacao {
     private int id_softplayer;
     private int id_campanha;
     private int quantidadeDoada;
-    
-    private String necessidade;
+    private int necessidade_id;
 
     public int getId_softplayer() {
         return id_softplayer;
@@ -32,13 +31,15 @@ public class Doacao {
         this.quantidadeDoada = quantidadeDoada;
     }
 
-    public String getNecessidade() {
-        return necessidade;
+    public int getNecessidade_id() {
+        return necessidade_id;
     }
 
-    public void setNecessidade(String necessidade) {
-        this.necessidade = necessidade;
+    public void setNecessidade_id(int necessidade_id) {
+        this.necessidade_id = necessidade_id;
     }
+
+  
 
 
 }

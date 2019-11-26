@@ -12,8 +12,6 @@ public class Campanha {
     private LocalDate data;
     private boolean aberta;
     
-    private List<Softplayer> listaSoftplayers;
-    
     private int id_necessidade;
 
     public int getId_campanha() {
@@ -97,14 +95,5 @@ public class Campanha {
     public void setImagem(String imagem) {
         this.imagem = imagem;
     }
-
-    public List<Softplayer> getListaSoftplayers() {
-        return listaSoftplayers;
-    }
-
-    public void setListaSoftplayers(List<Softplayer> listaSoftplayers) {
-        this.listaSoftplayers = listaSoftplayers;
-    }
-    
     
 }

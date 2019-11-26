@@ -102,7 +102,7 @@ public class JDBCNecessidadeDAO {
     
     public List<Necessidade> getDescricao(int id_campanha) {
         try {
-            String sql = "select necessidade.descricao, necessidade.unidade, necessidade.id_necessidade from necessidade inner join campanha on campanha.id_necessidade1 = necessidade.id_necessidade or campanha.id_necessidade2 = necessidade.id_necessidade where campanha.id_campanha = '"+id_campanha+"'";
+            String sql = "select necessidade.descricao, necessidade.unidade, necessidade.id_necessidade from necessidade inner join campanha on campanha.id_necessidade = necessidade.id_necessidade where campanha.id_campanha = '"+id_campanha+"'";
             PreparedStatement ps = connection.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             

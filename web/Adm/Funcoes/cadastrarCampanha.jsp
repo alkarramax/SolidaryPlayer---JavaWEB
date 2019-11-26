@@ -58,24 +58,12 @@
             
             <div>
                 <label style="margin-right: 150px;">Necessidade</label>
-                <select name="necessidade1" class="form-control" style="width: 250px;">
+                <select name="necessidade" class="form-control" style="width: 250px;">
                     <option value="-1">Selecione a necessidade</option>
                     <%
                         JDBCNecessidadeDAO necessidadeDAO = new JDBCNecessidadeDAO();
                         List<Necessidade> nest = necessidadeDAO.listar();
                         
-                        for(Necessidade nec : nest) {
-                            out.println("<option value="+nec.getId_necessidade()+">"+nec.getId_necessidade()+"</option>");
-                        }
-                    %>    
-                </select>
-            </div>
-            
-            <div>
-                <label style="margin-right: 150px;">Necessidade</label>
-                <select name="necessidade2" class="form-control" style="width: 250px;">
-                    <option value="-1">Selecione a necessidade</option>
-                    <%
                         for(Necessidade nec : nest) {
                             out.println("<option value="+nec.getId_necessidade()+">"+nec.getNecessidade()+"</option>");
                         }

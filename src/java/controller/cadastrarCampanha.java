@@ -23,8 +23,7 @@ public class cadastrarCampanha extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
-            String necessidade1 = request.getParameter("necessidade1");
-            String necessidade2 = request.getParameter("necessidade2");
+            String necessidade = request.getParameter("necessidade");
             String nome = request.getParameter("nome");
             String descricao = request.getParameter("descricao");
             String local = request.getParameter("local");
@@ -33,12 +32,11 @@ public class cadastrarCampanha extends HttpServlet {
             
 
             LocalDate dt = LocalDate.parse(data);
-            int id_necessidade1 = Integer.parseInt(necessidade1);
-            int id_necessidade2 = Integer.parseInt(necessidade2);
+            int id_necessidade = Integer.parseInt(necessidade);
             
             Part part = request.getPart("file");
             String fileName = extractFileName(part);
-            String savePath = "C:\\Users\\Fiesc\\Documents\\NetBeansProjects\\BackEndSolidaryPlayer\\web\\Home\\imageCampanha"+ File.separator + fileName;
+            String savePath = "C:\\Users\\alkar\\Documents\\NetBeansProjects\\BackEndSolidaryPlayer\\web\\Home\\imageCampanha"+ File.separator + fileName;
             File fileSaveDir = new File(savePath);
             part.write(savePath + File.separator);
             
@@ -49,7 +47,7 @@ public class cadastrarCampanha extends HttpServlet {
             campanha.setLocal(local);
             campanha.setData(dt);
             campanha.setImagem(fileName);
-            campanha.setId_necessidade(id_necessidade1);
+            campanha.setId_necessidade(id_necessidade);
             campanha.setBeneficiario(checkBox);
            
             

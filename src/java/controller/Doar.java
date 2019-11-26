@@ -27,33 +27,30 @@ public class Doar extends HttpServlet {
             
             HttpSession session = request.getSession();
             String id = request.getParameter("id_campanha");
-            String id1 = request.getParameter("id_necessidade");
-            String id2 = request.getParameter("id_necessidade2");
-           
-            out.println(id1);
-            out.println(id2);
-            
+            String id1 = request.getParameter("necessidade_id");
             String quantidade = request.getParameter("quantidadeDoada");
             
             int id_campanha = Integer.parseInt(id);
             int id_softplayer = (Integer) session.getAttribute("id");
             int quantidadeDoada = Integer.parseInt(quantidade);
+            int necessidade_id = Integer.parseInt(id1);
             
             Doacao doacao = new Doacao();
             
             doacao.setId_softplayer(id_softplayer);
             doacao.setId_campanha(id_campanha);
             doacao.setQuantidadeDoada(quantidadeDoada);
+            doacao.setNecessidade_id(necessidade_id);
             
             JDBCDoacaoDAO doacaoDAO = new JDBCDoacaoDAO();
             doacaoDAO.inserir(doacao);
          
-            /*
+            
             out.println("<script type=\"text/javascript\">");
             out.println("alert('Doação realizada com successful!!');");
             out.println("location='/SA-JSP/Home/home.jsp';");
             out.println("</script>");    
-            */
+            
             }
         }
     
