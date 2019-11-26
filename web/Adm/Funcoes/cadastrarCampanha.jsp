@@ -65,7 +65,7 @@
                         List<Necessidade> nest = necessidadeDAO.listar();
                         
                         for(Necessidade nec : nest) {
-                            out.println("<option value="+nec.getId_necessidade()+">"+nec.getNecessidade()+"</option>");
+                            out.println("<option value="+nec.getId_necessidade()+">"+nec.getId_necessidade()+"</option>");
                         }
                     %>    
                 </select>

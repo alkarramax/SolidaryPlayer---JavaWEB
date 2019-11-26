@@ -9,6 +9,7 @@ import java.util.logging.Logger;
 import model.Campanha;
 import java.sql.*;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class JDBCCampanhaDAO{
@@ -23,7 +24,7 @@ public class JDBCCampanhaDAO{
    
     public void inserir(Campanha campanha) {
         try {
-            String SQL = "insert into campanha(nome, descricao, local, data, imagem, beneficiario, aberta, id_necessidade1, id_necessidade2) "
+            String SQL = "insert into campanha(nome, descricao, local, data, imagem, beneficiario, aberta, id_necessidade) "
                     + "values (?,?,?,?,?,?,?,?,?)";
             PreparedStatement ps = connection.prepareStatement(SQL);
             
@@ -35,8 +36,7 @@ public class JDBCCampanhaDAO{
             ps.setString(5, campanha.getImagem());
             ps.setString(6, campanha.getBeneficiario());
             ps.setBoolean(7, campanha.isAberta());
-            ps.setInt(8, campanha.getId_necessidade1());
-            ps.setInt(9, campanha.getId_necessidade2());
+            ps.setInt(8, campanha.getId_necessidade());
             ps.executeUpdate();
             ps.close();
            
@@ -67,8 +67,7 @@ public class JDBCCampanhaDAO{
                 campanha = new Campanha();
                
                 campanha.setId_campanha(rs.getInt("id_campanha"));
-                campanha.setId_necessidade1(rs.getInt("id_necessidade1"));
-                campanha.setId_necessidade2(rs.getInt("id_necessidade2"));
+                campanha.setId_necessidade(rs.getInt("id_necessidade"));
                
                 campanha.setNome(rs.getString("nome"));
                 campanha.setDescricao(rs.getString("descricao"));
@@ -76,9 +75,12 @@ public class JDBCCampanhaDAO{
                 campanha.setImagem(rs.getString("imagem"));
                
             
-                String data = rs.getDate("data").toString();
-                LocalDate dt = LocalDate.parse(data);
-                campanha.setData(dt);
+                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                String txt = rs.getDate("data").toString();
+                LocalDate dt = LocalDate.parse(txt);
+                String dt2 = dt.format(dtf);
+                LocalDate dt3 = LocalDate.parse(dt2);
+                campanha.setData(dt3);
                
                 campanhas.add(campanha);
             }
@@ -98,8 +100,7 @@ public class JDBCCampanhaDAO{
                 campanha = new Campanha();
                
                 campanha.setId_campanha(rs.getInt("id_campanha"));
-                campanha.setId_necessidade1(rs.getInt("id_necessidade1"));
-                campanha.setId_necessidade2(rs.getInt("id_necessidade2"));
+                campanha.setId_necessidade(rs.getInt("id_necessidade"));
                
                 campanha.setNome(rs.getString("nome"));
                 campanha.setDescricao(rs.getString("descricao"));
@@ -129,8 +130,7 @@ public class JDBCCampanhaDAO{
                 campanha = new Campanha();
                
                 campanha.setId_campanha(rs.getInt("id_campanha"));
-                campanha.setId_necessidade1(rs.getInt("id_necessidade1"));
-                campanha.setId_necessidade2(rs.getInt("id_necessidade2"));
+                campanha.setId_necessidade(rs.getInt("id_necessidade"));
                
                 campanha.setNome(rs.getString("nome"));
                 campanha.setDescricao(rs.getString("descricao"));
@@ -194,7 +194,6 @@ public class JDBCCampanhaDAO{
         ps.executeUpdate();
     }
     
-    
     public List<Campanha> buscarCampanha(int id_campanha) throws SQLException {
         try {
             String SQL = "select * from campanha where id_campanha='"+id_campanha+"' ";
@@ -205,8 +204,7 @@ public class JDBCCampanhaDAO{
                 campanha = new Campanha();
                
                 campanha.setId_campanha(rs.getInt("id_campanha"));
-                campanha.setId_necessidade1(rs.getInt("id_necessidade1"));
-                campanha.setId_necessidade2(rs.getInt("id_necessidade2"));
+                campanha.setId_necessidade(rs.getInt("id_necessidade"));
                
                 campanha.setNome(rs.getString("nome"));
                 campanha.setDescricao(rs.getString("descricao"));

@@ -27,6 +27,12 @@ public class Doar extends HttpServlet {
             
             HttpSession session = request.getSession();
             String id = request.getParameter("id_campanha");
+            String id1 = request.getParameter("id_necessidade");
+            String id2 = request.getParameter("id_necessidade2");
+           
+            out.println(id1);
+            out.println(id2);
+            
             String quantidade = request.getParameter("quantidadeDoada");
             
             int id_campanha = Integer.parseInt(id);
@@ -42,11 +48,12 @@ public class Doar extends HttpServlet {
             JDBCDoacaoDAO doacaoDAO = new JDBCDoacaoDAO();
             doacaoDAO.inserir(doacao);
          
+            /*
             out.println("<script type=\"text/javascript\">");
             out.println("alert('Doação realizada com successful!!');");
             out.println("location='/SA-JSP/Home/home.jsp';");
             out.println("</script>");    
-            
+            */
             }
         }
     

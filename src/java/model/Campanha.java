@@ -14,8 +14,7 @@ public class Campanha {
     
     private List<Softplayer> listaSoftplayers;
     
-    private int id_necessidade1;
-    private int id_necessidade2;
+    private int id_necessidade;
 
     public int getId_campanha() {
         return id_campanha;
@@ -82,23 +81,15 @@ public class Campanha {
     public void setBeneficiario(String beneficiario) {
         this.beneficiario = beneficiario;
     }
+
+    public int getId_necessidade() {
+        return id_necessidade;
+    }
+
+    public void setId_necessidade(int id_necessidade) {
+        this.id_necessidade = id_necessidade;
+    }
     
-    public int getId_necessidade1() {
-        return id_necessidade1;
-    }
-
-    public void setId_necessidade1(int id_necessidade1) {
-        this.id_necessidade1 = id_necessidade1;
-    }
-
-    public int getId_necessidade2() {
-        return id_necessidade2;
-    }
-
-    public void setId_necessidade2(int id_necessidade2) {
-        this.id_necessidade2 = id_necessidade2;
-    }
-
     public String getImagem() {
         return imagem;
     }

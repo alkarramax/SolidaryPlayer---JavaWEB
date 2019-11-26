@@ -90,6 +90,7 @@
                 out.println("</div>");
             out.println("</div>");
             
+            
             out.println("<div class='form-separator'>");
                 out.println("<div class='input'>");
                     out.println("<div class='caixa-input'>");
@@ -120,6 +121,10 @@
                     out.println("</div>");
                 out.println("</div>");
             
+                
+                out.println("<input type='hidden' name='id_necessidade' id='id_necessidade' value="+ necessidade.getId_necessidade() +" >");
+                out.println("<input type='hidden' name='id_necessidade2' id='id_necessidade' value="+ necessidade.getId_necessidade() +" >");
+                
                 out.println("<div class='input'>");
                     out.println("<div class='caixa-input'>");
                         out.println("<img src='../imagensSobre/type.png' alt=''/>");
