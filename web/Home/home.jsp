@@ -19,7 +19,7 @@
     <script type="text/javascript">
  $(window).on("scroll", function(){
             if($(window).scrollTop()){
-                $("nav").addClass("navFixed");
+                $('nav').addClass('navFixed');
             }else{
                 $("nav").removeClass("navFixed");
             }
@@ -51,7 +51,7 @@
             });
         });
         $(document).ready(function(){
-            $('.card-wrapper').slick({
+            $('#children').slick({
             infinite: false,
             speed: 300,
             slidesToShow: 3,
@@ -78,7 +78,7 @@
         });
         });
         $(document).ready(function(){
-            $('.card-wrapper2').slick({
+            $('#seniors').slick({
             infinite: false,
             speed: 300,
             slidesToShow: 3,
@@ -151,15 +151,15 @@
         </div>
     </div>
     <header class="header">
-        <nav class="navbar-one">
-            <div class="responsive-bar">
-            <div class="responsive-logo">
-                <img src="imagens/Logo.png"/>
-                <h1>Solidarity Player</h1>
+        <nav class="navbar">
+            <div class="responsive">
+                <div class="logo">
+                    <img src="imagens/Logo.png"/>
+                    <h1>Solidarity Player</h1>
+                </div>
+                <i id="bar" class="fa fa-bars" aria-hidden="true"></i>
             </div>
-            <i id="bar" class="fa fa-bars" aria-hidden="true"></i>
-            </div>
-            <div class="navbar">
+            <div class="normal">
                 <div class="logo">
                     <img src="imagens/Logo.png"/>
                     <h1>Solidarity Player</h1>
@@ -185,7 +185,7 @@
                 </div>
             </div>
         </nav>
-          <div class="leftside">
+          <div class="text">
             <h1>Olá, aqui você </br> 
                  <span class="txt-type" data-wait="3000" data-words='["gera impacto.", "tem transparência.", "ajuda quem precisa."]'></span>
             </h1>
@@ -194,12 +194,16 @@
             <h2> O solidarity player te conecta com causas</br> e pessoas.</h2>
           </div>
     </header>
-    <section>
-        <div id="causas" class="causa1">
+    <section class="campaigns">
+        <div class="children height-session">
         <h2>Invista no futuro de crianças e adolescentes</h2>
-        <div id="right" class="right"> <i class="fa fa-angle-right"></i></div>    
-        <div id="left" class="left"> <i class="fa fa-angle-left"></i></div>
-            <div class="card-wrapper">
+            <div id="right" class="right">
+                <i class="fa fa-angle-right"></i>
+            </div>    
+            <div id="left" class="left"> 
+                <i class="fa fa-angle-left"></i>
+            </div>
+            <div class="card-wrapper" id="children">
                 <%
                     JDBCCampanhaDAO campanhaDAO = new JDBCCampanhaDAO();
                     List<Campanha> listCrianca = campanhaDAO.listarCrianca();
@@ -215,13 +219,15 @@
                 %>
             </div>
         </div>
-    </section>
-    <section>
-        <div class="causa">
+        <div class="seniors height-session">
         <h2 class="h2card">Apoie os idosos e preserve a nossa história</h2>
-        <div id="right" class="right2"> <i class="fa fa-angle-right"></i></div>    
-        <div id="left" class="left2"> <i class="fa fa-angle-left"></i></div>
-            <div class="card-wrapper2">
+         <div id="right" class="right2">
+                <i class="fa fa-angle-right"></i>
+            </div>    
+            <div id="left" class="left2"> 
+                <i class="fa fa-angle-left"></i>
+            </div>
+        <div class="card-wrapper" id="seniors">
                  <%
                     JDBCCampanhaDAO campanhaDAO2 = new JDBCCampanhaDAO();
                     List<Campanha> listIdoso = campanhaDAO2.listarIdosos();
@@ -238,16 +244,14 @@
             </div>
         </div>
     </section>
-        <section class="sobre-img-impacto">
-            <div class="img-impacto">
-                <h1>Como você quer o mundo?</h1>
-                <h2>A mudança começa a partir de você!</h2>
-            </div>
-        </section>
-    <section id=sobre class="sobre">
+        <div class="separator-card-and-about">
+            <h1>Como você quer o mundo?</h1>
+            <h2>A mudança começa a partir de você!</h2>
+        </div>
+    <section class="about">
         <h1> Como a Softplan e o grupo Solidário </br> ajudaram milhares de pessoas?</h1>
-        <div class="container-sobre">
-            <div class="container-sobre-img">
+        <div class="container-first">
+            <div class="text-and-img">
                 <img src="imagens/campanha_do-_agasalho_03-768x768.jpg" alt="">
                 <h4>Grupo Solidario</h4>
                 <p>O Grupo Solidário nasceu por iniciativa de colaboradores voluntários da Softplan, 
@@ -255,33 +259,33 @@
                     A Softplan é uma das parceiras, e apoia financeiramente as campanhas, enquanto os colaboradores
                      voluntários se reúnem e doam um pouco do seu tempo livre. </p>
             </div>
-            <div class="container-sobre-info">
+            <div class="topics">
                 <h2>Campanha do agasalho </br> solidário</h2>
-                <div class="sobre-info">
-                    <div class="info">
+                <div class="info">
+                    <div class="text">
                         <h4>Comunidade Frei Damião</h4>
                     </div>
                 </div>
-                <div class="sobre-info">
-                        <div class="info">
+                <div class="info">
+                        <div class="text">
                             <h4>Comunidade Brejarú</h4>
                         </div>
                     </div>
-                <div class="sobre-info">
-                    <div class="info">
+                <div class="info">
+                    <div class="text">
                         <h4>152 kits de higiene pessoal</h4>
                     </div>
                 </div>
-                <div class="sobre-info">
-                    <div class="info">
+                <div class="info">
+                    <div class="text">
                         <h4>1223 peças</h4>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container-sobre-pacto-global">
+        <div class="container-last">
             <img src="imagens/img-pacto-onu.jpg" alt="">
-            <div class="container-sobre-info-pacto-global">
+            <div class="text">
                 <div class="title"><h2>Pacto Global da ONU</h2></div>
                 <p>Desde 2017 a Softplan é signátaria do Pacto Global da ONU. O Pacto Global é uma iniciativa que 
                     visa mobilizar a comunidade empresarial internacional para a adoção, em suas práticas de negócios,
@@ -290,27 +294,25 @@
             </div>
         </div>
     </section>
-    <section id="funciona">
-            <div class="img-impacto2">
-                <h1>Vá além do trabalho, mude a vida das pessoas.</h1>
-            </div>
-        </section>
-    <section id="como-funciona" class="como-funciona">
+        <div class="separator-about-and-how-it-works">
+            <h1>Vá além do trabalho, mude a vida das pessoas.</h1>
+        </div>
+    <section class="how-it-works">
         <h1>Como funciona?</h1>
-        <div class="container">
-            <div class="container-sobre">
+        <div class="container-first">
+            <div class="text-and-img">
                 <img src="imagens/Design sem nome (6).png" alt="">
                 <p>Dapibus nam elit condimentum sollicitudin inceptos accumsan odio in mattis elit, 
                     venenatis litora pulvinar sed sit fusce elit sagittis vestibulum.</p>
             </div>
-            <div class="container-sobre">
+            <div class="text-and-img">
                 <img src="imagens/Design sem nome (7).png" alt="">
                 <p>Dapibus nam elit condimentum sollicitudin inceptos accumsan odio in mattis elit, 
                     venenatis litora pulvinar sed sit fusce elit sagittis vestibulum.</p>
             </div>
         </div>
-        <div class="container-function2">
-            <div class="container-sobre2">
+        <div class="container-last">
+            <div class="text-and-img">
                 <img src="imagens/Design sem nome (8).png" alt="">
                 <p>Dapibus nam elit condimentum sollicitudin </br> inceptos accumsan odio in mattis elit,
                     venenatis </br> litora pulvinar sed sit fusce elit sagittis vestibulum.</p>
