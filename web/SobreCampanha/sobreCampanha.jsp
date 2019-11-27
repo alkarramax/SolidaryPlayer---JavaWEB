@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="sobreCampanhaEstilo.css">
+    <link rel="stylesheet" type="text/css" href="sobreCampanha.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <title>Doação</title>
@@ -111,7 +111,6 @@
     %>
              
     <%
-        
         for(Necessidade necessidade : necessidades) {
             out.println("<div class='form-separator'>");
                 out.println("<div class='input'>");
@@ -135,16 +134,31 @@
        
     %>
    
-                <div class="button-doar">
-                    <button type="submit" class="btn btn-primary">Doar</button>
-                </div>
-            </form>
+            <div class="button-doar">
+                <button type="submit" class="btn btn-primary">Doar</button>
+            </div>
+        </form>
+    </div>
+    <div class="popup">
+        <div class="popup-content">
+            <div class="container" id="container">
+                <lottie-player
+                    src="https://assets5.lottiefiles.com/datafiles/K6S8jDtSdQ7EPjH/data.json"  background="transparent"  speed="1"  style="width: 150px; height: 150px;"  loop  autoplay >
+                </lottie-player>
+                <p>Doação realizada com sucesso!</p>
+                <button type="button" class="btn btn-primary" onclick="Nova()">Confirmar</button>
+            </div>
         </div>
-        <script>
-            function Nova() {
-                location.href="/SA-JSP/Home/home.jsp"
-            }
-        </script>
-        <script src="sweetalert2.all.min.js"></script>
+    </div>
+    
+    
+    <script src="sobreCampanha.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>    
+    
+    <script>
+        function Nova() {
+            location.href="/SA-JSP/Home/home.jsp";
+        }
+    </script>
 </body>
 </html>

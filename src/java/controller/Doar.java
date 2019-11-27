@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import model.Doacao;
 
 public class Doar extends HttpServlet {
@@ -46,10 +47,13 @@ public class Doar extends HttpServlet {
             doacaoDAO.inserir(doacao);
          
             
-            out.println("<script type=\"text/javascript\">");
-            out.println("alert('Doação realizada com successful!!');");
-            out.println("location='/SA-JSP/Home/home.jsp';");
-            out.println("</script>");    
+            out.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.all.js'></script>");
+            out.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>");
+            out.println("<script>");
+            out.println("$(document).ready(function(){");
+            out.println("swal ( 'Ótimo' ,  'Doação realizada com sucesso' ,  'success' );");
+            out.println("});");
+            out.println("</script>");
             
             }
         }

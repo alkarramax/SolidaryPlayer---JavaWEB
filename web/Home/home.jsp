@@ -13,7 +13,7 @@
     <title>Home</title>
     <link rel="shortcut icon" type="image/x-icon" href="imagens/7618Logo.ico">
     <link rel="stylesheet" href="imagens/Logo.png" type="img">
-    <link rel="stylesheet" type="text/css" href="home.css">
+    <link rel="stylesheet" type="text/css" href="Home/home.css">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script type="text/javascript">
@@ -190,11 +190,11 @@
                  <span class="txt-type" data-wait="3000" data-words='["gera impacto.", "tem transparência.", "ajuda quem precisa."]'></span>
             </h1>
             <h3> Quem você quer ajudar hoje?</h3>
-            <h2> Faça a diferença na vida das pessoas, </br><a id="link-leftside" class="ancora-scroll" href="#causas">role</a> para baixo e descubra quem precisa</br> de você!</h2>
+            <h2> Faça a diferença na vida das pessoas, </br><a id="link-text" class="ancora-scroll" href="#campaigns">role</a> para baixo e descubra quem precisa</br> de você!</h2>
             <h2> O solidarity player te conecta com causas</br> e pessoas.</h2>
           </div>
     </header>
-    <section class="campaigns">
+        <section class="campaigns" id="campaigns">
         <div class="children height-session">
         <h2>Invista no futuro de crianças e adolescentes</h2>
             <div id="right" class="right">
