@@ -34,6 +34,8 @@ public class cadastrarCampanha extends HttpServlet {
             LocalDate dt = LocalDate.parse(data);
             int id_necessidade = Integer.parseInt(necessidade);
             
+            
+            
             Part part = request.getPart("file");
             String fileName = extractFileName(part);
             String savePath = "C:\\Users\\Aluno\\Documents\\NetBeansProjects\\BackEndSolidaryPlayer\\web\\Home\\imageCampanha"+ File.separator + fileName;
@@ -72,6 +74,7 @@ public class cadastrarCampanha extends HttpServlet {
          }
          return "";
      }
+    
     
 
     @Override

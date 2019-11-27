@@ -5,6 +5,8 @@ import DAO.JDBCSoftplayerDAO;
 import DB.DBConnection;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +18,7 @@ import model.Softplayer;
 
 public class CadastroSoftplayer extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException, ClassNotFoundException {
+            throws ServletException, IOException, SQLException, ClassNotFoundException, NoSuchAlgorithmException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
@@ -42,7 +44,9 @@ public class CadastroSoftplayer extends HttpServlet {
                       out.println("</script>");
                       return;
                   } 
-            } 
+            }
+            
+            String hashPassword = hashPassword(senha);
             
             Softplayer softplayer = new Softplayer();
 
@@ -50,7 +54,7 @@ public class CadastroSoftplayer extends HttpServlet {
             softplayer.setEmail(email);
             softplayer.setCargo(cargo);
             softplayer.setUnidade(unidade);
-            softplayer.setSenha(senha);
+            softplayer.setSenha(hashPassword);
 
             JDBCSoftplayerDAO inserirDAO = new JDBCSoftplayerDAO();
             inserirDAO.inserir(softplayer);
@@ -61,6 +65,18 @@ public class CadastroSoftplayer extends HttpServlet {
             out.println("location='/SA-JSP/Home/home.jsp';");
             out.println("</script>");
         }
+    }
+    
+    public static String hashPassword(String password) throws NoSuchAlgorithmException {
+        MessageDigest md = MessageDigest.getInstance("MD5");
+        md.update(password.getBytes());
+        byte[] b = md.digest();
+        StringBuffer sb = new StringBuffer();
+        for(byte b1 : b) {
+            sb.append(Integer.toHexString(b1 & 0xff).toString());
+        }
+        
+        return sb.toString();
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -76,7 +92,11 @@ public class CadastroSoftplayer extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            processRequest(request, response);
+            try {
+                processRequest(request, response);
+            } catch (NoSuchAlgorithmException ex) {
+                Logger.getLogger(CadastroSoftplayer.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } catch (SQLException ex) {
             Logger.getLogger(CadastroSoftplayer.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
@@ -96,7 +116,11 @@ public class CadastroSoftplayer extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            processRequest(request, response);
+            try {
+                processRequest(request, response);
+            } catch (NoSuchAlgorithmException ex) {
+                Logger.getLogger(CadastroSoftplayer.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } catch (SQLException ex) {
             Logger.getLogger(CadastroSoftplayer.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {

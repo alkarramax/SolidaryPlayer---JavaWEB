@@ -79,8 +79,35 @@ public class JDBCSoftplayerDAO {
 
     public List<Softplayer> buscarSoftplayer(int id_softplayer) { 
          try {
-            String SQL = "select * from softplayer where id_softplayer='"+id_softplayer+"'";
+            String SQL = "select * from softplayer where id_softplayer=?";
             PreparedStatement ps = connection.prepareStatement(SQL);
+            ps.setInt(1, id_softplayer);
+            
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next()) {
+                softplayer = new Softplayer();
+                
+                softplayer.setNome(rs.getString("nome"));
+                softplayer.setEmail(rs.getString("email"));
+                softplayer.setCargo(rs.getString("cargo"));
+                softplayer.setUnidade(rs.getString("unidade"));
+                softplayers.add(softplayer);
+            }
+            
+        } catch (Exception e) {
+            
+        }
+        return softplayers;
+    }
+    
+    public List<Softplayer> searchSofEmailAndPass(String email, String senha) { 
+         try {
+            String SQL = "select * from softplayer where email=? and senha=?";
+            PreparedStatement ps = connection.prepareStatement(SQL);
+            ps.setString(1, email);
+            ps.setString(2, senha);
+            
             ResultSet rs = ps.executeQuery();
             
             while(rs.next()) {
