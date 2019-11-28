@@ -47,27 +47,42 @@ public class Doar extends HttpServlet {
             doacaoDAO.inserir(doacao);
          
             
-            out.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.all.js'></script>");
-            out.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>");
-            out.println("<script>");
-            out.println("$(document).ready(function(){");
-            out.println("swal ( 'Ótimo' ,  'Doação realizada com sucesso' ,  'success' );");
-            out.println("});");
-            out.println("</script>");
+           
+            
+               out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<meta http-equiv='refresh' content='4;URL=Home/home.jsp'>"); 
+            out.println("<style>");
+                out.println("@font-face{font-family: WorkSans; src: url('/SA-JSP/fontes/WorkSans-Regular.ttf');  }");
+                out.println("@font-face{font-family: WorkSansLight; src: url('/SA-JSP/fontes/WorkSansLight');  }");
+                out.println(".popup {");
+                    out.println("backgroud-color: black; width:100%; height:100%; position:fixed; top: 0; justify-content:center: align-items:center; text-align:center; ");
+                out.println("}");
+                out.println(".popup .container {");
+                    out.println("color: #ffff; margin-top: 200px; text-weight:bold; font-size: 1.5rem;");
+                out.println("}");
+            out.println("</style>");
+            out.println("</head>");
+            out.println("<body style='background: rgba(0,0,0,10);'>");
+            out.println("<div class='popup'>");
+                out.println("<div class='popup-content'>");
+                    out.println("<div class='container' id='container'>");
+                        out.println("<lottie-player");
+                        out.println("src=\"https://assets5.lottiefiles.com/datafiles/K6S8jDtSdQ7EPjH/data.json\"  background=\"transparent\"  speed=\"1\"  style=\"width: 150px; height: 150px;\"  loop  autoplay >");
+                        out.println("</lottie-player>");
+                        out.println("<p>Doaçao Realizada com sucesso!</p>");
+                    out.println("</div>");
+                out.println("</div>");
+            out.println("</div>");
+            out.println("<script src=\"https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js\"></script>");
+            out.println("</body>");
+            out.println("</html>");
+            
             
             }
         }
-    
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -80,14 +95,7 @@ public class Doar extends HttpServlet {
         }
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+ 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -99,12 +107,7 @@ public class Doar extends HttpServlet {
             Logger.getLogger(Doar.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
+    
     @Override
     public String getServletInfo() {
         return "Short description";

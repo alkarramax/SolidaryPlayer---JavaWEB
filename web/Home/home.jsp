@@ -12,8 +12,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home</title>
     <link rel="shortcut icon" type="image/x-icon" href="imagens/7618Logo.ico">
-    <link rel="stylesheet" href="imagens/Logo.png" type="img">
-    <link rel="stylesheet" type="text/css" href="Home/home.css">
+    <link rel="stylesheet" href="/SA-JSP/home/imagens/Logo.png" type="img">
+    <link rel="stylesheet" type="text/css" href="/SA-JSP/Home/aa.css">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script type="text/javascript">
@@ -111,7 +111,7 @@
         <div class="popup-content">
             <div class="container" id="container">
                 <div class="form-container sign-up-container">
-                    <img src="imagens/./baseline_clear_black_18dp.png" alt="Close" class="close2">
+                    <img src="/SA-JSP/Home/imagens/./baseline_clear_black_18dp.png" alt="Close" class="close2">
                     <form action="../CadastroSoftplayer">
                         <h1>Crie Sua Conta</h1>
                         <input type="text" name="nome" placeholder="Nome">
@@ -154,14 +154,14 @@
         <nav class="navbar">
             <div class="responsive">
                 <div class="logo">
-                    <img src="imagens/Logo.png"/>
+                    <img src="/SA-JSP/Home/imagens/Logo.png"/>
                     <h1>Solidarity Player</h1>
                 </div>
                 <i id="bar" class="fa fa-bars" aria-hidden="true"></i>
             </div>
             <div class="normal">
                 <div class="logo">
-                    <img src="imagens/Logo.png"/>
+                    <img src="/SA-JSP/Home/imagens/Logo.png"/>
                     <h1>Solidarity Player</h1>
                 </div>
                 <div class="menu">
@@ -209,8 +209,8 @@
                     List<Campanha> listCrianca = campanhaDAO.listarCrianca();
                     for(Campanha y : listCrianca) {
                         out.println("<div class='card'>");
-                            out.println("<img src='imageCampanha/"+y.getImagem()+"' alt='card backgroud' class='card-img'>");
-                            out.println("<img src='imagens/logo-branco-300x287.png' alt='profile backgroud' class='profile-img'>");
+                            out.println("<img src='/SA-JSP/Home/imageCampanha/"+y.getImagem()+"' alt='card backgroud' class='card-img'>");
+                            out.println("<img src='/SA-JSP/Home/imagens/logo-branco-300x287.png' alt='profile backgroud' class='profile-img'>");
                             out.println("<h1>"+y.getNome()+"</h1>");
                             out.println("<p>"+y.getDescricao()+"</p>");
                             out.println("<a href='../ControlarDoacao?c="+y.getId_campanha()+"' class='btn-doar'>Contribua agora</a>");
@@ -233,8 +233,8 @@
                     List<Campanha> listIdoso = campanhaDAO2.listarIdosos();
                     for(Campanha g : listIdoso) {
                         out.println("<div class='card'>");
-                            out.println("<img src='imageCampanha/"+g.getImagem()+"' alt='card backgroud' class='card-img'>");
-                            out.println("<img src='imagens/logo-branco-300x287.png' alt='profile backgroud' class='profile-img'>");
+                            out.println("<img src='/SA-JSP/Home/imageCampanha/"+g.getImagem()+"' alt='card backgroud' class='card-img'>");
+                            out.println("<img src='/SA-JSP/Home/imagens/logo-branco-300x287.png' alt='profile backgroud' class='profile-img'>");
                             out.println("<h1>"+g.getNome()+"</h1>");
                             out.println("<p>"+g.getDescricao()+"</p>");
                             out.println("<a href='../ControlarDoacao?c="+g.getId_campanha()+"' class='btn-doar'>Contribua agora</a>");
@@ -284,7 +284,7 @@
             </div>
         </div>
         <div class="container-last">
-            <img src="imagens/img-pacto-onu.jpg" alt="">
+            <img src="/SA-JSP/Home/imagens/img-pacto-onu.jpg" alt="">
             <div class="text">
                 <div class="title"><h2>Pacto Global da ONU</h2></div>
                 <p>Desde 2017 a Softplan é signátaria do Pacto Global da ONU. O Pacto Global é uma iniciativa que 
@@ -301,19 +301,19 @@
         <h1>Como funciona?</h1>
         <div class="container-first">
             <div class="text-and-img">
-                <img src="imagens/Design sem nome (6).png" alt="">
+                <img src="/SA-JSP/Home/imagens/Design sem nome (6).png" alt="">
                 <p>Dapibus nam elit condimentum sollicitudin inceptos accumsan odio in mattis elit, 
                     venenatis litora pulvinar sed sit fusce elit sagittis vestibulum.</p>
             </div>
             <div class="text-and-img">
-                <img src="imagens/Design sem nome (7).png" alt="">
+                <img src="/SA-JSP/Home/imagens/Design sem nome (7).png" alt="">
                 <p>Dapibus nam elit condimentum sollicitudin inceptos accumsan odio in mattis elit, 
                     venenatis litora pulvinar sed sit fusce elit sagittis vestibulum.</p>
             </div>
         </div>
         <div class="container-last">
             <div class="text-and-img">
-                <img src="imagens/Design sem nome (8).png" alt="">
+                <img src="/SA-JSP/Home/imagens/Design sem nome (8).png" alt="">
                 <p>Dapibus nam elit condimentum sollicitudin </br> inceptos accumsan odio in mattis elit,
                     venenatis </br> litora pulvinar sed sit fusce elit sagittis vestibulum.</p>
             </div>
@@ -323,15 +323,15 @@
         <div class="footer-info">
             <div class="footer-info-img">
                 <div class="footer-img"> 
-                   <a href="https://www.linkedin.com/in/amanda-farias-sena-506bb817b/" target="_blank"><img src="imagens/linkedin.png" alt=""></a> 
+                   <a href="https://www.linkedin.com/in/amanda-farias-sena-506bb817b/" target="_blank"><img src="/SA-JSP/Home/imagens/linkedin.png" alt=""></a> 
                     <h3>Amanda Farias Sena</h3>
                 </div>
                 <div class="footer-img"> 
-                    <a href="https://www.linkedin.com/in/alkarramax-junior-6a560b162/" target="_blank"><img src="imagens/linkedin.png" alt=""></a> 
+                    <a href="https://www.linkedin.com/in/alkarramax-junior-6a560b162/" target="_blank"><img src="/SA-JSP/Home/imagens/linkedin.png" alt=""></a> 
                     <h3>Alkarramax Junior</h3>
                 </div>
                 <div class="footer-img"> 
-                    <a href="https://www.linkedin.com/in/leonardo-rangel-230821162/" target="_blank"><img src="imagens/linkedin.png" alt=""></a> 
+                    <a href="https://www.linkedin.com/in/leonardo-rangel-230821162/" target="_blank"><img src="/SA-JSP/Home/imagens/linkedin.png" alt=""></a> 
                     <h3>Leonardo Rangel</h3>
                 </div>
             </div>
@@ -339,8 +339,8 @@
                 <p>Fortalecendo a cultura de doações através da tecnologia, desde 2019.</p>
             </div>
             <div class="logo-empresas">
-                <img src="imagens/logo_softplan (1).png" alt="">
-                <img src="imagens/senai-logo-1 (1).png" alt="">
+                <img src="/SA-JSP/Home/imagens/logo_softplan (1).png" alt="">
+                <img src="/SA-JSP/Home/imagens/senai-logo-1 (1).png" alt="">
             </div>
         </div>
     </footer>

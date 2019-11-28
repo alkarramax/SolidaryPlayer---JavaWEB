@@ -139,6 +139,7 @@
             </div>
         </form>
     </div>
+    
     <div class="popup">
         <div class="popup-content">
             <div class="container" id="container">
@@ -151,9 +152,8 @@
         </div>
     </div>
     
-    
     <script src="sobreCampanha.js"></script>
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>    
+      
     
     <script>
         function Nova() {
