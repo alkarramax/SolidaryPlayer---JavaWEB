@@ -26,6 +26,7 @@
             <path d="M20 30 L8 16 20 2" />
         </svg>
         <img src="../imagensSobre/Logo.png" alt="">
+         <button type="button" class="button">Participantes</button>
     </nav>
      <%
         String u = request.getParameter("id_campanha");

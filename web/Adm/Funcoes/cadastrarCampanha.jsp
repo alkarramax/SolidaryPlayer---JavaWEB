@@ -26,19 +26,19 @@
         <form action="../../cadastrarCampanha" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label>Nome: </label>
-                <input type="text" class="form-control" name="nome" >
+                <input type="text" class="form-control" name="nome" required name=nome >
             </div>
             <div class="form-group">
                 <label>Local: </label>
-                <input type="text" class="form-control" name="local" >
+                <input type="text" class="form-control" name="local" required name=local>
             </div>
             <div class="form-group">
                 <label>Data: </label>
-                <input type="date" class="form-control" name="data" >
+                <input type="date" class="form-control" name="data" required name=data>
             </div>
             <div class="form-group">
                 <label>Descrição: </label>
-                <textarea class="form-control" name="descricao"  maxlength="1000" ></textarea>
+                <textarea class="form-control" name="descricao"  maxlength="1000" required name=descricao></textarea>
             </div>
             
             <label>Beneficiario</label>

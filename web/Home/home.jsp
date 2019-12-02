@@ -114,20 +114,19 @@
                     <img src="/SA-JSP/Home/imagens/./baseline_clear_black_18dp.png" alt="Close" class="close2">
                     <form action="../CadastroSoftplayer">
                         <h1>Crie Sua Conta</h1>
-                        <input type="text" name="nome" placeholder="Nome">
-                        <input type="text" name="sobrenome" placeholder="Sobrenome">
-                        <input type="password" name="senha" placeholder="Senha">
-                        <input type="email" name="email" placeholder="Email">
-                        <input type="text" name="cargo" placeholder="Cargo">
-                        <input type="text" name="unidade" placeholder="Unidade">
+                        <input type="text" name="nome" placeholder="Nome completo" required name=nome>
+                        <input type="password" name="senha" placeholder="Senha"  required name=nome>
+                        <input type="email" name="email" placeholder="Email"  required name=nome>
+                        <input type="text" name="cargo" placeholder="Cargo"  required name=nome>
+                        <input type="text" name="unidade" placeholder="Unidade"  required name=nome>
                         <button>Cadastrar</button>
                     </form>
                 </div>
                 <div class="form-container sign-in-container">
                     <form action="../Login">
                         <h1>Entrar</h1>
-                        <input type="email" name="email" id="email" placeholder="Email">
-                        <input type="password" name="senha" id="senha" placeholder="Senha">
+                        <input type="email" name="email" id="email" placeholder="Email" required name=email>
+                        <input type="password" name="senha" id="senha" placeholder="Senha"required name=senha>
                         <a href="./EsquecerSenha/esquecerSenhaEmail.jsp">Esqueceu sua senha?</a>
                         <button>Entrar</button>
                     </form>
@@ -172,11 +171,11 @@
                         <li><a class="ancora-scroll" href="#como-funciona">Como funciona?</a></li>
                         
                         <% if(nomeUsuario == null) { %>
-                        <li><a class="nav-link" href="#" id="popUpAparecer">Entrar | Cadastrar</a>
+                        <li> <a class="nav-link" href="#" id="popUpAparecer">Entrar | Cadastrar</a>
                         <%} else {%>
                         <li><a class="nav-link" href="#" id="deslogar"><%=nomeUsuario%></a>
                             <ul class="deslogar">
-                                <li><a href="../deslogar">Deslogar</a></li>
+                                <li><a href="../deslogar">Sair</a></li>
                             </ul>
                         </li>
                         <%}%>

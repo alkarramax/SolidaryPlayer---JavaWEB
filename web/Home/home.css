@@ -80,6 +80,8 @@ body{
     font-size: 1rem;
     color: #fff;
     text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .header .navbar .normal .menu ul li a::after{

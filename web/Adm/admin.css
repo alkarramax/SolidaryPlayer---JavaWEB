@@ -31,7 +31,7 @@ nav {
 #logo {
     height: 50px;
     background-color: #333333;
-    color: #1E90FF;
+    color: #0dae7a;
     text-align: center;
     line-height: 50px;
     font-size: 1.3em;
@@ -55,6 +55,7 @@ nav {
     height: 50px;
     line-height: 50px;
     background: #333333;
+    cursor: pointer;
 }
 
 #menu li>a {
@@ -70,6 +71,7 @@ nav {
 
 #menu li:hover {
     background-color: #444444;
+    color: #0dae7a;
    
 }
 
@@ -105,17 +107,17 @@ header #links {
     padding: 0 .5em;
     width: 100%;
     display: block;
+    cursor: pointer;
 }
 
 #links:hover {
-    background-color: #1E90FF
+    background-color: #0dae7a;
 }
 
 main {
     position: absolute;
     top: 50px;
     left: 200px;
-    height: 100%;
     width: calc(100% - 200px);
     background-color: #dadada;
 }
@@ -137,7 +139,7 @@ main {
 }
 
 .minimize:hover {
-    background-color: #1E90FF;
+    background-color: #0dae7a;
 }
 
 .maximize {
@@ -158,7 +160,7 @@ main {
 }
 
 .maximize:hover {
-    background-color: #1E90FF;
+    background-color: #0dae7a;
 }
 
 .actions-container {
@@ -179,6 +181,15 @@ main {
     font-weight: bold;
 }
 
+.btn-primary{
+    background-color: #0dae7a;
+    border-color: #0dae7a;
+}
+
+.btn-primary:hover{
+    background-color: #0dae7a;
+    border-color: #0dae7a;
+}
   
 
 
