@@ -40,34 +40,34 @@ public class CadastroSoftplayer extends HttpServlet {
             while(rs.next()) {
                   if(email.equals(rs.getString("email"))) {
                           out.println("<!DOCTYPE html>");
-                    out.println("<html>");
-                    out.println("<head>");
-                    out.println("<meta http-equiv='refresh' content='4;URL=Home/home.jsp'>"); 
-                    out.println("<style>");
-                        out.println("@font-face{font-family: WorkSans; src: url('/SA-JSP/fontes/WorkSans-Regular.ttf');  }");
-                        out.println("@font-face{font-family: WorkSansLight; src: url('/SA-JSP/fontes/WorkSansLight');  }");
-                        out.println(".popup {");
-                            out.println("backgroud-color: black; width:100%; height:100%; position:fixed; top: 0; justify-content:center: align-items:center; text-align:center; ");
-                        out.println("}");
-                        out.println(".popup .container {");
-                            out.println("color: #ffff; margin-top: 200px; text-weight:bold; font-size: 1.5rem;");
-                        out.println("}");
-                    out.println("</style>");
-                    out.println("</head>");
-                    out.println("<body style='background: rgba(0,0,0,10);'>");
-                    out.println("<div class='popup'>");
-                        out.println("<div class='popup-content'>");
-                            out.println("<div class='container' id='container'>");
-                                out.println("<lottie-player");
-                                out.println("src=\"https://assets6.lottiefiles.com/datafiles/vi3GofRTh0thGPn/data.json\"  background=\"transparent\"  speed=\"1\"  style=\"width: 150px; height: 150px;\"  loop  autoplay >");
-                                out.println("</lottie-player>");
-                                out.println("<p>Email já cadastrado!</p>");
+                        out.println("<html>");
+                        out.println("<head>");
+                        out.println("<meta http-equiv='refresh' content='4;URL=Home/home.jsp'>"); 
+                        out.println("<style>");
+                            out.println("@font-face{font-family: WorkSans; src: url('/SA-JSP/fontes/WorkSans-Regular.ttf');  }");
+                            out.println("@font-face{font-family: WorkSansLight; src: url('/SA-JSP/fontes/WorkSansLight');  }");
+                            out.println(".popup {");
+                                out.println("backgroud-color: black; width:100%; height:100%; position:fixed; top: 0; justify-content:center: align-items:center; text-align:center; ");
+                            out.println("}");
+                            out.println(".popup .container {");
+                                out.println("color: #ffff; margin-top: 200px; text-weight:bold; font-size: 1.5rem;");
+                            out.println("}");
+                        out.println("</style>");
+                        out.println("</head>");
+                        out.println("<body style='background: rgba(0,0,0,10);'>");
+                        out.println("<div class='popup'>");
+                            out.println("<div class='popup-content'>");
+                                out.println("<div class='container' id='container'>");
+                                    out.println("<lottie-player");
+                                    out.println("src=\"https://assets6.lottiefiles.com/datafiles/vi3GofRTh0thGPn/data.json\"  background=\"transparent\"  speed=\"1\"  style=\"width: 150px; height: 150px;\"  loop  autoplay >");
+                                    out.println("</lottie-player>");
+                                    out.println("<p>Email já cadastrado!</p>");
+                                out.println("</div>");
                             out.println("</div>");
                         out.println("</div>");
-                    out.println("</div>");
-                    out.println("<script src=\"https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js\"></script>");
-                    out.println("</body>");
-                    out.println("</html>");
+                        out.println("<script src=\"https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js\"></script>");
+                        out.println("</body>");
+                        out.println("</html>");
                       return;
                   } 
             }
@@ -84,12 +84,37 @@ public class CadastroSoftplayer extends HttpServlet {
 
             JDBCSoftplayerDAO inserirDAO = new JDBCSoftplayerDAO();
             inserirDAO.inserir(softplayer);
+            
+                out.println("<!DOCTYPE html>");
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<meta http-equiv='refresh' content='4;URL=Home/home.jsp'>"); 
+                out.println("<style>");
+                    out.println("@font-face{font-family: WorkSans; src: url('/SA-JSP/fontes/WorkSans-Regular.ttf');  }");
+                    out.println("@font-face{font-family: WorkSansLight; src: url('/SA-JSP/fontes/WorkSansLight');  }");
+                    out.println(".popup {");
+                        out.println("backgroud-color: black; width:100%; height:100%; position:fixed; top: 0; justify-content:center: align-items:center; text-align:center; ");
+                    out.println("}");
+                    out.println(".popup .container {");
+                        out.println("color: #ffff; margin-top: 200px; text-weight:bold; font-size: 1.5rem;");
+                    out.println("}");
+                out.println("</style>");
+                out.println("</head>");
+                out.println("<body style='background: rgba(0,0,0,10);'>");
+                out.println("<div class='popup'>");
+                    out.println("<div class='popup-content'>");
+                        out.println("<div class='container' id='container'>");
+                            out.println("<lottie-player");
+                            out.println("src=\"https://assets5.lottiefiles.com/datafiles/K6S8jDtSdQ7EPjH/data.json\"  background=\"transparent\"  speed=\"1\"  style=\"width: 150px; height: 150px;\"  loop  autoplay >");
+                            out.println("</lottie-player>");
+                            out.println("<p>Cadastro realizado com sucesso!</p>");
+                        out.println("</div>");
+                    out.println("</div>");
+                out.println("</div>");
+                out.println("<script src=\"https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js\"></script>");
+                out.println("</body>");
+                out.println("</html>");
 
-
-            out.println("<script type=\"text/javascript\">");
-            out.println("alert('Cadastro realizado com sucesso!!');");
-            out.println("location='/SA-JSP/Home/home.jsp';");
-            out.println("</script>");
         }
     }
     

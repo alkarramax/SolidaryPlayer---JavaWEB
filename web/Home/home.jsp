@@ -12,8 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home</title>
     <link rel="shortcut icon" type="image/x-icon" href="imagens/7618Logo.ico">
-    <link rel="stylesheet" href="/SA-JSP/home/imagens/Logo.png" type="img">
-    <link rel="stylesheet" type="text/css" href="/SA-JSP/Home/aa.css">
+    <link rel="stylesheet" type="text/css" href="/SA-JSP/Home/home.css">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script type="text/javascript">
@@ -166,9 +165,9 @@
                 <div class="menu">
                     <%String nomeUsuario = (String) session.getAttribute("nome"); %>
                     <ul>
-                        <li><a class="ancora-scroll" href="#causas">Causas</a></li>
-                        <li><a class="ancora-scroll" href="#sobre">Sobre</a></li>
-                        <li><a class="ancora-scroll" href="#como-funciona">Como funciona?</a></li>
+                        <li><a class="ancora-scroll" href="#campaigns">Causas</a></li>
+                        <li><a class="ancora-scroll" href="#about">Sobre</a></li>
+                        <li><a class="ancora-scroll" href="#how-it-works">Como funciona?</a></li>
                         
                         <% if(nomeUsuario == null) { %>
                         <li> <a class="nav-link" href="#" id="popUpAparecer">Entrar | Cadastrar</a>
@@ -247,7 +246,7 @@
             <h1>Como você quer o mundo?</h1>
             <h2>A mudança começa a partir de você!</h2>
         </div>
-    <section class="about">
+    <section class="about" id="about">
         <h1> Como a Softplan e o grupo Solidário </br> ajudaram milhares de pessoas?</h1>
         <div class="container-first">
             <div class="text-and-img">
@@ -296,25 +295,24 @@
         <div class="separator-about-and-how-it-works">
             <h1>Vá além do trabalho, mude a vida das pessoas.</h1>
         </div>
-    <section class="how-it-works">
+        <section class="how-it-works" id="how-it-works">
         <h1>Como funciona?</h1>
         <div class="container-first">
             <div class="text-and-img">
                 <img src="/SA-JSP/Home/imagens/Design sem nome (6).png" alt="">
-                <p>Dapibus nam elit condimentum sollicitudin inceptos accumsan odio in mattis elit, 
-                    venenatis litora pulvinar sed sit fusce elit sagittis vestibulum.</p>
+                <p>Com o solidarity player ajudar uma causa fica ainda mais simples!
+                     1° Você se cadastra no site, escolhe uma campanha e doa!</p>
             </div>
             <div class="text-and-img">
                 <img src="/SA-JSP/Home/imagens/Design sem nome (7).png" alt="">
-                <p>Dapibus nam elit condimentum sollicitudin inceptos accumsan odio in mattis elit, 
-                    venenatis litora pulvinar sed sit fusce elit sagittis vestibulum.</p>
+                <p>2° Você leva a sua doação até o local solicitado. Isso tudo dentro da sua empresa!</p>
             </div>
         </div>
         <div class="container-last">
             <div class="text-and-img">
                 <img src="/SA-JSP/Home/imagens/Design sem nome (8).png" alt="">
-                <p>Dapibus nam elit condimentum sollicitudin </br> inceptos accumsan odio in mattis elit,
-                    venenatis </br> litora pulvinar sed sit fusce elit sagittis vestibulum.</p>
+                <p>3° O grupo solidário leva as doações </br> arrecadadas até as comunidades/entidades.</br> 
+                    Você faz o bem se ver a quem!</p>
             </div>
         </div>
     </section>

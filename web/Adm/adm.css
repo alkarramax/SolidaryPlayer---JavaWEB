@@ -77,8 +77,8 @@ nav {
 
 #menu li>a:hover {
     box-sizing: border-box;
-    color: #1E90FF;
-    border-left: 3px solid #1E90FF;
+    color: #0dae7a;
+    border-left: 3px solid #0dae7a;
 }
 
 header {
@@ -246,11 +246,6 @@ main {
       opacity:1
     }
   }
-
-
-
-
-
 
 
 

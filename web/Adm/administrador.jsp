@@ -11,9 +11,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="./admin.css">
+        <link rel="stylesheet" href="./adm.css">
         <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
         <title>Admin</title>
+        <link rel="shortcut icon" type="image/x-icon" href="../Home/imagens/7618Logo.ico">
         <script type="text/javascript">
              $(function() {
                 $( "[data-product-info-link]" ).click(function(e) {
