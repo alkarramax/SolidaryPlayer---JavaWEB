@@ -201,3 +201,13 @@ form{
     border-radius: 13px;
     font-size: 1rem;
 }
+button {
+    padding: 1rem 1.5rem;
+    background-color: #0dae7a;
+    border-radius: 2rem;
+    text-transform: uppercase;
+    color:#eee;
+    font-size: 1rem;
+    text-decoration: none;
+    
+}

@@ -12,8 +12,26 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="./admin.css">
-       
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
         <title>Admin</title>
+        <script type="text/javascript">
+             $(function() {
+                $( "[data-product-info-link]" ).click(function(e) {
+                    e.preventDefault();
+                    var theLink = $(this);
+                    var tabNum = $(this).data('product-info-link');
+                    var tabItem = '[data-product-info-tab="' + tabNum +'"]';
+                    var check = $(tabItem).is(':visible');
+                    if ( !check ) {
+                        var other = $('[data-product-info-link]').not(this).removeClass('active');
+                        var fadeOutDone = $('[data-product-info-tab]').css('display','none');
+                        $(tabItem).css('display','block');
+                        $(theLink).addClass('active');
+                    }
+                });
+            });
+        </script>
+        
         <style>
             #botaoCadastrar {
                 margin-left: 865px;
@@ -54,49 +72,68 @@
                         <div class="title">
                             Home
                         </div>
-                        
-                        <table class="table table-bordered table-striped table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Nome</th>
-                                    <th>Local</th>
-                                    <th>Data</th>
-                                    <th>Beneficiario</th>
-                                </tr>
-                            </thead>
+                        <div class="tab-wrapper">
+                            <ul>
+                               <li><a href="#" class="active" data-product-info-link="1">Crianças</a></li>
+                               <li><a href="#" data-product-info-link="2">Idosos</a></li>
+                            </ul>
 
-                            <%
-                               JDBCCampanhaDAO listCrianca = new JDBCCampanhaDAO();
-                               List<Campanha> listCriancas = listCrianca.listarCrianca();
+                           <div class="product-info-tab" data-product-info-tab="1" style="display: block;">
+                                <table class="table table-bordered table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Nome</th>
+                                            <th>Local</th>
+                                            <th>Data</th>
+                                            <th>Beneficiario</th>
+                                        </tr>
+                                    </thead>
+                                    <%
+                                       JDBCCampanhaDAO listCrianca = new JDBCCampanhaDAO();
+                                       List<Campanha> listCriancas = listCrianca.listarCrianca();
+                                       for(Campanha y : listCriancas) {
+                                    %>
+                                     <tr>
+                                        <td><%=y.getNome()%></td>
+                                        <td><%=y.getLocal() %></td>
+                                        <td><%=y.getData() %></td>
+                                        <td><%=y.getBeneficiario() %></td>
+                                     </tr>
+                                    <%
+                                     }
+                                    %>
+                              </table>
+                           </div>
 
-                               for(Campanha y : listCriancas) {
-                            %>
-                             <tr>
-                                <td><%=y.getNome()%></td>
-                                <td><%=y.getLocal() %></td>
-                                <td><%=y.getData() %></td>
-                                <td><%=y.getBeneficiario() %></td>
-                             </tr>
-                            <%
-                             }
-                            %>
-                            
-                            <%
-                               JDBCCampanhaDAO listIdoso = new JDBCCampanhaDAO();
-                               List<Campanha> listIdosos = listIdoso.listarIdosos();
+                           <div class="product-info-tab" data-product-info-tab="2">
+                               <table class="table table-bordered table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Nome</th>
+                                            <th>Local</th>
+                                            <th>Data</th>
+                                            <th>Beneficiario</th>
+                                        </tr>
+                                    </thead>
 
-                               for(Campanha w : listIdosos) {
-                            %>
-                             <tr>
-                                <td><%=w.getNome()%></td>
-                                <td><%=w.getLocal() %></td>
-                                <td><%=w.getData() %></td>
-                                <td><%=w.getBeneficiario() %></td>
-                             </tr>
-                            <%
-                             }
-                            %>
-                        </table>
+
+                                    <%
+                                       JDBCCampanhaDAO listIdoso = new JDBCCampanhaDAO();
+                                       List<Campanha> listIdosos = listIdoso.listarIdosos();
+                                       for(Campanha w : listIdosos) {
+                                    %>
+                                     <tr>
+                                        <td><%=w.getNome()%></td>
+                                        <td><%=w.getLocal() %></td>
+                                        <td><%=w.getData() %></td>
+                                        <td><%=w.getBeneficiario() %></td>
+                                     </tr>
+                                    <%
+                                     }
+                                    %>
+                                </table>
+                           </div>
+                        </div>
                     </div>
                            
                     <div id="doacoes-actions">

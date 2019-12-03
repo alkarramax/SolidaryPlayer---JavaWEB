@@ -191,6 +191,61 @@ main {
     border-color: #0dae7a;
 }
   
+.tab-wrapper ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+  }
+
+  .tab-wrapper ul li{
+      padding-left: 40px
+  }
+
+  .tab-wrapper ul li:first-child{
+    padding-left: 0;
+}
+
+  .tab-wrapper ul li a {
+    color: #333;
+    font-weight: bold;
+    font-size: 1.1rem;
+    display: block;
+    text-decoration: none;
+  }
+
+  .tab-wrapper ul li a::after{
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #0dae7a;
+      transition: width .3s;
+  }
+
+  .tab-wrapper ul li a:hover::after{
+      width: 100%;
+      transition: width .3s;
+  }
+
+  .tab-wrapper ul li a.active {
+    color: #0dae7a;
+  }
+
+  .product-info-tab {
+    width: 100%;
+    height: 700px;
+    display: none;
+    animation: .75s fadeIn linear;
+  }
+
+  @keyframes fadeIn{
+    from {
+      opacity:0;
+    }
+    to {
+      opacity:1
+    }
+  }
 
 
 

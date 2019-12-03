@@ -34,6 +34,33 @@ public class JDBCDoacaoDAO {
         }
     }
     
+    public List<Doacao> listarDoadores(int id_campanha) {
+         try {
+            String SQL = "SELECT doacao.campanha_id, doacao.quantidade_doada, softplayer.nome \n" +
+                        "FROM doacao \n" +
+                        "INNER JOIN campanha \n" +
+                        "ON campanha.id_campanha = doacao.campanha_id\n" +
+                        "INNER JOIN softplayer\n" +
+                        "ON softplayer.id_softplayer = doacao.softplayer_id WHERE campanha.id_campanha ='"+id_campanha+"'";
+            PreparedStatement ps = connection.prepareStatement(SQL);
+            ResultSet rs = ps.executeQuery();
+           
+            while(rs.next()) {
+                doacao = new Doacao();
+               
+                doacao.setId_campanha(rs.getInt("campanha_id"));
+                doacao.setId_softplayer(rs.getInt("softplayer_id"));
+                doacao.setQuantidadeDoada(rs.getInt("quantidade_doada"));
+                doacao.setNecessidade_id(rs.getInt("necessidade_id"));
+                
+                doacoes.add(doacao);
+            }
+        }catch(SQLException e){
+            System.out.println("Erro ao listar as campanhas!");
+        }
+        return doacoes;
+    }
+    
     public List<Doacao> lista(Doacao doacao) {
         try {
             String SQL = "select * from doacao";

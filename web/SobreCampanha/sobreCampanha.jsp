@@ -21,17 +21,19 @@
     <link rel="shortcut icon" type="image/x-icon" href="imagens/7618Logo.ico">
 </head>
 <body>
+    <%
+        String u = request.getParameter("id_campanha");
+        int id_campanha = Integer.parseInt(u);
+    %>    
     <nav>
         <svg  onclick="Nova()" id="i-chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
             <path d="M20 30 L8 16 20 2" />
         </svg>
         <img src="../imagensSobre/Logo.png" alt="">
-         <button type="button" class="button">Participantes</button>
+        <a href="./Participantes/participantes.jsp?campanha=<%=id_campanha%>" class="button">Participantes</a>
     </nav>
-     <%
-        String u = request.getParameter("id_campanha");
-        int id_campanha = Integer.parseInt(u);
-        
+     
+    <%    
         JDBCCampanhaDAO campanhaDAO = new JDBCCampanhaDAO();
         List<Campanha> campanhas = campanhaDAO.buscarCampanha(id_campanha);
         
