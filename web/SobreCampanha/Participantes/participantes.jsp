@@ -21,7 +21,6 @@
                 <th scope="col">E-mail</th>
                 <th scope="col">Unidade</th>
                 <th scope="col">Quantidade</th>
-                
               </tr>
             </thead>
         <%

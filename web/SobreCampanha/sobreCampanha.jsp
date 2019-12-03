@@ -119,7 +119,7 @@
                 out.println("<div class='input'>");
                     out.println("<div class='caixa-input'>");
                         out.println("<img src='../imagensSobre/type.png' alt=''/>");
-                        out.println("<input id='quantidade' type='text' name='quantidadeDoada' placeholder='Quantidade. Ex.:"+necessidade.getUnidade()+"'>");
+                        out.println("<input id='quantidade' type='text' name='quantidadeDoada' required name='quantidadeDoada' placeholder='Quantidade. Ex.:"+necessidade.getUnidade()+"'>");
                     out.println("</div>");
                 out.println("</div>");
                 
