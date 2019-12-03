@@ -247,11 +247,11 @@
             <h2>A mudança começa a partir de você!</h2>
         </div>
     <section class="about" id="about">
-        <h1> Como a Softplan e o grupo Solidário </br> ajudaram milhares de pessoas?</h1>
+        <h1> Como a Softplan e o grupo Solidário </br> ajudaram centenas de pessoas?</h1>
         <div class="container-first">
             <div class="text-and-img">
                 <img src="imagens/campanha_do-_agasalho_03-768x768.jpg" alt="">
-                <h4>Grupo Solidario</h4>
+                <h4>Grupo Solidário</h4>
                 <p>O Grupo Solidário nasceu por iniciativa de colaboradores voluntários da Softplan, 
                     que se unem para promover ações de assistência social, organizando campanhas beneficentes. 
                     A Softplan é uma das parceiras, e apoia financeiramente as campanhas, enquanto os colaboradores
