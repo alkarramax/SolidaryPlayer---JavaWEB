@@ -27,10 +27,7 @@ public class CampanhaTest {
         c.setImagem("joao.png");
         c.setData(data);
         c.setAberta(true);
-        c.setQuantidadeDeItens(14);
-        c.setListaSoftplayers(lista);
-        c.setId_necessidade1(12);
-        c.setId_necessidade2(11);
+        c.getId_necessidade();
     }
 
     @Test
@@ -42,12 +39,8 @@ public class CampanhaTest {
         c.getNecessidade();
         c.getImagem();
         c.getData();
-        c.getQuantidadeDeItens();
         c.isAberta();
-        c.getListaSoftplayers();
-        c.getId_softplayer();
-        c.getId_necessidade1();
-        c.getId_necessidade2();
+        c.getId_necessidade();
     }
     
     

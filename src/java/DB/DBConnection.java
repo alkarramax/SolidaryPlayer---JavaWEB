@@ -9,7 +9,7 @@ public class DBConnection {
     
     public static Connection  getConnection() throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/solidarityplayer?serverTimezone=UTC","root","");
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/solidarityplayer?serverTimezone=UTC","senaictai","ctai123");
         
         return connection;
     }

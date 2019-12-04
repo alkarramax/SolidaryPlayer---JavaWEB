@@ -43,7 +43,7 @@ public class JDBCSoftplayerDAOTest {
 
     @Test
     public void testBuscar() {
-        sDAO.buscar("joao@gmail.com");
+        sDAO.buscarSoftplayer(1);
     }
 
     @Test

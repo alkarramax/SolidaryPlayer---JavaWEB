@@ -38,7 +38,7 @@ public class cadastrarCampanha extends HttpServlet {
             
             Part part = request.getPart("file");
             String fileName = extractFileName(part);
-            String savePath = "C:\\Users\\Aluno\\Documents\\NetBeansProjects\\BackEndSolidaryPlayer\\web\\Home\\imageCampanha"+ File.separator + fileName;
+            String savePath = "C:\\Users\\alkar\\Documents\\NetBeansProjects\\BackEndSolidaryPlayer\\web\\Home\\imageCampanha" + File.separator + fileName;
             File fileSaveDir = new File(savePath);
             part.write(savePath + File.separator);
             
@@ -51,7 +51,6 @@ public class cadastrarCampanha extends HttpServlet {
             campanha.setImagem(fileName);
             campanha.setId_necessidade(id_necessidade);
             campanha.setBeneficiario(checkBox);
-           
             
             JDBCCampanhaDAO campanhaDAO = new JDBCCampanhaDAO();
             campanhaDAO.inserir(campanha);

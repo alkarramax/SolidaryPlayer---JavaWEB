@@ -25,9 +25,7 @@ public class JDBCCampanhaDAOTest {
         c.setImagem("joao.png");
         c.setData(data);
         c.setAberta(true);
-        c.setId_necessidade1(1);
-        c.setId_necessidade2(1);
-        c.setId_softplayer(1);
+        c.setId_necessidade(1);
         
         cDAO = new JDBCCampanhaDAO();
     }
